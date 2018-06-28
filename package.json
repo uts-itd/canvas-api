@@ -8,6 +8,10 @@
   },
   "author": "Adham",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://adh12321@bitbucket.org/adh12321/canvas-api.git"
+  },
   "dependencies": {
     "csv": "^3.1.0",
     "parse-link-header": "^1.0.1",
