@@ -1,11 +1,11 @@
 const course = require('./lib/courses');
-const assignments = require('./lib/assignments');
+const account = require('./lib/accounts')
 const settings = require('./lib/settings');
 
 let canvas = {
     settings, 
-    course, 
-    assignments,
+    course,
+    account,
     /**
      * Set the course Id using the Canvas coures ID
      * 
