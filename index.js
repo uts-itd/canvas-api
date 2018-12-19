@@ -197,6 +197,7 @@ let canvas = {
     accounts,
     files,
     externalTools,
+    settings
 }
 
 module.exports = (domain, token) => {

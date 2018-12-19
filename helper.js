@@ -36,14 +36,21 @@ let manager = () => {
         let next = requestQueue.shift();
         runningQueue.push(next);
         requestProm(next.params).then(response => {
-            let item = runningQueue.splice(runningQueue.indexOf(next), 1)[0];
+            runningQueue.splice(runningQueue.indexOf(next), 1);
+            let err = { code: response.statusCode }
             switch (response.statusCode) {
                 case 401:
-                    err = 'Authorization error please check token';
+                    err.message = 'Authorization error: ' + JSON.stringify(response.body);
                     return next.reject(err);
                 case 404:
-                    err =`Invalid url: ${next.params.uri}`;
+                    err.message =`Invalid url: ${next.params.uri}`;
                     return next.reject(err);
+                case 403:
+                    requestQueue.push(next);
+                    if (timeout) clearTimeout(timeout);
+                    timeout = setTimeout(checkQueue, 2000);
+                    cost = 0;
+                    return;
             }
             try {
                 response.body = JSON.parse(response.body);
@@ -78,7 +85,8 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}?per_page=100`,
             method: 'GET',
             qs: query,
-            headers: { 'Authorization': `Bearer ${settings.token}` }
+            qsStringifyOptions: { arrayFormat: 'brackets' },
+            headers: { 'Authorization': `Bearer ${settings.token}` }, 
         });
     },
     post: (endpoint, data) => {    
@@ -89,11 +97,12 @@ let requests = {
             json: data,
         });
     },
-    delete: (endpoint) => {
+    delete: (endpoint, data) => {
         return sendRequest({
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${settings.token}` },
+            json: data
         });
     },
     put: (endpoint, data) => {
@@ -101,7 +110,7 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'PUT',
             headers: { 'Authorization': `Bearer ${settings.token}` },
-            json: data,
+            json: data
         });
     }
 }
