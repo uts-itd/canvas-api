@@ -55,13 +55,13 @@ let manager = () => {
             try {
                 response.body = JSON.parse(response.body);
             } catch (e) {};
-            cost = Number(response.headers['x-rate-limit-remaining']); - requestCost*runningQueue.length;
+            cost = Number(response.headers['x-rate-limit-remaining']) - requestCost*runningQueue.length;
             let pagination = getPagination(response.headers['link']);
             if (!next.data) next.data = [];
             if (pagination.next) {
                 next.params.uri = pagination.next.link;
                 next.data = response.body.concat(next.data);
-                console.log(`Fetching page ${pagination.next.page} of ${pagination.last.page}`);
+                console.log(`[Canvas API] Pagination: Fetching page ${pagination.next.page} of ${pagination.last.page}`);
                 requestQueue.push(next);
             } else if (pagination.last) {
                 response.body = response.body.concat(next.data)

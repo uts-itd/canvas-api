@@ -1,5 +1,5 @@
 {
-  "name": "canvas-api-generator",
+  "name": "canvas-api",
   "version": "1.0.0",
   "description": "Generates Canvas API libraries",
   "main": "Index.js",
