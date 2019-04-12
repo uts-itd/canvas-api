@@ -22,6 +22,8 @@ let getPagination = (header) => {
 }
 
 let checkQueue = () => {
+    if (cost <= 680) cost += 20;
+    else cost = 700;
     if (requestQueue.length > 0) {
         manager();
     }
