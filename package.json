@@ -1,11 +1,12 @@
 {
   "name": "canvas-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Generates Canvas API libraries",
   "main": "Index.js",
   "author": "Adham Muhseen",
   "license": "ISC",
   "dependencies": {
-    "request": "^2.87.0"
+    "request": "^2.87.0",
+    "request-promise-native": "^1.0.7"
   }
 }

@@ -1,8 +1,6 @@
 const settings = require('./settings');
-const request = require('request');
-const { promisify } = require('util');
+const request = require('request-promise-native');
 
-let requestProm = promisify(request);
 let requestQueue = [], runningQueue = [];
 let cost = 700, requestCost = 15;
 let timeout;
@@ -37,7 +35,7 @@ let manager = () => {
         cost -= requestCost;
         let next = requestQueue.shift();
         runningQueue.push(next);
-        requestProm(next.params).then(response => {
+        request(next.params).then((response) => {
             runningQueue.splice(runningQueue.indexOf(next), 1);
             let err = { code: response.statusCode }
             switch (response.statusCode) {
@@ -70,7 +68,7 @@ let manager = () => {
             }
             if (requestQueue.length > 0) manager();
             if (!pagination.next) next.resolve(response.body);
-        }).catch(next.reject)
+        }).catch((err) => { next.reject(err) });
     }
 }
 
@@ -88,7 +86,8 @@ let requests = {
             method: 'GET',
             qs: query,
             qsStringifyOptions: { arrayFormat: 'brackets' },
-            headers: { 'Authorization': `Bearer ${settings.token}` }, 
+            headers: { 'Authorization': `Bearer ${settings.token}` },
+            resolveWithFullResponse: true
         });
     },
     post: (endpoint, data) => {    
@@ -97,6 +96,7 @@ let requests = {
             method: 'POST',
             headers: { 'Authorization': `Bearer ${settings.token}` },
             json: data,
+            resolveWithFullResponse: true
         });
     },
     delete: (endpoint, data) => {
@@ -104,7 +104,8 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${settings.token}` },
-            json: data
+            json: data,
+            resolveWithFullResponse: true
         });
     },
     put: (endpoint, data) => {
@@ -112,7 +113,8 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'PUT',
             headers: { 'Authorization': `Bearer ${settings.token}` },
-            json: data
+            json: data,
+            resolveWithFullResponse: true
         });
     }
 }
