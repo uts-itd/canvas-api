@@ -1,8 +1,10 @@
 const settings = require('./settings');
 const request = require('request-promise-native');
 
-let requestQueue = [], runningQueue = [];
-let cost = 700, requestCost = 15;
+let requestQueue = [],
+    runningQueue = [];
+let cost = 700,
+    requestCost = 15;
 let timeout;
 
 let getPagination = (header) => {
@@ -37,25 +39,10 @@ let manager = () => {
         runningQueue.push(next);
         request(next.params).then((response) => {
             runningQueue.splice(runningQueue.indexOf(next), 1);
-            let err = { code: response.statusCode }
-            switch (response.statusCode) {
-                case 401:
-                    err.message = 'Authorization error: ' + JSON.stringify(response.body);
-                    return next.reject(err);
-                case 404:
-                    err.message =`Invalid url: ${next.params.uri}`;
-                    return next.reject(err);
-                case 403:
-                    requestQueue.push(next);
-                    if (timeout) clearTimeout(timeout);
-                    timeout = setTimeout(checkQueue, 2000);
-                    cost = 0;
-                    return;
-            }
             try {
                 response.body = JSON.parse(response.body);
             } catch (e) {};
-            cost = Number(response.headers['x-rate-limit-remaining']) - requestCost*runningQueue.length;
+            cost = Number(response.headers['x-rate-limit-remaining']) - requestCost * runningQueue.length;
             let pagination = getPagination(response.headers['link']);
             if (!next.data) next.data = [];
             if (pagination.next) {
@@ -68,33 +55,62 @@ let manager = () => {
             }
             if (requestQueue.length > 0) manager();
             if (!pagination.next) next.resolve(response.body);
-        }).catch((err) => { next.reject(err) });
+        }).catch((err) => {
+            if (err.name === 'StatusCodeError') {
+                let errMessage = { code: err.statusCode }
+                switch (err.statusCode) {
+                    case 401:
+                        errMessage.message = 'Authorization error: ' + JSON.parse(err.response.body).errors[0].message;
+                        return next.reject(errMessage);
+                    case 404:
+                        errMessage.message = `Invalid url: ${next.params.uri}`;
+                        return next.reject(errMessage);
+                    case 403:
+                        requestQueue.push(next);
+                        if (timeout) clearTimeout(timeout);
+                        timeout = setTimeout(checkQueue, 2000);
+                        cost = 0;
+                        return;
+                }
+            }
+            next.reject(err)
+        });
     }
 }
 
 let sendRequest = (params) => {
     return new Promise((resolve, reject) => {
-        requestQueue.push({params, resolve, reject});
+        requestQueue.push({
+            params,
+            resolve,
+            reject
+        });
         manager();
     });
 }
 
 let requests = {
-    get: (endpoint, query=null) => {
+    get: (endpoint, query = null) => {
         return sendRequest({
             uri: `https://${settings.domain}/api${endpoint}?per_page=100`,
             method: 'GET',
             qs: query,
-            qsStringifyOptions: { arrayFormat: 'brackets' },
-            headers: { 'Authorization': `Bearer ${settings.token}` },
+            qsStringifyOptions: {
+                arrayFormat: 'brackets'
+            },
+            headers: {
+                'Authorization': `Bearer ${settings.token}`
+            },
             resolveWithFullResponse: true
         });
     },
-    post: (endpoint, data) => {    
+    post: (endpoint, data) => {
         return sendRequest({
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'POST',
-            headers: { 'Authorization': `Bearer ${settings.token}` },
+            headers: {
+                'Authorization': `Bearer ${settings.token}`
+            },
             json: data,
             resolveWithFullResponse: true
         });
@@ -103,7 +119,9 @@ let requests = {
         return sendRequest({
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'DELETE',
-            headers: { 'Authorization': `Bearer ${settings.token}` },
+            headers: {
+                'Authorization': `Bearer ${settings.token}`
+            },
             json: data,
             resolveWithFullResponse: true
         });
@@ -112,7 +130,9 @@ let requests = {
         return sendRequest({
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'PUT',
-            headers: { 'Authorization': `Bearer ${settings.token}` },
+            headers: {
+                'Authorization': `Bearer ${settings.token}`
+            },
             json: data,
             resolveWithFullResponse: true
         });
