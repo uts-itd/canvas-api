@@ -3,6 +3,7 @@ let settings = {
     sentRequests: 0,
     domain: '',
     token: '',
+    maxPage: 100,
     /**
      * Returns a string used to query endpoints using a course SIS ID
      * 

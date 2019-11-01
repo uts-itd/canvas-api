@@ -18,6 +18,11 @@ let getPagination = (header) => {
             link: data[0].split('<')[1].split('>')[0],
         }
     });
+    if (pagination.next && pagination.next.page >= settings.maxPage && !pagination.last) pagination.last = {
+        page: settings.maxPage
+    };
+    if (pagination.next && pagination.next.page > settings.maxPage) pagination.next = null;
+    if (pagination.last && pagination.last.page > settings.maxPage) pagination.last.page = settings.maxPage;
     return pagination;
 }
 
@@ -48,7 +53,7 @@ let manager = () => {
             if (pagination.next) {
                 next.params.uri = pagination.next.link;
                 next.data = response.body.concat(next.data);
-                console.log(`[Canvas API] Pagination: Fetching page ${pagination.next.page} of ${pagination.last.page}`);
+                console.info(`[Canvas API] Pagination: Fetching page ${pagination.next.page} of ${pagination.last ? pagination.last.page : 'unkown'}`);
                 requestQueue.push(next);
             } else if (pagination.last) {
                 response.body = response.body.concat(next.data)
@@ -57,13 +62,15 @@ let manager = () => {
             if (!pagination.next) next.resolve(response.body);
         }).catch((err) => {
             if (err.name === 'StatusCodeError') {
-                let errMessage = { code: err.statusCode }
+                let errMessage = {
+                    code: err.statusCode
+                }
                 switch (err.statusCode) {
                     case 401:
-                        errMessage.message = 'Authorization error: ' + JSON.parse(err.response.body).errors[0].message;
+                        errMessage.message = `Authorization error: ${JSON.parse(err.response.body).errors[0].message}`;
                         return next.reject(errMessage);
                     case 404:
-                        errMessage.message = `Invalid url: ${next.params.uri}`;
+                        errMessage.message = `Invalid url: ${JSON.parse(err.response.body).errors[0].message}`;
                         return next.reject(errMessage);
                     case 403:
                         requestQueue.push(next);
