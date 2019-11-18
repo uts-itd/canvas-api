@@ -46,20 +46,34 @@ let manager = () => {
             runningQueue.splice(runningQueue.indexOf(next), 1);
             try {
                 response.body = JSON.parse(response.body);
-            } catch (e) {};
+            } catch (e) {}
             cost = Number(response.headers['x-rate-limit-remaining']) - requestCost * runningQueue.length;
-            let pagination = getPagination(response.headers['link']);
-            if (!next.data) next.data = [];
-            if (pagination.next) {
+            let pagination = getPagination(response.headers.link);
+
+            if (pagination.next && pagination.current.page === 1 && pagination.last) {
+                let pages = [];
+                let baseUri = next.params.uri;
+                for (x = 2; x <= pagination.last.page; x++) {
+                    next.params.uri = baseUri + '&page=' + x;
+                    pages.push(sendRequest(Object.assign({}, next.params)));
+                }
+                Promise.all(pages).then(dataArray => {
+                    response.body = response.body.concat(...dataArray);
+                    next.resolve(response.body);
+                }).catch(error => {
+                    next.reject(error);
+                });
+            } else if (pagination.next && !pagination.last) {
+                if (!next.data) next.data = [];
                 next.params.uri = pagination.next.link;
                 next.data = response.body.concat(next.data);
-                console.info(`[Canvas API] Pagination: Fetching page ${pagination.next.page} of ${pagination.last ? pagination.last.page : 'unkown'}`);
+                console.info(`[Canvas API] Pagination: Fetching page ${pagination.next.page} of unkown`);
                 requestQueue.push(next);
-            } else if (pagination.last) {
-                response.body = response.body.concat(next.data)
+            } else if (pagination.last && next.data) {
+                response.body = response.body.concat(next.data);
             }
             if (requestQueue.length > 0) manager();
-            if (!pagination.next) next.resolve(response.body);
+            if (!pagination.next || (pagination.current.page !== 1 && pagination.last)) next.resolve(response.body);
         }).catch((err) => {
             if (err.name === 'StatusCodeError') {
                 let errMessage = {
@@ -87,6 +101,7 @@ let manager = () => {
 
 let sendRequest = (params) => {
     return new Promise((resolve, reject) => {
+        // params.proxy = 'http://127.0.0.1:8888'
         requestQueue.push({
             params,
             resolve,
@@ -94,7 +109,7 @@ let sendRequest = (params) => {
         });
         manager();
     });
-}
+};
 
 let requests = {
     get: (endpoint, query = null) => {
