@@ -53,7 +53,7 @@ let manager = () => {
             if (pagination.next && pagination.current.page === 1 && pagination.last) {
                 let pages = [];
                 let baseUri = next.params.uri;
-                for (x = 2; x <= pagination.last.page; x++) {
+                for (let x = 2; x <= pagination.last.page; x++) {
                     next.params.uri = baseUri + '&page=' + x;
                     pages.push(sendRequest(Object.assign({}, next.params)));
                 }
@@ -101,7 +101,7 @@ let manager = () => {
 
 let sendRequest = (params) => {
     return new Promise((resolve, reject) => {
-        // params.proxy = 'http://127.0.0.1:8888'
+        // params.proxy = 'http://127.0.0.1:8888';
         requestQueue.push({
             params,
             resolve,

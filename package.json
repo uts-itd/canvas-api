@@ -8,5 +8,8 @@
   "dependencies": {
     "request": "^2.87.0",
     "request-promise-native": "^1.0.7"
+  },
+  "devDependencies": {
+    "typescript-temporary-fork-for-jsdoc": "^3.6.0-insiders.20190802"
   }
 }
