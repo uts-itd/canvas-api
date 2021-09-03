@@ -58,7 +58,10 @@ let manager = () => {
           pages.push(sendRequest(Object.assign({}, next.params)));
         }
         Promise.all(pages).then(dataArray => {
-          response.body = response.body.concat(...dataArray);
+          if (next.nesting) {
+            response.body[next.nesting] = response.body[next.nesting].concat(...dataArray.map(x => x[next.nesting]))
+          }
+          else response.body = response.body.concat(...dataArray);
           next.resolve(response.body);
         }).catch(error => {
           next.reject(error);
@@ -99,12 +102,13 @@ let manager = () => {
   }
 }
 
-let sendRequest = (params) => {
+let sendRequest = (params, nesting = null) => {
   return new Promise((resolve, reject) => {
     // params.proxy = 'http://127.0.0.1:8888';
     params.forever = true;
     requestQueue.push({
       params,
+      nesting,
       resolve,
       reject
     });
@@ -113,7 +117,7 @@ let sendRequest = (params) => {
 };
 
 let requests = {
-  get: (endpoint, query = null) => {
+  get: (endpoint, query = null, nesting = null) => {
     return sendRequest({
       uri: `https://${settings.domain}/api${endpoint}?per_page=100`,
       method: 'GET',
@@ -125,7 +129,7 @@ let requests = {
         'Authorization': `Bearer ${settings.token}`
       },
       resolveWithFullResponse: true
-    });
+    }, nesting);
   },
   post: (endpoint, data) => {
     return sendRequest({
