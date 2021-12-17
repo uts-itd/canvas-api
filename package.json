@@ -14,5 +14,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  }
+  },
+  "repository": "git://github.com/uts-itd/canvas-api"
 }
