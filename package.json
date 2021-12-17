@@ -1,5 +1,5 @@
 {
-  "name": "canvas-api",
+  "name": "@uts-itd/canvas-api",
   "version": "2.0.0",
   "description": "Canvas API library",
   "main": "Index.js",
@@ -11,5 +11,8 @@
   },
   "devDependencies": {
     "typescript-temporary-fork-for-jsdoc": "^3.6.0-insiders.20190802"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
