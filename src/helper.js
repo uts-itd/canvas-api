@@ -6,7 +6,7 @@ let requestQueue = [],
 let cost = 700,
   requestCost = 15;
 let timeout;
-const forceLastPage = null;
+let forceLastPage = null;
 
 let getPagination = (header) => {
   if (!header) return {};
