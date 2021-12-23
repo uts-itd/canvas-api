@@ -1,0 +1,16 @@
+export function deleteAssignment(courseId: string, assignmentId: string): Promise<any>;
+export function listAssignments(courseId: string, query?: any): Promise<any>;
+export function listAssignmentsForUser(userId: string, courseId: string): Promise<any>;
+export function getSingleAssignment(courseId: string, assignmentId: string, query?: any): Promise<any>;
+export function createAssignment(courseId: string, body: any): Promise<any>;
+export function editAssignment(courseId: string, assignmentId: string, body: any): Promise<any>;
+export function listAssignmentOverrides(courseId: string, assignmentId: string): Promise<any>;
+export function getSingleAssignmentOverride(courseId: string, assignmentId: string, overrideId: string): Promise<any>;
+export function redirectToAssignmentOverrideForGroup(groupId: string, assignmentId: string): Promise<any>;
+export function redirectToAssignmentOverrideForSection(courseSectionId: string, assignmentId: string): Promise<any>;
+export function createAssignmentOverride(courseId: string, assignmentId: string, body: any): Promise<any>;
+export function updateAssignmentOverride(courseId: string, assignmentId: string, overrideId: string, body: any): Promise<any>;
+export function deleteAssignmentOverride(courseId: string, assignmentId: string, overrideId: string): Promise<any>;
+export function batchRetrieveOverridesInCourse(courseId: string, query: any): Promise<any>;
+export function batchCreateOverridesInCourse(courseId: string, body: any): Promise<any>;
+export function batchUpdateOverridesInCourse(courseId: string, body: any): Promise<any>;

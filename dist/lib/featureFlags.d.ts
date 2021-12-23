@@ -1,0 +1,15 @@
+export function listFeaturesCourses(courseId: string): Promise<any>;
+export function listFeaturesAccounts(accountId: string): Promise<any>;
+export function listFeaturesUsers(userId: string): Promise<any>;
+export function listEnabledFeaturesCourses(courseId: string): Promise<any>;
+export function listEnabledFeaturesAccounts(accountId: string): Promise<any>;
+export function listEnabledFeaturesUsers(userId: string): Promise<any>;
+export function getFeatureFlagCourses(courseId: string, feature: string): Promise<any>;
+export function getFeatureFlagAccounts(accountId: string, feature: string): Promise<any>;
+export function getFeatureFlagUsers(userId: string, feature: string): Promise<any>;
+export function setFeatureFlagCourses(courseId: string, feature: string, body: any): Promise<any>;
+export function setFeatureFlagAccounts(accountId: string, feature: string, body: any): Promise<any>;
+export function setFeatureFlagUsers(userId: string, feature: string, body: any): Promise<any>;
+export function removeFeatureFlagCourses(courseId: string, feature: string): Promise<any>;
+export function removeFeatureFlagAccounts(accountId: string, feature: string): Promise<any>;
+export function removeFeatureFlagUsers(userId: string, feature: string): Promise<any>;

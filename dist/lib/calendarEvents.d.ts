@@ -1,0 +1,11 @@
+export function listCalendarEvents(query?: any): Promise<any>;
+export function listCalendarEventsForUser(userId: string, query?: any): Promise<any>;
+export function createCalendarEvent(body: any): Promise<any>;
+export function getSingleCalendarEventOrAssignment(calendarEventId: string): Promise<any>;
+export function reserveTimeSlot(calendarEventId: string, body: any): Promise<any>;
+export function reserveTimeSlotParticipantId(calendarEventId: string, participantId: string, body: any): Promise<any>;
+export function updateCalendarEvent(calendarEventId: string, body: any): Promise<any>;
+export function deleteCalendarEvent(calendarEventId: string, query?: any): Promise<any>;
+export function setCourseTimetable(courseId: string, body: any): Promise<any>;
+export function getCourseTimetable(courseId: string): Promise<any>;
+export function createOrUpdateEventsDirectlyForCourseTimetable(courseId: string, body: any): Promise<any>;

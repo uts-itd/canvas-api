@@ -1,0 +1,13 @@
+export function listExternalToolsCourses(courseId: string, query?: any): Promise<any>;
+export function listExternalToolsAccounts(accountId: string, query?: any): Promise<any>;
+export function listExternalToolsGroups(groupId: string, query?: any): Promise<any>;
+export function getSessionlessLaunchUrlForExternalToolCourses(courseId: string, query?: any): Promise<any>;
+export function getSessionlessLaunchUrlForExternalToolAccounts(accountId: string, query?: any): Promise<any>;
+export function getSingleExternalToolCourses(courseId: string, externalToolId: string): Promise<any>;
+export function getSingleExternalToolAccounts(accountId: string, externalToolId: string): Promise<any>;
+export function createExternalToolCourses(courseId: string, body: any): Promise<any>;
+export function createExternalToolAccounts(accountId: string, body: any): Promise<any>;
+export function editExternalToolCourses(courseId: string, externalToolId: string): Promise<any>;
+export function editExternalToolAccounts(accountId: string, externalToolId: string): Promise<any>;
+export function deleteExternalToolCourses(courseId: string, externalToolId: string): Promise<any>;
+export function deleteExternalToolAccounts(accountId: string, externalToolId: string): Promise<any>;
