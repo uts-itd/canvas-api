@@ -1,1 +1,0 @@
-{"version":3,"file":"accountDomainLookups.js","sourceRoot":"","sources":["../../src/lib/accountDomainLookups.js"],"names":[],"mappings":"AAAA,IAAM,MAAM,GAAG,OAAO,CAAC,WAAW,CAAC,CAAC;AAEpC,IAAI,oBAAoB,GAAG;IACvB;;;;;OAKG;IACH,oBAAoB,EAAE,UAAC,KAAQ;QAAR,sBAAA,EAAA,UAAQ;QAAK,OAAA,MAAM,CAAC,GAAG,CAAC,qBAAqB,EAAE,KAAK,CAAC;IAAxC,CAAwC;CAC/E,CAAA;AAED,MAAM,CAAC,OAAO,GAAG,oBAAoB,CAAC"}

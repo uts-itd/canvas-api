@@ -1,1 +1,0 @@
-{"version":3,"file":"announcements.js","sourceRoot":"","sources":["../../src/lib/announcements.js"],"names":[],"mappings":"AAAA,IAAM,MAAM,GAAG,OAAO,CAAC,WAAW,CAAC,CAAC;AAEpC,IAAI,aAAa,GAAG;IAChB;;;;;OAKG;IACH,iBAAiB,EAAE,UAAC,KAAK,IAAK,OAAA,MAAM,CAAC,GAAG,CAAC,mBAAmB,EAAE,KAAK,CAAC,EAAtC,CAAsC;CACvE,CAAA;AAED,MAAM,CAAC,OAAO,GAAG,aAAa,CAAC"}

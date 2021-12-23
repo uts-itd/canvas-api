@@ -1,1 +1,0 @@
-{"version":3,"file":"courseAuditLog.js","sourceRoot":"","sources":["../../src/lib/courseAuditLog.js"],"names":[],"mappings":"AAAA,IAAM,MAAM,GAAG,OAAO,CAAC,WAAW,CAAC,CAAC;AAEpC,IAAI,cAAc,GAAG;IACjB;;;;;;OAMG;IACH,aAAa,EAAE,UAAC,QAAQ,EAAE,KAAQ;QAAR,sBAAA,EAAA,UAAQ;QAAK,OAAA,MAAM,CAAC,GAAG,CAAC,8BAA4B,QAAU,EAAE,KAAK,CAAC;IAAzD,CAAyD;CACnG,CAAA;AAED,MAAM,CAAC,OAAO,GAAG,cAAc,CAAC"}

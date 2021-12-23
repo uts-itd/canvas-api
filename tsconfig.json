@@ -1,10 +1,12 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        // "target": "es5",
         "allowJs": true,
         "outDir": "dist",
+        // "outFile": "./typescript/index",
         "declaration": true,
-        "sourceMap": true
+        // "sourceMap": true
+        "emitDeclarationOnly": true
     },
     "include": ["./src/**/*"]
 }
