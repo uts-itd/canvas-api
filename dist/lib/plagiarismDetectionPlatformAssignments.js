@@ -13,3 +13,4 @@ var plagiarismDetectionPlatformAssignments = {
     },
 };
 module.exports = plagiarismDetectionPlatformAssignments;
+//# sourceMappingURL=plagiarismDetectionPlatformAssignments.js.map

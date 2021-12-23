@@ -17,3 +17,4 @@ var proficiencyRatings = {
     getProficiencyRatings: function (accountId) { return helper.get("/v1/accounts/" + accountId + "/outcome_proficiency"); },
 };
 module.exports = proficiencyRatings;
+//# sourceMappingURL=proficiencyRatings.js.map

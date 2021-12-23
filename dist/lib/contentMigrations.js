@@ -262,3 +262,4 @@ var contentMigrations = {
     listMigrationSystemsUsers: function (userId) { return helper.get("/v1/users/" + userId + "/content_migrations/migrators"); },
 };
 module.exports = contentMigrations;
+//# sourceMappingURL=contentMigrations.js.map

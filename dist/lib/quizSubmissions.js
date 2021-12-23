@@ -77,3 +77,4 @@ var quizSubmissions = {
     getCurrentQuizSubmissionTimes: function (courseId, quizId, submissionId) { return helper.get("/v1/courses/" + courseId + "/quizzes/" + quizId + "/submissions/" + submissionId + "/time"); },
 };
 module.exports = quizSubmissions;
+//# sourceMappingURL=quizSubmissions.js.map

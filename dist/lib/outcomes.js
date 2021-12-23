@@ -17,3 +17,4 @@ var outcomes = {
     updateOutcome: function (outcomeId, body) { return helper.put("/v1/outcomes/" + outcomeId, body); },
 };
 module.exports = outcomes;
+//# sourceMappingURL=outcomes.js.map

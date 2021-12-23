@@ -6,6 +6,7 @@ let requestQueue = [],
 let cost = 700,
   requestCost = 15;
 let timeout;
+const forceLastPage = null;
 
 let getPagination = (header) => {
   if (!header) return {};
@@ -18,11 +19,18 @@ let getPagination = (header) => {
       link: data[0].split('<')[1].split('>')[0],
     }
   });
+
+  if (!pagination.last && pagination.next && forceLastPage) pagination.last = {
+    link: pagination.next.link.replace(`page=${pagination.next.page}`, `page=${forceLastPage}`),
+    page: forceLastPage
+  }
+
   if (pagination.next && pagination.next.page >= settings.maxPage && !pagination.last) pagination.last = {
     page: settings.maxPage
   };
   if (pagination.next && pagination.next.page > settings.maxPage) pagination.next = null;
   if (pagination.last && pagination.last.page > settings.maxPage) pagination.last.page = settings.maxPage;
+
   return pagination;
 }
 
@@ -55,7 +63,7 @@ let manager = () => {
         let baseUri = next.params.uri;
         for (let x = 2; x <= pagination.last.page; x++) {
           next.params.uri = baseUri + '&page=' + x;
-          pages.push(sendRequest(Object.assign({}, next.params)));
+          pages.push(_sendRequest(Object.assign({}, next.params)));
         }
         Promise.all(pages).then(dataArray => {
           if (next.nesting) {
@@ -69,7 +77,10 @@ let manager = () => {
       } else if (pagination.next && !pagination.last) {
         if (!next.data) next.data = [];
         next.params.uri = pagination.next.link;
-        next.data = response.body.concat(next.data);
+        if (next.nesting) {
+          next.data[next.nesting] = response.body[next.nesting].concat(next.data[next.nesting])
+        }
+        else next.data = response.body.concat(next.data);
         console.info(`[Canvas API] Pagination: Fetching page ${pagination.next.page} of unkown`);
         requestQueue.push(next);
       } else if (pagination.last && next.data) {
@@ -102,7 +113,24 @@ let manager = () => {
   }
 }
 
+let _sendRequest = (params, nesting = null) => {
+  return new Promise((resolve, reject) => {
+    // params.proxy = 'http://127.0.0.1:8888';
+    params.forever = true;
+    requestQueue.push({
+      params,
+      nesting,
+      resolve,
+      reject
+    });
+    manager();
+  });
+};
+
 let sendRequest = (params, nesting = null) => {
+  if (settings.forcePage > 0) forceLastPage = settings.forcePage;
+  else forceLastPage = null;
+  
   return new Promise((resolve, reject) => {
     // params.proxy = 'http://127.0.0.1:8888';
     params.forever = true;

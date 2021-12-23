@@ -11,3 +11,4 @@ var quizSubmissionFiles = {
     uploadFile: function (courseId, quizId, body) { return helper.post("/v1/courses/" + courseId + "/quizzes/" + quizId + "/submissions/self/files", body); },
 };
 module.exports = quizSubmissionFiles;
+//# sourceMappingURL=quizSubmissionFiles.js.map

@@ -15,3 +15,4 @@ var jwTs = {
     refreshJwt: function (body) { return helper.post("/v1/jwts/refresh", body); },
 };
 module.exports = jwTs;
+//# sourceMappingURL=jwTs.js.map

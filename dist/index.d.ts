@@ -937,6 +937,7 @@ declare function _exports(domain: any, token: any): {
         domain: string;
         token: string;
         maxPage: number;
+        forcePage: number;
         formatCourseSIS: (courseSIS: string) => string;
         formatUserSIS: (userSIS: any) => string;
         formatTermSIS: (termSIS: string) => string;

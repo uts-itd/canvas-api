@@ -92,3 +92,4 @@ var peerReviews = {
     deletePeerReviewSections: function (sectionId, assignmentId, submissionId, query) { return helper.delete("/v1/sections/" + sectionId + "/assignments/" + assignmentId + "/submissions/" + submissionId + "/peer_reviews", query); },
 };
 module.exports = peerReviews;
+//# sourceMappingURL=peerReviews.js.map

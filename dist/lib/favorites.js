@@ -58,3 +58,4 @@ var favorites = {
     resetGroupFavorites: function () { return helper.delete("/v1/users/self/favorites/groups"); },
 };
 module.exports = favorites;
+//# sourceMappingURL=favorites.js.map

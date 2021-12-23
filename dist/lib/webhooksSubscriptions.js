@@ -36,3 +36,4 @@ var webhooksSubscriptions = {
     listAllWebhookSubscriptionForToolProxy: function () { return helper.get("/lti/subscriptions"); },
 };
 module.exports = webhooksSubscriptions;
+//# sourceMappingURL=webhooksSubscriptions.js.map

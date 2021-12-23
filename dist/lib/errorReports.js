@@ -9,3 +9,4 @@ var errorReports = {
     createErrorReport: function (body) { return helper.post("/v1/error_reports", body); },
 };
 module.exports = errorReports;
+//# sourceMappingURL=errorReports.js.map

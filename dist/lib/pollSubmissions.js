@@ -20,3 +20,4 @@ var pollSubmissions = {
     createSinglePollSubmission: function (pollId, pollSessionId, body) { return helper.post("/v1/polls/" + pollId + "/poll_sessions/" + pollSessionId + "/poll_submissions", body); },
 };
 module.exports = pollSubmissions;
+//# sourceMappingURL=pollSubmissions.js.map

@@ -36,3 +36,4 @@ var liveAssessments = {
     listLiveAssessments: function (courseId) { return helper.get("/v1/courses/" + courseId + "/live_assessments"); },
 };
 module.exports = liveAssessments;
+//# sourceMappingURL=liveAssessments.js.map

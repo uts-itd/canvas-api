@@ -49,3 +49,4 @@ var gradingPeriods = {
     deleteGradingPeriodAccounts: function (accountId, gradingPeriodId) { return helper.delete("/v1/accounts/" + accountId + "/grading_periods/" + gradingPeriodId); },
 };
 module.exports = gradingPeriods;
+//# sourceMappingURL=gradingPeriods.js.map

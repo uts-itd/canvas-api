@@ -44,3 +44,4 @@ var accountReports = {
     deleteReport: function (accountId, report, reportId) { return helper.delete("/v1/accounts/" + accountId + "/reports/" + report + "/" + reportId); },
 };
 module.exports = accountReports;
+//# sourceMappingURL=accountReports.js.map

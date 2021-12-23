@@ -50,3 +50,4 @@ var userObservees = {
     },
 };
 module.exports = userObservees;
+//# sourceMappingURL=userObservees.js.map

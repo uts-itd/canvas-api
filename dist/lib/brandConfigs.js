@@ -8,3 +8,4 @@ var brandConfigs = {
     getBrandConfigVariablesThatShouldBeUsedForThisDomain: function () { return helper.get("/v1/brand_variables"); },
 };
 module.exports = brandConfigs;
+//# sourceMappingURL=brandConfigs.js.map

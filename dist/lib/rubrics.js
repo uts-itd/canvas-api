@@ -40,3 +40,4 @@ var rubrics = {
     },
 };
 module.exports = rubrics;
+//# sourceMappingURL=rubrics.js.map

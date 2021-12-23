@@ -37,3 +37,4 @@ var bookmarks = {
     deleteBookmark: function (bookmarkId) { return helper.delete("/v1/users/self/bookmarks/" + bookmarkId); },
 };
 module.exports = bookmarks;
+//# sourceMappingURL=bookmarks.js.map

@@ -37,3 +37,4 @@ var polls = {
     deletePoll: function (pollId) { return helper.delete("/v1/polls/" + pollId); },
 };
 module.exports = polls;
+//# sourceMappingURL=polls.js.map

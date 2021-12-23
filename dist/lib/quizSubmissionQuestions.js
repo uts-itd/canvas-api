@@ -39,3 +39,4 @@ var quizSubmissionQuestions = {
     unflaggingQuestion: function (quizSubmissionId, questionId, body) { return helper.put("/v1/quiz_submissions/" + quizSubmissionId + "/questions/" + questionId + "/unflag", body); },
 };
 module.exports = quizSubmissionQuestions;
+//# sourceMappingURL=quizSubmissionQuestions.js.map

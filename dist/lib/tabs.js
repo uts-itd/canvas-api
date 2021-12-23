@@ -33,3 +33,4 @@ var tabs = {
     updateTabForCourse: function (courseId, tabId, body) { return helper.put("/v1/courses/" + courseId + "/tabs/" + tabId, body); },
 };
 module.exports = tabs;
+//# sourceMappingURL=tabs.js.map

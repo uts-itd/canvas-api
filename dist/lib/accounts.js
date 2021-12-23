@@ -97,3 +97,4 @@ var accounts = {
     deleteSubAccount: function (accountId, subAccountId) { return helper.delete("/v1/accounts/" + accountId + "/sub_accounts/" + subAccountId); },
 };
 module.exports = accounts;
+//# sourceMappingURL=accounts.js.map

@@ -13,3 +13,4 @@ var apiTokenScopes = {
     },
 };
 module.exports = apiTokenScopes;
+//# sourceMappingURL=apiTokenScopes.js.map

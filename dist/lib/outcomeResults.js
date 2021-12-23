@@ -24,3 +24,4 @@ var outcomeResults = {
     },
 };
 module.exports = outcomeResults;
+//# sourceMappingURL=outcomeResults.js.map

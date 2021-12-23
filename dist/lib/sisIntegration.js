@@ -32,3 +32,4 @@ var sisIntegration = {
     disableAssignmentsCurrentlyEnabledForGradeExportToSis: function (courseId, body) { return helper.put("/sis/courses/" + courseId + "/disable_post_to_sis", body); },
 };
 module.exports = sisIntegration;
+//# sourceMappingURL=sisIntegration.js.map

@@ -321,3 +321,4 @@ var outcomeGroups = {
     importOutcomeGroupCourses: function (courseId, outcomeGroupId, body) { return helper.post("/v1/courses/" + courseId + "/outcome_groups/" + outcomeGroupId + "/import", body); },
 };
 module.exports = outcomeGroups;
+//# sourceMappingURL=outcomeGroups.js.map

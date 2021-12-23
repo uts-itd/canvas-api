@@ -143,3 +143,4 @@ var assignments = {
     batchUpdateOverridesInCourse: function (courseId, body) { return helper.put("/v1/courses/" + courseId + "/assignments/overrides", body); },
 };
 module.exports = assignments;
+//# sourceMappingURL=assignments.js.map

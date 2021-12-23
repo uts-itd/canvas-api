@@ -25,3 +25,4 @@ var sharedBrandConfigs = {
     unShareBrandconfigTheme: function (sharedBrandConfigId) { return helper.delete("/v1/shared_brand_configs/" + sharedBrandConfigId); },
 };
 module.exports = sharedBrandConfigs;
+//# sourceMappingURL=sharedBrandConfigs.js.map

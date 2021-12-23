@@ -67,3 +67,4 @@ var customGradebookColumns = {
     updateColumnData: function (courseId, customGradebookColumnId, userId, body) { return helper.put("/v1/courses/" + courseId + "/custom_gradebook_columns/" + customGradebookColumnId + "/data/" + userId, body); },
 };
 module.exports = customGradebookColumns;
+//# sourceMappingURL=customGradebookColumns.js.map

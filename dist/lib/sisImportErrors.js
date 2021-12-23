@@ -17,3 +17,4 @@ var sisImportErrors = {
     getSisImportErrorListSisImportErrors: function (accountId) { return helper.get("/v1/accounts/" + accountId + "/sis_import_errors"); },
 };
 module.exports = sisImportErrors;
+//# sourceMappingURL=sisImportErrors.js.map

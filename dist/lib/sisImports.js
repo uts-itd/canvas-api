@@ -53,3 +53,4 @@ var sisImports = {
     abortAllPendingSisImports: function (accountId) { return helper.put("/v1/accounts/" + accountId + "/sis_imports/abort_all_pending"); },
 };
 module.exports = sisImports;
+//# sourceMappingURL=sisImports.js.map

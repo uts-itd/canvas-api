@@ -45,3 +45,4 @@ var quizReports = {
     abortGenerationOfReportOrRemovePreviouslyGeneratedOne: function (courseId, quizId, reportId) { return helper.delete("/v1/courses/" + courseId + "/quizzes/" + quizId + "/reports/" + reportId); },
 };
 module.exports = quizReports;
+//# sourceMappingURL=quizReports.js.map

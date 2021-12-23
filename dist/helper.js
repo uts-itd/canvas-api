@@ -3,6 +3,7 @@ var request = require('request-promise-native');
 var requestQueue = [], runningQueue = [];
 var cost = 700, requestCost = 15;
 var timeout;
+var forceLastPage = null;
 var getPagination = function (header) {
     if (!header)
         return {};
@@ -15,6 +16,11 @@ var getPagination = function (header) {
             link: data[0].split('<')[1].split('>')[0],
         };
     });
+    if (!pagination.last && pagination.next && forceLastPage)
+        pagination.last = {
+            link: pagination.next.link.replace("page=" + pagination.next.page, "page=" + forceLastPage),
+            page: forceLastPage
+        };
     if (pagination.next && pagination.next.page >= settings.maxPage && !pagination.last)
         pagination.last = {
             page: settings.maxPage
@@ -57,7 +63,7 @@ var manager = function () {
                 var baseUri = next_1.params.uri;
                 for (var x = 2; x <= pagination.last.page; x++) {
                     next_1.params.uri = baseUri + '&page=' + x;
-                    pages.push(sendRequest(Object.assign({}, next_1.params)));
+                    pages.push(_sendRequest(Object.assign({}, next_1.params)));
                 }
                 Promise.all(pages).then(function (dataArray) {
                     var _a, _b;
@@ -75,7 +81,11 @@ var manager = function () {
                 if (!next_1.data)
                     next_1.data = [];
                 next_1.params.uri = pagination.next.link;
-                next_1.data = response.body.concat(next_1.data);
+                if (next_1.nesting) {
+                    next_1.data[next_1.nesting] = response.body[next_1.nesting].concat(next_1.data[next_1.nesting]);
+                }
+                else
+                    next_1.data = response.body.concat(next_1.data);
                 console.info("[Canvas API] Pagination: Fetching page " + pagination.next.page + " of unkown");
                 requestQueue.push(next_1);
             }
@@ -111,8 +121,26 @@ var manager = function () {
         });
     }
 };
+var _sendRequest = function (params, nesting) {
+    if (nesting === void 0) { nesting = null; }
+    return new Promise(function (resolve, reject) {
+        // params.proxy = 'http://127.0.0.1:8888';
+        params.forever = true;
+        requestQueue.push({
+            params: params,
+            nesting: nesting,
+            resolve: resolve,
+            reject: reject
+        });
+        manager();
+    });
+};
 var sendRequest = function (params, nesting) {
     if (nesting === void 0) { nesting = null; }
+    if (settings.forcePage > 0)
+        forceLastPage = settings.forcePage;
+    else
+        forceLastPage = null;
     return new Promise(function (resolve, reject) {
         // params.proxy = 'http://127.0.0.1:8888';
         params.forever = true;
@@ -177,3 +205,4 @@ var requests = {
     }
 };
 module.exports = requests;
+//# sourceMappingURL=helper.js.map

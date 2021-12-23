@@ -74,3 +74,4 @@ var sections = {
     deleteSection: function (sectionId) { return helper.delete("/v1/sections/" + sectionId); },
 };
 module.exports = sections;
+//# sourceMappingURL=sections.js.map

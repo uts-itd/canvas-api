@@ -18,3 +18,4 @@ var plagiarismDetectionSubmissions = {
     getHistoryOfSingleSubmission: function (assignmentId, submissionId) { return helper.get("/lti/assignments/" + assignmentId + "/submissions/" + submissionId + "/history"); },
 };
 module.exports = plagiarismDetectionSubmissions;
+//# sourceMappingURL=plagiarismDetectionSubmissions.js.map

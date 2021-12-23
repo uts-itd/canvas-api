@@ -64,3 +64,4 @@ var quizzes = {
     validateQuizAccessCode: function (courseId, quizzeId, body) { return helper.post("/v1/courses/" + courseId + "/quizzes/" + quizzeId + "/validate_access_code", body); },
 };
 module.exports = quizzes;
+//# sourceMappingURL=quizzes.js.map

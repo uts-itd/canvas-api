@@ -54,3 +54,4 @@ var authenticationProviders = {
     updateAccountAuthSettings: function (accountId) { return helper.put("/v1/accounts/" + accountId + "/sso_settings"); },
 };
 module.exports = authenticationProviders;
+//# sourceMappingURL=authenticationProviders.js.map

@@ -23,3 +23,4 @@ var ePubExports = {
     showEpubExport: function (courseId, epubExportId) { return helper.get("/v1/courses/" + courseId + "/epub_exports/" + epubExportId); },
 };
 module.exports = ePubExports;
+//# sourceMappingURL=ePubExports.js.map

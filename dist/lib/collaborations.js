@@ -41,3 +41,4 @@ var collaborations = {
     listPotentialMembersGroups: function (groupId) { return helper.get("/v1/groups/" + groupId + "/potential_collaborators"); },
 };
 module.exports = collaborations;
+//# sourceMappingURL=collaborations.js.map

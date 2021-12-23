@@ -40,3 +40,4 @@ var communicationChannels = {
     deletePushNotificationEndpoint: function () { return helper.delete("/v1/users/self/communication_channels/push"); },
 };
 module.exports = communicationChannels;
+//# sourceMappingURL=communicationChannels.js.map

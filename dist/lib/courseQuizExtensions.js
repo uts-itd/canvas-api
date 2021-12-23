@@ -10,3 +10,4 @@ var courseQuizExtensions = {
     setExtensionsForStudentQuizSubmissions: function (courseId, body) { return helper.post("/v1/courses/" + courseId + "/quiz_extensions", body); },
 };
 module.exports = courseQuizExtensions;
+//# sourceMappingURL=courseQuizExtensions.js.map

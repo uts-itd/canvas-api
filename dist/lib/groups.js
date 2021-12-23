@@ -192,3 +192,4 @@ var groups = {
     leaveGroupUsers: function (groupId, userId) { return helper.delete("/v1/groups/" + groupId + "/users/" + userId); },
 };
 module.exports = groups;
+//# sourceMappingURL=groups.js.map

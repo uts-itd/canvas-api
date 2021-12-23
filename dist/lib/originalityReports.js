@@ -47,3 +47,4 @@ var originalityReports = {
     showOriginalityReportFiles: function (assignmentId, fileId) { return helper.get("/lti/assignments/" + assignmentId + "/files/" + fileId + "/originality_report"); },
 };
 module.exports = originalityReports;
+//# sourceMappingURL=originalityReports.js.map

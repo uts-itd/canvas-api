@@ -42,3 +42,4 @@ var accountNotifications = {
     updateGlobalNotification: function (accountId, accountNotificationId, body) { return helper.put("/v1/accounts/" + accountId + "/account_notifications/" + accountNotificationId, body); },
 };
 module.exports = accountNotifications;
+//# sourceMappingURL=accountNotifications.js.map

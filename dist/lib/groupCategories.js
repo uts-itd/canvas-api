@@ -80,3 +80,4 @@ var groupCategories = {
     assignUnassignedMembers: function (groupCategoryId, body) { return helper.post("/v1/group_categories/" + groupCategoryId + "/assign_unassigned_members", body); },
 };
 module.exports = groupCategories;
+//# sourceMappingURL=groupCategories.js.map

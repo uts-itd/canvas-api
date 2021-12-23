@@ -41,3 +41,4 @@ var plannerNote = {
     deletePlannerNote: function (plannerNoteId) { return helper.delete("/v1/planner_notes/" + plannerNoteId); },
 };
 module.exports = plannerNote;
+//# sourceMappingURL=plannerNote.js.map

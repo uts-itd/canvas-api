@@ -57,3 +57,4 @@ var roles = {
     updateRole: function (accountId, roleId, body) { return helper.put("/v1/accounts/" + accountId + "/roles/" + roleId, body); },
 };
 module.exports = roles;
+//# sourceMappingURL=roles.js.map

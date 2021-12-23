@@ -119,3 +119,4 @@ var featureFlags = {
     removeFeatureFlagUsers: function (userId, feature) { return helper.delete("/v1/users/" + userId + "/features/flags/" + feature); },
 };
 module.exports = featureFlags;
+//# sourceMappingURL=featureFlags.js.map

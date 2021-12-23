@@ -49,3 +49,4 @@ var quizQuestionGroups = {
     reorderQuestionGroups: function (courseId, quizId, groupId, body) { return helper.post("/v1/courses/" + courseId + "/quizzes/" + quizId + "/groups/" + groupId + "/reorder", body); },
 };
 module.exports = quizQuestionGroups;
+//# sourceMappingURL=quizQuestionGroups.js.map

@@ -33,3 +33,4 @@ var admins = {
     },
 };
 module.exports = admins;
+//# sourceMappingURL=admins.js.map

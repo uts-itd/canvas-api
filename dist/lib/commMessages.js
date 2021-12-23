@@ -9,3 +9,4 @@ var commMessages = {
     listOfCommmessagesForUser: function (query) { return helper.get("/v1/comm_messages", query); },
 };
 module.exports = commMessages;
+//# sourceMappingURL=commMessages.js.map

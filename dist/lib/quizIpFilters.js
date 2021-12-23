@@ -10,3 +10,4 @@ var quizIpFilters = {
     getAvailableQuizIpFilters: function (courseId, quizId) { return helper.get("/v1/courses/" + courseId + "/quizzes/" + quizId + "/ip_filters"); },
 };
 module.exports = quizIpFilters;
+//# sourceMappingURL=quizIpFilters.js.map

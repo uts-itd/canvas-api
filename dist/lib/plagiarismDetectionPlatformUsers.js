@@ -16,3 +16,4 @@ var plagiarismDetectionPlatformUsers = {
     getAllUsersInGroupLti: function (groupId) { return helper.get("/lti/groups/" + groupId + "/users"); },
 };
 module.exports = plagiarismDetectionPlatformUsers;
+//# sourceMappingURL=plagiarismDetectionPlatformUsers.js.map

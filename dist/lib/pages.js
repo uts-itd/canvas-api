@@ -212,3 +212,4 @@ var pages = {
     revertToRevisionGroups: function (groupId, url, revisionId) { return helper.post("/v1/groups/" + groupId + "/pages/" + url + "/revisions/" + revisionId); },
 };
 module.exports = pages;
+//# sourceMappingURL=pages.js.map

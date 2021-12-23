@@ -11,3 +11,4 @@ var quizSubmissionUserList = {
     sendMessageToUnsubmittedOrSubmittedUsersForQuiz: function (courseId, quizzeId, body) { return helper.post("/v1/courses/" + courseId + "/quizzes/" + quizzeId + "/submission_users/message", body); },
 };
 module.exports = quizSubmissionUserList;
+//# sourceMappingURL=quizSubmissionUserList.js.map

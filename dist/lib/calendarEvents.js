@@ -96,3 +96,4 @@ var calendarEvents = {
     createOrUpdateEventsDirectlyForCourseTimetable: function (courseId, body) { return helper.post("/v1/courses/" + courseId + "/calendar_events/timetable_events", body); },
 };
 module.exports = calendarEvents;
+//# sourceMappingURL=calendarEvents.js.map

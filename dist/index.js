@@ -203,3 +203,4 @@ module.exports = function (domain, token) {
     settings.token = token;
     return canvas;
 };
+//# sourceMappingURL=index.js.map

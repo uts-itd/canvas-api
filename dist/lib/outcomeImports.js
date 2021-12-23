@@ -34,3 +34,4 @@ var outcomeImports = {
     getOutcomeImportStatusCourses: function (courseId, outcomeImportId) { return helper.get("/v1/courses/" + courseId + "/outcome_imports/" + outcomeImportId); },
 };
 module.exports = outcomeImports;
+//# sourceMappingURL=outcomeImports.js.map

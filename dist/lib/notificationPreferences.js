@@ -91,3 +91,4 @@ var notificationPreferences = {
     updateMultiplePreferencesType: function (type, address, body) { return helper.put("/v1/users/self/communication_channels/" + type + "/" + address + "/notification_preferences", body); },
 };
 module.exports = notificationPreferences;
+//# sourceMappingURL=notificationPreferences.js.map

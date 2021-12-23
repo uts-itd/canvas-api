@@ -121,3 +121,4 @@ var analytics = {
     getUserInACourseLevelMessagingData: function (courseId, studentId) { return helper.get("/v1/courses/" + courseId + "/analytics/users/" + studentId + "/communication"); },
 };
 module.exports = analytics;
+//# sourceMappingURL=analytics.js.map

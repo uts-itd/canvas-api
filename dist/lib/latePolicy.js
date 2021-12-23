@@ -25,3 +25,4 @@ var latePolicy = {
     patchLatePolicy: function (courseId, body) { return helper.patch("/v1/courses/" + courseId + "/late_policy", body); },
 };
 module.exports = latePolicy;
+//# sourceMappingURL=latePolicy.js.map

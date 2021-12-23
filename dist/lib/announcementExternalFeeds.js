@@ -48,3 +48,4 @@ var announcementExternalFeeds = {
     deleteExternalFeedGroups: function (groupId, externalFeedId) { return helper.delete("/v1/groups/" + groupId + "/external_feeds/" + externalFeedId); },
 };
 module.exports = announcementExternalFeeds;
+//# sourceMappingURL=announcementExternalFeeds.js.map

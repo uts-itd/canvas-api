@@ -150,3 +150,4 @@ var modules = {
     markModuleItemRead: function (courseId, moduleId, itemId) { return helper.post("/v1/courses/" + courseId + "/modules/" + moduleId + "/items/" + itemId + "/mark_read"); },
 };
 module.exports = modules;
+//# sourceMappingURL=modules.js.map

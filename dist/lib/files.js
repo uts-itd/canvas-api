@@ -391,3 +391,4 @@ var files = {
     listLicensesUsers: function (userId) { return helper.get("/v1/users/" + userId + "/content_licenses"); },
 };
 module.exports = files;
+//# sourceMappingURL=files.js.map

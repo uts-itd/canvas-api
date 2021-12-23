@@ -291,3 +291,4 @@ var users = {
     clearCourseNicknames: function () { return helper.delete("/v1/users/self/course_nicknames"); },
 };
 module.exports = users;
+//# sourceMappingURL=users.js.map

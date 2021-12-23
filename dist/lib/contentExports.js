@@ -71,3 +71,4 @@ var contentExports = {
     exportContentUsers: function (userId, body) { return helper.post("/v1/users/" + userId + "/content_exports", body); },
 };
 module.exports = contentExports;
+//# sourceMappingURL=contentExports.js.map

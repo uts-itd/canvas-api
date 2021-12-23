@@ -100,3 +100,4 @@ var conversations = {
     unreadCount: function () { return helper.get("/v1/conversations/unread_count"); },
 };
 module.exports = conversations;
+//# sourceMappingURL=conversations.js.map

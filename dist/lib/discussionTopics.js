@@ -436,3 +436,4 @@ var discussionTopics = {
     unsubscribeFromTopicGroups: function (groupId, topicId) { return helper.delete("/v1/groups/" + groupId + "/discussion_topics/" + topicId + "/subscribed"); },
 };
 module.exports = discussionTopics;
+//# sourceMappingURL=discussionTopics.js.map

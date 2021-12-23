@@ -51,3 +51,4 @@ var quizQuestions = {
     deleteQuizQuestion: function (courseId, quizId, questionId) { return helper.delete("/v1/courses/" + courseId + "/quizzes/" + quizId + "/questions/" + questionId); },
 };
 module.exports = quizQuestions;
+//# sourceMappingURL=quizQuestions.js.map

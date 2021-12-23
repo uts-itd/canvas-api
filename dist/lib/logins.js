@@ -41,3 +41,4 @@ var logins = {
     deleteUserLogin: function (userId, loginId) { return helper.delete("/v1/users/" + userId + "/logins/" + loginId); },
 };
 module.exports = logins;
+//# sourceMappingURL=logins.js.map

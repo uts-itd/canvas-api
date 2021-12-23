@@ -103,3 +103,4 @@ var enrollments = {
     addsLastAttendedDateToStudentEnrollmentInCourse: function (courseId, userId) { return helper.put("/v1/courses/" + courseId + "/users/" + userId + "/last_attended"); },
 };
 module.exports = enrollments;
+//# sourceMappingURL=enrollments.js.map

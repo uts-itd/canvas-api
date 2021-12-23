@@ -13,3 +13,4 @@ var courseAuditLog = {
     },
 };
 module.exports = courseAuditLog;
+//# sourceMappingURL=courseAuditLog.js.map

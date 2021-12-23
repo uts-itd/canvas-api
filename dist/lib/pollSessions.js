@@ -70,3 +70,4 @@ var pollSessions = {
     listClosedPollSessions: function () { return helper.get("/v1/poll_sessions/closed"); },
 };
 module.exports = pollSessions;
+//# sourceMappingURL=pollSessions.js.map

@@ -4,6 +4,7 @@ var settings = {
     domain: '',
     token: '',
     maxPage: 100,
+    forcePage: -1,
     /**
      * Returns a string used to query endpoints using a course SIS ID
      *
@@ -27,3 +28,4 @@ var settings = {
     formatTermSIS: function (termSIS) { return "sis_term_id:" + termSIS; },
 };
 module.exports = settings;
+//# sourceMappingURL=settings.js.map

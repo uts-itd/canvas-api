@@ -35,3 +35,4 @@ var authenticationsLog = {
     },
 };
 module.exports = authenticationsLog;
+//# sourceMappingURL=authenticationsLog.js.map

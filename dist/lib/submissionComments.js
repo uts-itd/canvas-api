@@ -11,3 +11,4 @@ var submissionComments = {
     uploadFile: function (courseId, assignmentId, userId) { return helper.post("/v1/courses/" + courseId + "/assignments/" + assignmentId + "/submissions/" + userId + "/comments/files"); },
 };
 module.exports = submissionComments;
+//# sourceMappingURL=submissionComments.js.map

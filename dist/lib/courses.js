@@ -218,3 +218,4 @@ var courses = {
     copyCourseContent: function (courseId, body) { return helper.post("/v1/courses/" + courseId + "/course_copy", body); },
 };
 module.exports = courses;
+//# sourceMappingURL=courses.js.map

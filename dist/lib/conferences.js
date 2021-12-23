@@ -16,3 +16,4 @@ var conferences = {
     listConferencesGroups: function (groupId) { return helper.get("/v1/groups/" + groupId + "/conferences"); },
 };
 module.exports = conferences;
+//# sourceMappingURL=conferences.js.map

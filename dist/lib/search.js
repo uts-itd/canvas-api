@@ -32,3 +32,4 @@ var search = {
     },
 };
 module.exports = search;
+//# sourceMappingURL=search.js.map

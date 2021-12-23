@@ -9,3 +9,4 @@ var announcements = {
     listAnnouncements: function (query) { return helper.get("/v1/announcements", query); },
 };
 module.exports = announcements;
+//# sourceMappingURL=announcements.js.map

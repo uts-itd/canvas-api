@@ -105,3 +105,4 @@ var blueprintCourses = {
     getImportDetails: function (courseId, subscriptionId, migrationId) { return helper.get("/v1/courses/" + courseId + "/blueprint_subscriptions/" + subscriptionId + "/migrations/" + migrationId + "/details"); },
 };
 module.exports = blueprintCourses;
+//# sourceMappingURL=blueprintCourses.js.map

@@ -121,3 +121,4 @@ var externalTools = {
     deleteExternalToolAccounts: function (accountId, externalToolId) { return helper.delete("/v1/accounts/" + accountId + "/external_tools/" + externalToolId); },
 };
 module.exports = externalTools;
+//# sourceMappingURL=externalTools.js.map

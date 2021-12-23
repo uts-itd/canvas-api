@@ -9,3 +9,4 @@ var progress = {
     queryProgress: function (progresId) { return helper.get("/v1/progress/" + progresId); },
 };
 module.exports = progress;
+//# sourceMappingURL=progress.js.map

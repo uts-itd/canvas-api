@@ -14,3 +14,4 @@ var services = {
     startKalturaSession: function () { return helper.post("/v1/services/kaltura_session"); },
 };
 module.exports = services;
+//# sourceMappingURL=services.js.map

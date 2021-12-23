@@ -48,3 +48,4 @@ var gradingStandards = {
     getSingleGradingStandardInContextAccounts: function (accountId, gradingStandardId) { return helper.get("/v1/accounts/" + accountId + "/grading_standards/" + gradingStandardId); },
 };
 module.exports = gradingStandards;
+//# sourceMappingURL=gradingStandards.js.map
