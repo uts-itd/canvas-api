@@ -1,0 +1,12 @@
+export function getBlueprintInformation(courseId: string, templateId: string): Promise<any>;
+export function getAssociatedCourseInformation(courseId: string, templateId: string): Promise<any>;
+export function updateAssociatedCourses(courseId: string, templateId: string, body: any): Promise<any>;
+export function beginMigrationToPushToAssociatedCourses(courseId: string, templateId: string, body: any): Promise<any>;
+export function setOrRemoveRestrictionsOnBlueprintCourseObject(courseId: string, templateId: string, body: any): Promise<any>;
+export function getUnsyncedChanges(courseId: string, templateId: string): Promise<any>;
+export function listBlueprintMigrations(courseId: string, templateId: string): Promise<any>;
+export function showBlueprintMigration(courseId: string, templateId: string, migrationId: string): Promise<any>;
+export function getMigrationDetails(courseId: string, templateId: string, migrationId: string): Promise<any>;
+export function listBlueprintImports(courseId: string, subscriptionId: string): Promise<any>;
+export function showBlueprintImport(courseId: string, subscriptionId: string, migrationId: string): Promise<any>;
+export function getImportDetails(courseId: string, subscriptionId: string, migrationId: string): Promise<any>;

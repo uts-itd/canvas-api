@@ -1,0 +1,15 @@
+export function getDepartmentLevelParticipationDataTerms(accountId: string, termId: string): Promise<any>;
+export function getDepartmentLevelParticipationDataCurrent(accountId: string): Promise<any>;
+export function getDepartmentLevelParticipationDataCompleted(accountId: string): Promise<any>;
+export function getDepartmentLevelGradeDataTerms(accountId: string, termId: string): Promise<any>;
+export function getDepartmentLevelGradeDataCurrent(accountId: string): Promise<any>;
+export function getDepartmentLevelGradeDataCompleted(accountId: string): Promise<any>;
+export function getDepartmentLevelStatisticsTerms(accountId: string, termId: string): Promise<any>;
+export function getDepartmentLevelStatisticsCurrent(accountId: string): Promise<any>;
+export function getDepartmentLevelStatisticsCompleted(accountId: string): Promise<any>;
+export function getCourseLevelParticipationData(courseId: string): Promise<any>;
+export function getCourseLevelAssignmentData(courseId: string, query?: any): Promise<any>;
+export function getCourseLevelStudentSummaryData(courseId: string, query?: any): Promise<any>;
+export function getUserInACourseLevelParticipationData(courseId: string, studentId: string): Promise<any>;
+export function getUserInACourseLevelAssignmentData(courseId: string, studentId: string): Promise<any>;
+export function getUserInACourseLevelMessagingData(courseId: string, studentId: string): Promise<any>;

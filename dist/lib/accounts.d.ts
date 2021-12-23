@@ -1,0 +1,11 @@
+export function listAccounts(query?: any): Promise<any>;
+export function listAccountsForCourseAdmins(): Promise<any>;
+export function getSingleAccount(accountId: string): Promise<any>;
+export function permissions(accountId: string, query?: any): Promise<any>;
+export function getSubAccountsOfAccount(accountId: string, query?: any): Promise<any>;
+export function returnsTermsOfServiceForThatAccount(accountId: string): Promise<any>;
+export function listActiveCoursesInAccount(accountId: string, query?: any): Promise<any>;
+export function updateAccount(accountId: string, body: any): Promise<any>;
+export function deleteUserFromRootAccount(accountId: string, userId: string): Promise<any>;
+export function createNewSubAccount(accountId: string, body: any): Promise<any>;
+export function deleteSubAccount(accountId: string, subAccountId: string): Promise<any>;

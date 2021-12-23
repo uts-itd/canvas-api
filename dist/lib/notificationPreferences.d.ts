@@ -1,0 +1,10 @@
+export function listPreferencesCommunicationChannelId(userId: string, communicationChannelId: string): Promise<any>;
+export function listPreferencesType(userId: string, type: string, address: string): Promise<any>;
+export function listOfPreferenceCategories(userId: string, communicationChannelId: string): Promise<any>;
+export function getPreferenceCommunicationChannelId(userId: string, communicationChannelId: string, notification: string): Promise<any>;
+export function getPreferenceType(userId: string, type: string, address: string, notification: string): Promise<any>;
+export function updatePreferenceCommunicationChannelId(communicationChannelId: string, notification: string, body: any): Promise<any>;
+export function updatePreferenceType(type: string, address: string, notification: string, body: any): Promise<any>;
+export function updatePreferencesByCategory(communicationChannelId: string, category: string, body: any): Promise<any>;
+export function updateMultiplePreferencesCommunicationChannelId(communicationChannelId: string, body: any): Promise<any>;
+export function updateMultiplePreferencesType(type: string, address: string, body: any): Promise<any>;

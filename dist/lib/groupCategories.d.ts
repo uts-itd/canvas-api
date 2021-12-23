@@ -1,0 +1,10 @@
+export function listGroupCategoriesForContextAccounts(accountId: string): Promise<any>;
+export function listGroupCategoriesForContextCourses(courseId: string): Promise<any>;
+export function getSingleGroupCategory(groupCategoryId: string): Promise<any>;
+export function createGroupCategoryAccounts(accountId: string, body: any): Promise<any>;
+export function createGroupCategoryCourses(courseId: string, body: any): Promise<any>;
+export function updateGroupCategory(groupCategoryId: string, body: any): Promise<any>;
+export function deleteGroupCategory(groupCategoryId: string): Promise<any>;
+export function listGroupsInGroupCategory(groupCategoryId: string): Promise<any>;
+export function listUsersInGroupCategory(groupCategoryId: string, query?: any): Promise<any>;
+export function assignUnassignedMembers(groupCategoryId: string, body: any): Promise<any>;
