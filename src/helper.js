@@ -44,7 +44,10 @@ let checkQueue = () => {
 
 let manager = () => {
   if (cost < requestCost) {
-    if (timeout) clearTimeout(timeout);
+    if (timeout) {
+      clearTimeout(timeout);
+      delete timeout;
+    }
     timeout = setTimeout(checkQueue, 2000);
   } else {
     cost -= requestCost;
@@ -110,6 +113,7 @@ let manager = () => {
       }
       next.reject(err)
     });
+    if (requestQueue .length > 0 && cost >= requestCost) manager();
   }
 }
 
