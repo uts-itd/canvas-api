@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var plagiarismDetectionSubmissions = {
+const helper = require('../helper');
+let plagiarismDetectionSubmissions = {
     /**
      * Get a single submission, based on submission id.
      * @summary Get a single submission
@@ -7,7 +7,7 @@ var plagiarismDetectionSubmissions = {
      * @param {string} submissionId Canvas Submission ID
      * @returns {Promise<any>}
      */
-    getSingleSubmission: function (assignmentId, submissionId) { return helper.get("/lti/assignments/" + assignmentId + "/submissions/" + submissionId); },
+    getSingleSubmission: (assignmentId, submissionId) => helper.get(`/lti/assignments/${assignmentId}/submissions/${submissionId}`),
     /**
      * Get a list of all attempts made for a submission, based on submission id.
      * @summary Get the history of a single submission
@@ -15,6 +15,6 @@ var plagiarismDetectionSubmissions = {
      * @param {string} submissionId Canvas Submission ID
      * @returns {Promise<any>}
      */
-    getHistoryOfSingleSubmission: function (assignmentId, submissionId) { return helper.get("/lti/assignments/" + assignmentId + "/submissions/" + submissionId + "/history"); },
+    getHistoryOfSingleSubmission: (assignmentId, submissionId) => helper.get(`/lti/assignments/${assignmentId}/submissions/${submissionId}/history`),
 };
 module.exports = plagiarismDetectionSubmissions;

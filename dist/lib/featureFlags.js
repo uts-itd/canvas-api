@@ -1,47 +1,47 @@
-var helper = require('../helper');
-var featureFlags = {
+const helper = require('../helper');
+let featureFlags = {
     /**
      * A paginated list of all features that apply to a given Account, Course, or User.
      * @summary List features
      * @param {string} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listFeaturesCourses: function (courseId) { return helper.get("/v1/courses/" + courseId + "/features"); },
+    listFeaturesCourses: (courseId) => helper.get(`/v1/courses/${courseId}/features`),
     /**
      * A paginated list of all features that apply to a given Account, Course, or User.
      * @summary List features
      * @param {string} accountId Canvas Account ID
      * @returns {Promise<any>}
      */
-    listFeaturesAccounts: function (accountId) { return helper.get("/v1/accounts/" + accountId + "/features"); },
+    listFeaturesAccounts: (accountId) => helper.get(`/v1/accounts/${accountId}/features`),
     /**
      * A paginated list of all features that apply to a given Account, Course, or User.
      * @summary List features
      * @param {string} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    listFeaturesUsers: function (userId) { return helper.get("/v1/users/" + userId + "/features"); },
+    listFeaturesUsers: (userId) => helper.get(`/v1/users/${userId}/features`),
     /**
      * A paginated list of all features that are enabled on a given Account, Course, or User. Only the feature names are returned.
      * @summary List enabled features
      * @param {string} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listEnabledFeaturesCourses: function (courseId) { return helper.get("/v1/courses/" + courseId + "/features/enabled"); },
+    listEnabledFeaturesCourses: (courseId) => helper.get(`/v1/courses/${courseId}/features/enabled`),
     /**
      * A paginated list of all features that are enabled on a given Account, Course, or User. Only the feature names are returned.
      * @summary List enabled features
      * @param {string} accountId Canvas Account ID
      * @returns {Promise<any>}
      */
-    listEnabledFeaturesAccounts: function (accountId) { return helper.get("/v1/accounts/" + accountId + "/features/enabled"); },
+    listEnabledFeaturesAccounts: (accountId) => helper.get(`/v1/accounts/${accountId}/features/enabled`),
     /**
      * A paginated list of all features that are enabled on a given Account, Course, or User. Only the feature names are returned.
      * @summary List enabled features
      * @param {string} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    listEnabledFeaturesUsers: function (userId) { return helper.get("/v1/users/" + userId + "/features/enabled"); },
+    listEnabledFeaturesUsers: (userId) => helper.get(`/v1/users/${userId}/features/enabled`),
     /**
      * Get the feature flag that applies to a given Account, Course, or User. The flag may be defined on the object, or it may be inherited from a parent account. You can look at the context_id and context_type of the returned object to determine which is the case. If these fields are missing, then the object is the global Canvas default.
      * @summary Get feature flag
@@ -49,7 +49,7 @@ var featureFlags = {
      * @param {string} feature ID
      * @returns {Promise<any>}
      */
-    getFeatureFlagCourses: function (courseId, feature) { return helper.get("/v1/courses/" + courseId + "/features/flags/" + feature); },
+    getFeatureFlagCourses: (courseId, feature) => helper.get(`/v1/courses/${courseId}/features/flags/${feature}`),
     /**
      * Get the feature flag that applies to a given Account, Course, or User. The flag may be defined on the object, or it may be inherited from a parent account. You can look at the context_id and context_type of the returned object to determine which is the case. If these fields are missing, then the object is the global Canvas default.
      * @summary Get feature flag
@@ -57,7 +57,7 @@ var featureFlags = {
      * @param {string} feature ID
      * @returns {Promise<any>}
      */
-    getFeatureFlagAccounts: function (accountId, feature) { return helper.get("/v1/accounts/" + accountId + "/features/flags/" + feature); },
+    getFeatureFlagAccounts: (accountId, feature) => helper.get(`/v1/accounts/${accountId}/features/flags/${feature}`),
     /**
      * Get the feature flag that applies to a given Account, Course, or User. The flag may be defined on the object, or it may be inherited from a parent account. You can look at the context_id and context_type of the returned object to determine which is the case. If these fields are missing, then the object is the global Canvas default.
      * @summary Get feature flag
@@ -65,7 +65,7 @@ var featureFlags = {
      * @param {string} feature ID
      * @returns {Promise<any>}
      */
-    getFeatureFlagUsers: function (userId, feature) { return helper.get("/v1/users/" + userId + "/features/flags/" + feature); },
+    getFeatureFlagUsers: (userId, feature) => helper.get(`/v1/users/${userId}/features/flags/${feature}`),
     /**
      * Set a feature flag for a given Account, Course, or User. This call will fail if a parent account sets a feature flag for the same feature in any state other than "allowed".
      * @summary Set feature flag
@@ -74,7 +74,7 @@ var featureFlags = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    setFeatureFlagCourses: function (courseId, feature, body) { return helper.put("/v1/courses/" + courseId + "/features/flags/" + feature, body); },
+    setFeatureFlagCourses: (courseId, feature, body) => helper.put(`/v1/courses/${courseId}/features/flags/${feature}`, body),
     /**
      * Set a feature flag for a given Account, Course, or User. This call will fail if a parent account sets a feature flag for the same feature in any state other than "allowed".
      * @summary Set feature flag
@@ -83,7 +83,7 @@ var featureFlags = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    setFeatureFlagAccounts: function (accountId, feature, body) { return helper.put("/v1/accounts/" + accountId + "/features/flags/" + feature, body); },
+    setFeatureFlagAccounts: (accountId, feature, body) => helper.put(`/v1/accounts/${accountId}/features/flags/${feature}`, body),
     /**
      * Set a feature flag for a given Account, Course, or User. This call will fail if a parent account sets a feature flag for the same feature in any state other than "allowed".
      * @summary Set feature flag
@@ -92,7 +92,7 @@ var featureFlags = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    setFeatureFlagUsers: function (userId, feature, body) { return helper.put("/v1/users/" + userId + "/features/flags/" + feature, body); },
+    setFeatureFlagUsers: (userId, feature, body) => helper.put(`/v1/users/${userId}/features/flags/${feature}`, body),
     /**
      * Remove feature flag for a given Account, Course, or User. (Note that the flag must be defined on the Account, Course, or User directly.) The object will then inherit the feature flags from a higher account, if any exist. If this flag was 'on' or 'off', then lower-level account flags that were masked by this one will apply again.
      * @summary Remove feature flag
@@ -100,7 +100,7 @@ var featureFlags = {
      * @param {string} feature ID
      * @returns {Promise<any>}
      */
-    removeFeatureFlagCourses: function (courseId, feature) { return helper.delete("/v1/courses/" + courseId + "/features/flags/" + feature); },
+    removeFeatureFlagCourses: (courseId, feature) => helper.delete(`/v1/courses/${courseId}/features/flags/${feature}`),
     /**
      * Remove feature flag for a given Account, Course, or User. (Note that the flag must be defined on the Account, Course, or User directly.) The object will then inherit the feature flags from a higher account, if any exist. If this flag was 'on' or 'off', then lower-level account flags that were masked by this one will apply again.
      * @summary Remove feature flag
@@ -108,7 +108,7 @@ var featureFlags = {
      * @param {string} feature ID
      * @returns {Promise<any>}
      */
-    removeFeatureFlagAccounts: function (accountId, feature) { return helper.delete("/v1/accounts/" + accountId + "/features/flags/" + feature); },
+    removeFeatureFlagAccounts: (accountId, feature) => helper.delete(`/v1/accounts/${accountId}/features/flags/${feature}`),
     /**
      * Remove feature flag for a given Account, Course, or User. (Note that the flag must be defined on the Account, Course, or User directly.) The object will then inherit the feature flags from a higher account, if any exist. If this flag was 'on' or 'off', then lower-level account flags that were masked by this one will apply again.
      * @summary Remove feature flag
@@ -116,6 +116,6 @@ var featureFlags = {
      * @param {string} feature ID
      * @returns {Promise<any>}
      */
-    removeFeatureFlagUsers: function (userId, feature) { return helper.delete("/v1/users/" + userId + "/features/flags/" + feature); },
+    removeFeatureFlagUsers: (userId, feature) => helper.delete(`/v1/users/${userId}/features/flags/${feature}`),
 };
 module.exports = featureFlags;

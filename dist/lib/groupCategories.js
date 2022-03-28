@@ -1,26 +1,26 @@
-var helper = require('../helper');
-var groupCategories = {
+const helper = require('../helper');
+let groupCategories = {
     /**
      * Returns a paginated list of group categories in a context
      * @summary List group categories for a context
      * @param {string} accountId Canvas Account ID
      * @returns {Promise<any>}
      */
-    listGroupCategoriesForContextAccounts: function (accountId) { return helper.get("/v1/accounts/" + accountId + "/group_categories"); },
+    listGroupCategoriesForContextAccounts: (accountId) => helper.get(`/v1/accounts/${accountId}/group_categories`),
     /**
      * Returns a paginated list of group categories in a context
      * @summary List group categories for a context
      * @param {string} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listGroupCategoriesForContextCourses: function (courseId) { return helper.get("/v1/courses/" + courseId + "/group_categories"); },
+    listGroupCategoriesForContextCourses: (courseId) => helper.get(`/v1/courses/${courseId}/group_categories`),
     /**
      * Returns the data for a single group category, or a 401 if the caller doesn't have the rights to see it.
      * @summary Get a single group category
      * @param {string} groupCategoryId Canvas Group category ID
      * @returns {Promise<any>}
      */
-    getSingleGroupCategory: function (groupCategoryId) { return helper.get("/v1/group_categories/" + groupCategoryId); },
+    getSingleGroupCategory: (groupCategoryId) => helper.get(`/v1/group_categories/${groupCategoryId}`),
     /**
      * Create a new group category
      * @summary Create a Group Category
@@ -28,7 +28,7 @@ var groupCategories = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createGroupCategoryAccounts: function (accountId, body) { return helper.post("/v1/accounts/" + accountId + "/group_categories", body); },
+    createGroupCategoryAccounts: (accountId, body) => helper.post(`/v1/accounts/${accountId}/group_categories`, body),
     /**
      * Create a new group category
      * @summary Create a Group Category
@@ -36,7 +36,7 @@ var groupCategories = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createGroupCategoryCourses: function (courseId, body) { return helper.post("/v1/courses/" + courseId + "/group_categories", body); },
+    createGroupCategoryCourses: (courseId, body) => helper.post(`/v1/courses/${courseId}/group_categories`, body),
     /**
      * Modifies an existing group category.
      * @summary Update a Group Category
@@ -44,21 +44,21 @@ var groupCategories = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateGroupCategory: function (groupCategoryId, body) { return helper.put("/v1/group_categories/" + groupCategoryId, body); },
+    updateGroupCategory: (groupCategoryId, body) => helper.put(`/v1/group_categories/${groupCategoryId}`, body),
     /**
      * Deletes a group category and all groups under it. Protected group categories can not be deleted, i.e. "communities" and "student_organized".
      * @summary Delete a Group Category
      * @param {string} groupCategoryId Canvas Group category ID
      * @returns {Promise<any>}
      */
-    deleteGroupCategory: function (groupCategoryId) { return helper.delete("/v1/group_categories/" + groupCategoryId); },
+    deleteGroupCategory: (groupCategoryId) => helper.delete(`/v1/group_categories/${groupCategoryId}`),
     /**
      * Returns a paginated list of groups in a group category
      * @summary List groups in group category
      * @param {string} groupCategoryId Canvas Group category ID
      * @returns {Promise<any>}
      */
-    listGroupsInGroupCategory: function (groupCategoryId) { return helper.get("/v1/group_categories/" + groupCategoryId + "/groups"); },
+    listGroupsInGroupCategory: (groupCategoryId) => helper.get(`/v1/group_categories/${groupCategoryId}/groups`),
     /**
      * Returns a paginated list of users in the group category.
      * @summary List users in group category
@@ -66,10 +66,7 @@ var groupCategories = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listUsersInGroupCategory: function (groupCategoryId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/group_categories/" + groupCategoryId + "/users", query);
-    },
+    listUsersInGroupCategory: (groupCategoryId, query = '') => helper.get(`/v1/group_categories/${groupCategoryId}/users`, query),
     /**
      * Assign all unassigned members as evenly as possible among the existing student groups.
      * @summary Assign unassigned members
@@ -77,6 +74,6 @@ var groupCategories = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    assignUnassignedMembers: function (groupCategoryId, body) { return helper.post("/v1/group_categories/" + groupCategoryId + "/assign_unassigned_members", body); },
+    assignUnassignedMembers: (groupCategoryId, body) => helper.post(`/v1/group_categories/${groupCategoryId}/assign_unassigned_members`, body),
 };
 module.exports = groupCategories;

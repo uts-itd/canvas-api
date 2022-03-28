@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var quizSubmissionFiles = {
+const helper = require('../helper');
+let quizSubmissionFiles = {
     /**
      * Associate a new quiz submission file This API endpoint is the first step in uploading a quiz submission file. See the {file:file_uploads.html File Upload Documentation} for details on the file upload workflow as these parameters are interpreted as per the documentation there.
      * @summary Upload a file
@@ -8,6 +8,6 @@ var quizSubmissionFiles = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    uploadFile: function (courseId, quizId, body) { return helper.post("/v1/courses/" + courseId + "/quizzes/" + quizId + "/submissions/self/files", body); },
+    uploadFile: (courseId, quizId, body) => helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/submissions/self/files`, body),
 };
 module.exports = quizSubmissionFiles;

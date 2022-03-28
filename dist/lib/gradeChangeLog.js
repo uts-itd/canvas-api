@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var gradeChangeLog = {
+const helper = require('../helper');
+let gradeChangeLog = {
     /**
      * List grade change events for a given assignment.
      * @summary Query by assignment.
@@ -7,10 +7,7 @@ var gradeChangeLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByAssignment: function (assignmentId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/audit/grade_change/assignments/" + assignmentId, query);
-    },
+    queryByAssignment: (assignmentId, query = '') => helper.get(`/v1/audit/grade_change/assignments/${assignmentId}`, query),
     /**
      * List grade change events for a given course.
      * @summary Query by course.
@@ -18,10 +15,7 @@ var gradeChangeLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByCourse: function (courseId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/audit/grade_change/courses/" + courseId, query);
-    },
+    queryByCourse: (courseId, query = '') => helper.get(`/v1/audit/grade_change/courses/${courseId}`, query),
     /**
      * List grade change events for a given student.
      * @summary Query by student.
@@ -29,10 +23,7 @@ var gradeChangeLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByStudent: function (studentId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/audit/grade_change/students/" + studentId, query);
-    },
+    queryByStudent: (studentId, query = '') => helper.get(`/v1/audit/grade_change/students/${studentId}`, query),
     /**
      * List grade change events for a given grader.
      * @summary Query by grader.
@@ -40,9 +31,6 @@ var gradeChangeLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByGrader: function (graderId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/audit/grade_change/graders/" + graderId, query);
-    },
+    queryByGrader: (graderId, query = '') => helper.get(`/v1/audit/grade_change/graders/${graderId}`, query),
 };
 module.exports = gradeChangeLog;

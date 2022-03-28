@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var quizStatistics = {
+const helper = require('../helper');
+let quizStatistics = {
     /**
      * This endpoint provides statistics for all quiz versions, or for a specific quiz version, in which case the output is guaranteed to represent the _latest_ and most current version of the quiz. 200 OK response code is returned if the request was successful.
      * @summary Fetching the latest quiz statistics
@@ -8,9 +8,6 @@ var quizStatistics = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    fetchingLatestQuizStatistics: function (courseId, quizId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/courses/" + courseId + "/quizzes/" + quizId + "/statistics", query);
-    },
+    fetchingLatestQuizStatistics: (courseId, quizId, query = '') => helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/statistics`, query),
 };
 module.exports = quizStatistics;

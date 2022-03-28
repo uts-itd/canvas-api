@@ -723,6 +723,7 @@ declare function _exports(domain: any, token: any): {
         listMissingSubmissions: (userId: string, query?: any) => Promise<any>;
         hideStreamItem: (activityStreaId: string) => Promise<any>;
         hideAllStreamItems: () => Promise<any>;
+        terminateAllUserSessions: (userId: string) => Promise<any>;
         uploadFile: (userId: string) => Promise<any>;
         showUserDetails: (userId: string) => Promise<any>;
         createUser: (accountId: string, body: any) => Promise<any>;

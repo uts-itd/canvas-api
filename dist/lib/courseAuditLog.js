@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var courseAuditLog = {
+const helper = require('../helper');
+let courseAuditLog = {
     /**
      * List course change events for a given course.
      * @summary Query by course.
@@ -7,9 +7,6 @@ var courseAuditLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByCourse: function (courseId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/audit/course/courses/" + courseId, query);
-    },
+    queryByCourse: (courseId, query = '') => helper.get(`/v1/audit/course/courses/${courseId}`, query),
 };
 module.exports = courseAuditLog;

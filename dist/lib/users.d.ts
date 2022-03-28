@@ -8,6 +8,7 @@ export function listUpcomingAssignmentsCalendarEvents(): Promise<any>;
 export function listMissingSubmissions(userId: string, query?: any): Promise<any>;
 export function hideStreamItem(activityStreaId: string): Promise<any>;
 export function hideAllStreamItems(): Promise<any>;
+export function terminateAllUserSessions(userId: string): Promise<any>;
 export function uploadFile(userId: string): Promise<any>;
 export function showUserDetails(userId: string): Promise<any>;
 export function createUser(accountId: string, body: any): Promise<any>;

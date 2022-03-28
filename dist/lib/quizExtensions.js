@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var quizExtensions = {
+const helper = require('../helper');
+let quizExtensions = {
     /**
      * Responses 200 OK if the request was successful 403 Forbidden if you are not allowed to extend quizzes for this course
      * @summary Set extensions for student quiz submissions
@@ -8,6 +8,6 @@ var quizExtensions = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    setExtensionsForStudentQuizSubmissions: function (courseId, quizId, body) { return helper.post("/v1/courses/" + courseId + "/quizzes/" + quizId + "/extensions", body); },
+    setExtensionsForStudentQuizSubmissions: (courseId, quizId, body) => helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/extensions`, body),
 };
 module.exports = quizExtensions;

@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var admins = {
+const helper = require('../helper');
+let admins = {
     /**
      * Flag an existing user as an admin within the account.
      * @summary Make an account admin
@@ -7,7 +7,7 @@ var admins = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    makeAccountAdmin: function (accountId, body) { return helper.post("/v1/accounts/" + accountId + "/admins", body); },
+    makeAccountAdmin: (accountId, body) => helper.post(`/v1/accounts/${accountId}/admins`, body),
     /**
      * Remove the rights associated with an account admin role from a user.
      * @summary Remove account admin
@@ -16,10 +16,7 @@ var admins = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    removeAccountAdmin: function (accountId, userId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.delete("/v1/accounts/" + accountId + "/admins/" + userId, query);
-    },
+    removeAccountAdmin: (accountId, userId, query = '') => helper.delete(`/v1/accounts/${accountId}/admins/${userId}`, query),
     /**
      * A paginated list of the admins in the account
      * @summary List account admins
@@ -27,9 +24,6 @@ var admins = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listAccountAdmins: function (accountId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/accounts/" + accountId + "/admins", query);
-    },
+    listAccountAdmins: (accountId, query = '') => helper.get(`/v1/accounts/${accountId}/admins`, query),
 };
 module.exports = admins;

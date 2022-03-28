@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var proficiencyRatings = {
+const helper = require('../helper');
+let proficiencyRatings = {
     /**
      * Create or update account-level proficiency ratings. These ratings will apply to all sub-accounts, unless they have their own account-level proficiency ratings defined.
      * @summary Create/update proficiency ratings
@@ -7,13 +7,13 @@ var proficiencyRatings = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createUpdateProficiencyRatings: function (accountId, body) { return helper.post("/v1/accounts/" + accountId + "/outcome_proficiency", body); },
+    createUpdateProficiencyRatings: (accountId, body) => helper.post(`/v1/accounts/${accountId}/outcome_proficiency`, body),
     /**
      * Get account-level proficiency ratings. If not defined for this account, it will return proficiency ratings for the nearest super-account with ratings defined. Will return 404 if none found.  Examples:   curl https://<canvas>/api/v1/accounts/<account_id>/outcome_proficiency \     -H 'Authorization: Bearer <token>'
      * @summary Get proficiency ratings
      * @param {string} accountId Canvas Account ID
      * @returns {Promise<any>}
      */
-    getProficiencyRatings: function (accountId) { return helper.get("/v1/accounts/" + accountId + "/outcome_proficiency"); },
+    getProficiencyRatings: (accountId) => helper.get(`/v1/accounts/${accountId}/outcome_proficiency`),
 };
 module.exports = proficiencyRatings;

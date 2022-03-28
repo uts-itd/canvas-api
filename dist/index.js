@@ -1,204 +1,204 @@
-var settings = require('./settings');
-var errorReports = require('./lib/errorReports');
-var apiTokenScopes = require('./lib/apiTokenScopes');
-var outcomeResults = require('./lib/outcomeResults');
-var courseAuditLog = require('./lib/courseAuditLog');
-var admins = require('./lib/admins');
-var quizExtensions = require('./lib/quizExtensions');
-var gradeChangeLog = require('./lib/gradeChangeLog');
-var bookmarks = require('./lib/bookmarks');
-var brandConfigs = require('./lib/brandConfigs');
-var services = require('./lib/services');
-var liveAssessments = require('./lib/liveAssessments');
-var customGradebookColumns = require('./lib/customGradebookColumns');
-var tabs = require('./lib/tabs');
-var plannerOverride = require('./lib/plannerOverride');
-var plagiarismDetectionSubmissions = require('./lib/plagiarismDetectionSubmissions');
-var proficiencyRatings = require('./lib/proficiencyRatings');
-var quizQuestionGroups = require('./lib/quizQuestionGroups');
-var search = require('./lib/search');
-var submissionComments = require('./lib/submissionComments');
-var accountReports = require('./lib/accountReports');
-var accountNotifications = require('./lib/accountNotifications');
-var communicationChannels = require('./lib/communicationChannels');
-var announcementExternalFeeds = require('./lib/announcementExternalFeeds');
-var collaborations = require('./lib/collaborations');
-var gradingStandards = require('./lib/gradingStandards');
-var courseQuizExtensions = require('./lib/courseQuizExtensions');
-var commMessages = require('./lib/commMessages');
-var gradingPeriods = require('./lib/gradingPeriods');
-var accountDomainLookups = require('./lib/accountDomainLookups');
-var favorites = require('./lib/favorites');
-var jwTs = require('./lib/jwTs');
-var moderatedGrading = require('./lib/moderatedGrading');
-var outcomes = require('./lib/outcomes');
-var planner = require('./lib/planner');
-var userObservees = require('./lib/userObservees');
-var quizSubmissionFiles = require('./lib/quizSubmissionFiles');
-var plagiarismDetectionPlatformUsers = require('./lib/plagiarismDetectionPlatformUsers');
-var gradebookHistory = require('./lib/gradebookHistory');
-var quizAssignmentOverrides = require('./lib/quizAssignmentOverrides');
-var plagiarismDetectionPlatformAssignments = require('./lib/plagiarismDetectionPlatformAssignments');
-var enrollmentTerms = require('./lib/enrollmentTerms');
-var logins = require('./lib/logins');
-var quizIpFilters = require('./lib/quizIpFilters');
-var plannerNote = require('./lib/plannerNote');
-var ePubExports = require('./lib/ePubExports');
-var quizSubmissionEvents = require('./lib/quizSubmissionEvents');
-var sharedBrandConfigs = require('./lib/sharedBrandConfigs');
-var sisImportErrors = require('./lib/sisImportErrors');
-var pollSessions = require('./lib/pollSessions');
-var quizSubmissionQuestions = require('./lib/quizSubmissionQuestions');
-var announcements = require('./lib/announcements');
-var originalityReports = require('./lib/originalityReports');
-var analytics = require('./lib/analytics');
-var featureFlags = require('./lib/featureFlags');
-var quizSubmissions = require('./lib/quizSubmissions');
-var groupCategories = require('./lib/groupCategories');
-var authenticationsLog = require('./lib/authenticationsLog');
-var notificationPreferences = require('./lib/notificationPreferences');
-var contentExports = require('./lib/contentExports');
-var sections = require('./lib/sections');
-var sisImports = require('./lib/sisImports');
-var authenticationProviders = require('./lib/authenticationProviders');
-var blueprintCourses = require('./lib/blueprintCourses');
-var conversations = require('./lib/conversations');
-var latePolicy = require('./lib/latePolicy');
-var groups = require('./lib/groups');
-var appointmentGroups = require('./lib/appointmentGroups');
-var polls = require('./lib/polls');
-var calendarEvents = require('./lib/calendarEvents');
-var modules = require('./lib/modules');
-var pages = require('./lib/pages');
-var quizSubmissionUserList = require('./lib/quizSubmissionUserList');
-var progress = require('./lib/progress');
-var enrollments = require('./lib/enrollments');
-var peerReviews = require('./lib/peerReviews');
-var contentMigrations = require('./lib/contentMigrations');
-var pollSubmissions = require('./lib/pollSubmissions');
-var assignmentGroups = require('./lib/assignmentGroups');
-var webhooksSubscriptions = require('./lib/webhooksSubscriptions');
-var pollChoices = require('./lib/pollChoices');
-var submissions = require('./lib/submissions');
-var outcomeGroups = require('./lib/outcomeGroups');
-var rubrics = require('./lib/rubrics');
-var conferences = require('./lib/conferences');
-var quizStatistics = require('./lib/quizStatistics');
-var sisIntegration = require('./lib/sisIntegration');
-var quizReports = require('./lib/quizReports');
-var assignments = require('./lib/assignments');
-var users = require('./lib/users');
-var outcomeImports = require('./lib/outcomeImports');
-var courses = require('./lib/courses');
-var quizQuestions = require('./lib/quizQuestions');
-var discussionTopics = require('./lib/discussionTopics');
-var quizzes = require('./lib/quizzes');
-var roles = require('./lib/roles');
-var accounts = require('./lib/accounts');
-var files = require('./lib/files');
-var externalTools = require('./lib/externalTools');
-var canvas = {
-    errorReports: errorReports,
-    apiTokenScopes: apiTokenScopes,
-    outcomeResults: outcomeResults,
-    courseAuditLog: courseAuditLog,
-    admins: admins,
-    quizExtensions: quizExtensions,
-    gradeChangeLog: gradeChangeLog,
-    bookmarks: bookmarks,
-    brandConfigs: brandConfigs,
-    services: services,
-    liveAssessments: liveAssessments,
-    customGradebookColumns: customGradebookColumns,
-    tabs: tabs,
-    plannerOverride: plannerOverride,
-    plagiarismDetectionSubmissions: plagiarismDetectionSubmissions,
-    proficiencyRatings: proficiencyRatings,
-    quizQuestionGroups: quizQuestionGroups,
-    search: search,
-    submissionComments: submissionComments,
-    accountReports: accountReports,
-    accountNotifications: accountNotifications,
-    communicationChannels: communicationChannels,
-    announcementExternalFeeds: announcementExternalFeeds,
-    collaborations: collaborations,
-    gradingStandards: gradingStandards,
-    courseQuizExtensions: courseQuizExtensions,
-    commMessages: commMessages,
-    gradingPeriods: gradingPeriods,
-    accountDomainLookups: accountDomainLookups,
-    favorites: favorites,
-    jwTs: jwTs,
-    moderatedGrading: moderatedGrading,
-    outcomes: outcomes,
-    planner: planner,
-    userObservees: userObservees,
-    quizSubmissionFiles: quizSubmissionFiles,
-    plagiarismDetectionPlatformUsers: plagiarismDetectionPlatformUsers,
-    gradebookHistory: gradebookHistory,
-    quizAssignmentOverrides: quizAssignmentOverrides,
-    plagiarismDetectionPlatformAssignments: plagiarismDetectionPlatformAssignments,
-    enrollmentTerms: enrollmentTerms,
-    logins: logins,
-    quizIpFilters: quizIpFilters,
-    plannerNote: plannerNote,
-    ePubExports: ePubExports,
-    quizSubmissionEvents: quizSubmissionEvents,
-    sharedBrandConfigs: sharedBrandConfigs,
-    sisImportErrors: sisImportErrors,
-    pollSessions: pollSessions,
-    quizSubmissionQuestions: quizSubmissionQuestions,
-    announcements: announcements,
-    originalityReports: originalityReports,
-    analytics: analytics,
-    featureFlags: featureFlags,
-    quizSubmissions: quizSubmissions,
-    groupCategories: groupCategories,
-    authenticationsLog: authenticationsLog,
-    notificationPreferences: notificationPreferences,
-    contentExports: contentExports,
-    sections: sections,
-    sisImports: sisImports,
-    authenticationProviders: authenticationProviders,
-    blueprintCourses: blueprintCourses,
-    conversations: conversations,
-    latePolicy: latePolicy,
-    groups: groups,
-    appointmentGroups: appointmentGroups,
-    polls: polls,
-    calendarEvents: calendarEvents,
-    modules: modules,
-    pages: pages,
-    quizSubmissionUserList: quizSubmissionUserList,
-    progress: progress,
-    enrollments: enrollments,
-    peerReviews: peerReviews,
-    contentMigrations: contentMigrations,
-    pollSubmissions: pollSubmissions,
-    assignmentGroups: assignmentGroups,
-    webhooksSubscriptions: webhooksSubscriptions,
-    pollChoices: pollChoices,
-    submissions: submissions,
-    outcomeGroups: outcomeGroups,
-    rubrics: rubrics,
-    conferences: conferences,
-    quizStatistics: quizStatistics,
-    sisIntegration: sisIntegration,
-    quizReports: quizReports,
-    assignments: assignments,
-    users: users,
-    outcomeImports: outcomeImports,
-    courses: courses,
-    quizQuestions: quizQuestions,
-    discussionTopics: discussionTopics,
-    quizzes: quizzes,
-    roles: roles,
-    accounts: accounts,
-    files: files,
-    externalTools: externalTools,
-    settings: settings
+const settings = require('./settings');
+const errorReports = require('./lib/errorReports');
+const apiTokenScopes = require('./lib/apiTokenScopes');
+const outcomeResults = require('./lib/outcomeResults');
+const courseAuditLog = require('./lib/courseAuditLog');
+const admins = require('./lib/admins');
+const quizExtensions = require('./lib/quizExtensions');
+const gradeChangeLog = require('./lib/gradeChangeLog');
+const bookmarks = require('./lib/bookmarks');
+const brandConfigs = require('./lib/brandConfigs');
+const services = require('./lib/services');
+const liveAssessments = require('./lib/liveAssessments');
+const customGradebookColumns = require('./lib/customGradebookColumns');
+const tabs = require('./lib/tabs');
+const plannerOverride = require('./lib/plannerOverride');
+const plagiarismDetectionSubmissions = require('./lib/plagiarismDetectionSubmissions');
+const proficiencyRatings = require('./lib/proficiencyRatings');
+const quizQuestionGroups = require('./lib/quizQuestionGroups');
+const search = require('./lib/search');
+const submissionComments = require('./lib/submissionComments');
+const accountReports = require('./lib/accountReports');
+const accountNotifications = require('./lib/accountNotifications');
+const communicationChannels = require('./lib/communicationChannels');
+const announcementExternalFeeds = require('./lib/announcementExternalFeeds');
+const collaborations = require('./lib/collaborations');
+const gradingStandards = require('./lib/gradingStandards');
+const courseQuizExtensions = require('./lib/courseQuizExtensions');
+const commMessages = require('./lib/commMessages');
+const gradingPeriods = require('./lib/gradingPeriods');
+const accountDomainLookups = require('./lib/accountDomainLookups');
+const favorites = require('./lib/favorites');
+const jwTs = require('./lib/jwTs');
+const moderatedGrading = require('./lib/moderatedGrading');
+const outcomes = require('./lib/outcomes');
+const planner = require('./lib/planner');
+const userObservees = require('./lib/userObservees');
+const quizSubmissionFiles = require('./lib/quizSubmissionFiles');
+const plagiarismDetectionPlatformUsers = require('./lib/plagiarismDetectionPlatformUsers');
+const gradebookHistory = require('./lib/gradebookHistory');
+const quizAssignmentOverrides = require('./lib/quizAssignmentOverrides');
+const plagiarismDetectionPlatformAssignments = require('./lib/plagiarismDetectionPlatformAssignments');
+const enrollmentTerms = require('./lib/enrollmentTerms');
+const logins = require('./lib/logins');
+const quizIpFilters = require('./lib/quizIpFilters');
+const plannerNote = require('./lib/plannerNote');
+const ePubExports = require('./lib/ePubExports');
+const quizSubmissionEvents = require('./lib/quizSubmissionEvents');
+const sharedBrandConfigs = require('./lib/sharedBrandConfigs');
+const sisImportErrors = require('./lib/sisImportErrors');
+const pollSessions = require('./lib/pollSessions');
+const quizSubmissionQuestions = require('./lib/quizSubmissionQuestions');
+const announcements = require('./lib/announcements');
+const originalityReports = require('./lib/originalityReports');
+const analytics = require('./lib/analytics');
+const featureFlags = require('./lib/featureFlags');
+const quizSubmissions = require('./lib/quizSubmissions');
+const groupCategories = require('./lib/groupCategories');
+const authenticationsLog = require('./lib/authenticationsLog');
+const notificationPreferences = require('./lib/notificationPreferences');
+const contentExports = require('./lib/contentExports');
+const sections = require('./lib/sections');
+const sisImports = require('./lib/sisImports');
+const authenticationProviders = require('./lib/authenticationProviders');
+const blueprintCourses = require('./lib/blueprintCourses');
+const conversations = require('./lib/conversations');
+const latePolicy = require('./lib/latePolicy');
+const groups = require('./lib/groups');
+const appointmentGroups = require('./lib/appointmentGroups');
+const polls = require('./lib/polls');
+const calendarEvents = require('./lib/calendarEvents');
+const modules = require('./lib/modules');
+const pages = require('./lib/pages');
+const quizSubmissionUserList = require('./lib/quizSubmissionUserList');
+const progress = require('./lib/progress');
+const enrollments = require('./lib/enrollments');
+const peerReviews = require('./lib/peerReviews');
+const contentMigrations = require('./lib/contentMigrations');
+const pollSubmissions = require('./lib/pollSubmissions');
+const assignmentGroups = require('./lib/assignmentGroups');
+const webhooksSubscriptions = require('./lib/webhooksSubscriptions');
+const pollChoices = require('./lib/pollChoices');
+const submissions = require('./lib/submissions');
+const outcomeGroups = require('./lib/outcomeGroups');
+const rubrics = require('./lib/rubrics');
+const conferences = require('./lib/conferences');
+const quizStatistics = require('./lib/quizStatistics');
+const sisIntegration = require('./lib/sisIntegration');
+const quizReports = require('./lib/quizReports');
+const assignments = require('./lib/assignments');
+const users = require('./lib/users');
+const outcomeImports = require('./lib/outcomeImports');
+const courses = require('./lib/courses');
+const quizQuestions = require('./lib/quizQuestions');
+const discussionTopics = require('./lib/discussionTopics');
+const quizzes = require('./lib/quizzes');
+const roles = require('./lib/roles');
+const accounts = require('./lib/accounts');
+const files = require('./lib/files');
+const externalTools = require('./lib/externalTools');
+let canvas = {
+    errorReports,
+    apiTokenScopes,
+    outcomeResults,
+    courseAuditLog,
+    admins,
+    quizExtensions,
+    gradeChangeLog,
+    bookmarks,
+    brandConfigs,
+    services,
+    liveAssessments,
+    customGradebookColumns,
+    tabs,
+    plannerOverride,
+    plagiarismDetectionSubmissions,
+    proficiencyRatings,
+    quizQuestionGroups,
+    search,
+    submissionComments,
+    accountReports,
+    accountNotifications,
+    communicationChannels,
+    announcementExternalFeeds,
+    collaborations,
+    gradingStandards,
+    courseQuizExtensions,
+    commMessages,
+    gradingPeriods,
+    accountDomainLookups,
+    favorites,
+    jwTs,
+    moderatedGrading,
+    outcomes,
+    planner,
+    userObservees,
+    quizSubmissionFiles,
+    plagiarismDetectionPlatformUsers,
+    gradebookHistory,
+    quizAssignmentOverrides,
+    plagiarismDetectionPlatformAssignments,
+    enrollmentTerms,
+    logins,
+    quizIpFilters,
+    plannerNote,
+    ePubExports,
+    quizSubmissionEvents,
+    sharedBrandConfigs,
+    sisImportErrors,
+    pollSessions,
+    quizSubmissionQuestions,
+    announcements,
+    originalityReports,
+    analytics,
+    featureFlags,
+    quizSubmissions,
+    groupCategories,
+    authenticationsLog,
+    notificationPreferences,
+    contentExports,
+    sections,
+    sisImports,
+    authenticationProviders,
+    blueprintCourses,
+    conversations,
+    latePolicy,
+    groups,
+    appointmentGroups,
+    polls,
+    calendarEvents,
+    modules,
+    pages,
+    quizSubmissionUserList,
+    progress,
+    enrollments,
+    peerReviews,
+    contentMigrations,
+    pollSubmissions,
+    assignmentGroups,
+    webhooksSubscriptions,
+    pollChoices,
+    submissions,
+    outcomeGroups,
+    rubrics,
+    conferences,
+    quizStatistics,
+    sisIntegration,
+    quizReports,
+    assignments,
+    users,
+    outcomeImports,
+    courses,
+    quizQuestions,
+    discussionTopics,
+    quizzes,
+    roles,
+    accounts,
+    files,
+    externalTools,
+    settings
 };
-module.exports = function (domain, token) {
+module.exports = (domain, token) => {
     settings.domain = domain;
     settings.token = token;
     return canvas;

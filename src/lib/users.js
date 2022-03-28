@@ -69,6 +69,13 @@ let users = {
      */
     hideAllStreamItems: () => helper.delete(`/v1/users/self/activity_stream`),
     /**
+     * Terminates all sessions for a user. This includes all browser-based sessions and all access tokens, including manually generated ones. The user can immediately re-authenticate to access Canvas again if they have the current credentials. All integrations will need to be re-authorized.
+     * @summary Terminate all sessions for a user
+     * @param {string} userId Canvas User ID
+     * @returns {Promise<any>}
+     */
+    terminateAllUserSessions: (userId) => helper.delete(`/v1/users/${userId}/sessions`),
+    /**
      * Upload a file to the user's personal files section. This API endpoint is the first step in uploading a file to a user's files. See the {file:file_uploads.html File Upload Documentation} for details on the file upload workflow. Note that typically users will only be able to upload files to their own files section. Passing a user_id of +self+ is an easy shortcut to specify the current user.
      * @summary Upload a file
      * @param {string} userId Canvas User ID

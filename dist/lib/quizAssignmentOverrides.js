@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var quizAssignmentOverrides = {
+const helper = require('../helper');
+let quizAssignmentOverrides = {
     /**
      * Retrieve the actual due-at, unlock-at, and available-at dates for quizzes based on the assignment overrides active for the current API user.
      * @summary Retrieve assignment-overridden dates for quizzes
@@ -7,9 +7,6 @@ var quizAssignmentOverrides = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    retrieveAssignmentOverriddenDatesForQuizzes: function (courseId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/courses/" + courseId + "/quizzes/assignment_overrides", query);
-    },
+    retrieveAssignmentOverriddenDatesForQuizzes: (courseId, query = '') => helper.get(`/v1/courses/${courseId}/quizzes/assignment_overrides`, query),
 };
 module.exports = quizAssignmentOverrides;

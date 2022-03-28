@@ -1,5 +1,5 @@
-var helper = require('../helper');
-var apiTokenScopes = {
+const helper = require('../helper');
+let apiTokenScopes = {
     /**
      * A list of scopes that can be applied to developer keys and access tokens.
      * @summary List scopes
@@ -7,9 +7,6 @@ var apiTokenScopes = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listScopes: function (accountId, query) {
-        if (query === void 0) { query = ''; }
-        return helper.get("/v1/accounts/" + accountId + "/scopes", query);
-    },
+    listScopes: (accountId, query = '') => helper.get(`/v1/accounts/${accountId}/scopes`, query),
 };
 module.exports = apiTokenScopes;
