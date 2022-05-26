@@ -380,7 +380,7 @@ declare function _exports(domain: any, token: any): {
     };
     authenticationProviders: {
         listAuthenticationProviders: (accountId: string) => Promise<any>;
-        addAuthenticationProvider: (accountId: string) => Promise<any>;
+        addAuthenticationProvider: (accountId: string, body: any) => Promise<any>;
         updateAuthenticationProvider: (accountId: string, authenticationProviderId: string) => Promise<any>;
         getAuthenticationProvider: (accountId: string, authenticationProviderId: string) => Promise<any>;
         deleteAuthenticationProvider: (accountId: string, authenticationProviderId: string) => Promise<any>;

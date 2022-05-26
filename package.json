@@ -1,17 +1,19 @@
 {
   "name": "@uts-itd/canvas-api",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Canvas API library",
   "main": "./dist/index.js",
   "author": "Adham Muhseen",
   "license": "ISC",
+  "scripts": {
+    "build": "tsc -p ."
+  },
   "dependencies": {
     "request": "^2.88.2",
     "request-promise-native": "^1.0.9"
   },
   "devDependencies": {
-    "typescript-temporary-fork-for-jsdoc": "^3.6.0-insiders.20190802",
-    "typescript": "^4.6.2"
+    "typescript": "^4.7.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
