@@ -1,6 +1,6 @@
 {
   "name": "@uts-itd/canvas-api",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Canvas API library",
   "main": "./dist/index.js",
   "author": "Adham Muhseen",
