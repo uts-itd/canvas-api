@@ -1,8 +1,13 @@
-let settings = {
+module.exports = (domain, token) => {
+  if (!domain || !token) {
+    throw new Error('Domain and token are required');
+  }
+
+  return {
     totalCost: 0,
     sentRequests: 0,
-    domain: '',
-    token: '',
+    domain: domain,
+    token: token,
     maxPage: 100,
     /**
      * Returns a string used to query endpoints using a course SIS ID
@@ -26,5 +31,4 @@ let settings = {
      */
     formatTermSIS: termSIS => `sis_term_id:${termSIS}`,
 };
-
-module.exports = settings;
+};

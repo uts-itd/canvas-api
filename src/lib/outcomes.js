@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let outcomes = {
+module.exports = (helper) => {
+  return {
     /**
      * Returns the details of the outcome with the given id.
      * @summary Show an outcome
@@ -15,7 +14,7 @@ let outcomes = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateOutcome: (outcomeId, body) => helper.put(`/v1/outcomes/${outcomeId}`, body),
-}
-
-module.exports = outcomes;
+    updateOutcome: (outcomeId, body) =>
+      helper.put(`/v1/outcomes/${outcomeId}`, body),
+  };
+};

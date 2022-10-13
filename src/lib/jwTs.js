@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let jwTs = {
+module.exports = (helper) => {
+  return {
     /**
      * Create a unique jwt for using with other canvas services Generates a different JWT each time it's called, each one expires after a short window (1 hour)
      * @summary Create JWT
@@ -14,6 +13,5 @@ let jwTs = {
      * @returns {Promise<any>}
      */
     refreshJwt: (body) => helper.post(`/v1/jwts/refresh`, body),
-}
-
-module.exports = jwTs;
+  };
+};

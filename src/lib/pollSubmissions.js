@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let pollSubmissions = {
+module.exports = (helper) => {
+  return {
     /**
      * Returns the poll submission with the given id
      * @summary Get a single poll submission
@@ -9,7 +8,10 @@ let pollSubmissions = {
      * @param {string} pollSubmissionId Canvas Poll submission ID
      * @returns {Promise<any>}
      */
-    getSinglePollSubmission: (pollId, pollSessionId, pollSubmissionId) => helper.get(`/v1/polls/${pollId}/poll_sessions/${pollSessionId}/poll_submissions/${pollSubmissionId}`),
+    getSinglePollSubmission: (pollId, pollSessionId, pollSubmissionId) =>
+      helper.get(
+        `/v1/polls/${pollId}/poll_sessions/${pollSessionId}/poll_submissions/${pollSubmissionId}`,
+      ),
     /**
      * Create a new poll submission for this poll session
      * @summary Create a single poll submission
@@ -18,7 +20,10 @@ let pollSubmissions = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createSinglePollSubmission: (pollId, pollSessionId, body) => helper.post(`/v1/polls/${pollId}/poll_sessions/${pollSessionId}/poll_submissions`, body),
-}
-
-module.exports = pollSubmissions;
+    createSinglePollSubmission: (pollId, pollSessionId, body) =>
+      helper.post(
+        `/v1/polls/${pollId}/poll_sessions/${pollSessionId}/poll_submissions`,
+        body,
+      ),
+  };
+};

@@ -1,20 +1,20 @@
-const helper = require('../helper');
-
-let plannerNote = {
+module.exports = (helper) => {
+  return {
     /**
      * Retrieve the paginated list of planner notes Retrieve planner note for a user
      * @summary List planner notes
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listPlannerNotes: (query='') => helper.get(`/v1/planner_notes`, query),
+    listPlannerNotes: (query = '') => helper.get(`/v1/planner_notes`, query),
     /**
      * Retrieve a planner note for the current user
      * @summary Show a PlannerNote
      * @param {string} plannerNoteId Canvas Planner note ID
      * @returns {Promise<any>}
      */
-    showPlannernote: (plannerNoteId) => helper.get(`/v1/planner_notes/${plannerNoteId}`),
+    showPlannernote: (plannerNoteId) =>
+      helper.get(`/v1/planner_notes/${plannerNoteId}`),
     /**
      * Update a planner note for the current user
      * @summary Update a PlannerNote
@@ -22,7 +22,8 @@ let plannerNote = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updatePlannernote: (plannerNoteId, body) => helper.put(`/v1/planner_notes/${plannerNoteId}`, body),
+    updatePlannernote: (plannerNoteId, body) =>
+      helper.put(`/v1/planner_notes/${plannerNoteId}`, body),
     /**
      * Create a planner note for the current user
      * @summary Create a planner note
@@ -36,7 +37,7 @@ let plannerNote = {
      * @param {string} plannerNoteId Canvas Planner note ID
      * @returns {Promise<any>}
      */
-    deletePlannerNote: (plannerNoteId) => helper.delete(`/v1/planner_notes/${plannerNoteId}`),
-}
-
-module.exports = plannerNote;
+    deletePlannerNote: (plannerNoteId) =>
+      helper.delete(`/v1/planner_notes/${plannerNoteId}`),
+  };
+};

@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let authenticationsLog = {
+module.exports = (helper) => {
+  return {
     /**
      * List authentication events for a given login.
      * @summary Query by login.
@@ -8,7 +7,8 @@ let authenticationsLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByLogin: (loginId, query='') => helper.get(`/v1/audit/authentication/logins/${loginId}`, query),
+    queryByLogin: (loginId, query = '') =>
+      helper.get(`/v1/audit/authentication/logins/${loginId}`, query),
     /**
      * List authentication events for a given account.
      * @summary Query by account.
@@ -16,7 +16,8 @@ let authenticationsLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByAccount: (accountId, query='') => helper.get(`/v1/audit/authentication/accounts/${accountId}`, query),
+    queryByAccount: (accountId, query = '') =>
+      helper.get(`/v1/audit/authentication/accounts/${accountId}`, query),
     /**
      * List authentication events for a given user.
      * @summary Query by user.
@@ -24,7 +25,7 @@ let authenticationsLog = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    queryByUser: (userId, query='') => helper.get(`/v1/audit/authentication/users/${userId}`, query),
-}
-
-module.exports = authenticationsLog;
+    queryByUser: (userId, query = '') =>
+      helper.get(`/v1/audit/authentication/users/${userId}`, query),
+  };
+};

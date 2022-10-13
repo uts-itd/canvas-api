@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let quizQuestionGroups = {
+module.exports = (helper) => {
+  return {
     /**
      * Returns details of the quiz group with the given id.
      * @summary Get a single quiz group
@@ -9,7 +8,8 @@ let quizQuestionGroups = {
      * @param {string} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    getSingleQuizGroup: (courseId, quizId, groupId) => helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}`),
+    getSingleQuizGroup: (courseId, quizId, groupId) =>
+      helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}`),
     /**
      * Create a new question group for this quiz 201 Created response code is returned if the creation was successful.
      * @summary Create a question group
@@ -18,7 +18,8 @@ let quizQuestionGroups = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createQuestionGroup: (courseId, quizId, body) => helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/groups`, body),
+    createQuestionGroup: (courseId, quizId, body) =>
+      helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/groups`, body),
     /**
      * Update a question group
      * @summary Update a question group
@@ -28,7 +29,11 @@ let quizQuestionGroups = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateQuestionGroup: (courseId, quizId, groupId, body) => helper.put(`/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}`, body),
+    updateQuestionGroup: (courseId, quizId, groupId, body) =>
+      helper.put(
+        `/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}`,
+        body,
+      ),
     /**
      * Delete a question group <b>204 No Content<b> response code is returned if the deletion was successful.
      * @summary Delete a question group
@@ -37,7 +42,10 @@ let quizQuestionGroups = {
      * @param {string} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    deleteQuestionGroup: (courseId, quizId, groupId) => helper.delete(`/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}`),
+    deleteQuestionGroup: (courseId, quizId, groupId) =>
+      helper.delete(
+        `/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}`,
+      ),
     /**
      * Change the order of the quiz questions within the group <b>204 No Content<b> response code is returned if the reorder was successful.
      * @summary Reorder question groups
@@ -47,7 +55,10 @@ let quizQuestionGroups = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    reorderQuestionGroups: (courseId, quizId, groupId, body) => helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}/reorder`, body),
-}
-
-module.exports = quizQuestionGroups;
+    reorderQuestionGroups: (courseId, quizId, groupId, body) =>
+      helper.post(
+        `/v1/courses/${courseId}/quizzes/${quizId}/groups/${groupId}/reorder`,
+        body,
+      ),
+  };
+};

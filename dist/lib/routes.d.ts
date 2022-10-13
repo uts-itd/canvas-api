@@ -1,15 +1,4 @@
-export = createAPI;
-declare function createAPI(domain: any, token: any): {
-    settings: {
-        totalCost: number;
-        sentRequests: number;
-        domain: any;
-        token: any;
-        maxPage: number;
-        formatCourseSIS: (courseSIS: string) => string;
-        formatUserSIS: (userSIS: any) => string;
-        formatTermSIS: (termSIS: string) => string;
-    };
+declare function _exports(helper: any): {
     errorReports: {
         createErrorReport: (body: any) => Promise<any>;
     };
@@ -944,3 +933,4 @@ declare function createAPI(domain: any, token: any): {
         deleteExternalToolAccounts: (accountId: string, externalToolId: string) => Promise<any>;
     };
 };
+export = _exports;

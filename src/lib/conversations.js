@@ -1,13 +1,12 @@
-const helper = require('../helper');
-
-let conversations = {
+module.exports = (helper) => {
+  return {
     /**
      * Returns the paginated list of conversations for the current user, most recent ones first.
      * @summary List conversations
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listConversations: (query='') => helper.get(`/v1/conversations`, query),
+    listConversations: (query = '') => helper.get(`/v1/conversations`, query),
     /**
      * Create a new conversation with one or more recipients. If there is already an existing private conversation with the given recipients, it will be reused.
      * @summary Create a conversation
@@ -28,7 +27,8 @@ let conversations = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getSingleConversation: (conversationId, query='') => helper.get(`/v1/conversations/${conversationId}`, query),
+    getSingleConversation: (conversationId, query = '') =>
+      helper.get(`/v1/conversations/${conversationId}`, query),
     /**
      * Updates attributes for a single conversation.
      * @summary Edit a conversation
@@ -36,7 +36,8 @@ let conversations = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editConversation: (conversationId, body) => helper.put(`/v1/conversations/${conversationId}`, body),
+    editConversation: (conversationId, body) =>
+      helper.put(`/v1/conversations/${conversationId}`, body),
     /**
      * Mark all conversations as read.
      * @summary Mark all as read
@@ -49,7 +50,8 @@ let conversations = {
      * @param {string} conversationId Canvas Conversation ID
      * @returns {Promise<any>}
      */
-    deleteConversation: (conversationId) => helper.delete(`/v1/conversations/${conversationId}`),
+    deleteConversation: (conversationId) =>
+      helper.delete(`/v1/conversations/${conversationId}`),
     /**
      * Add recipients to an existing group conversation. Response is similar to the GET/show action, except that only includes the latest message (e.g. "joe was added to the conversation by bob")
      * @summary Add recipients
@@ -57,7 +59,8 @@ let conversations = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    addRecipients: (conversationId, body) => helper.post(`/v1/conversations/${conversationId}/add_recipients`, body),
+    addRecipients: (conversationId, body) =>
+      helper.post(`/v1/conversations/${conversationId}/add_recipients`, body),
     /**
      * Add a message to an existing conversation. Response is similar to the GET/show action, except that only includes the latest message (i.e. what we just sent) An array of user ids. Defaults to all of the current conversation recipients. To explicitly send a message to no other recipients, this array should consist of the logged-in user id. An array of message ids from this conversation to send to recipients of the new message. Recipients who already had a copy of included messages will not be affected.
      * @summary Add a message
@@ -65,7 +68,8 @@ let conversations = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    addMessage: (conversationId, body) => helper.post(`/v1/conversations/${conversationId}/add_message`, body),
+    addMessage: (conversationId, body) =>
+      helper.post(`/v1/conversations/${conversationId}/add_message`, body),
     /**
      * Delete messages from this conversation. Note that this only affects this user's view of the conversation. If all messages are deleted, the conversation will be as well (equivalent to DELETE)
      * @summary Delete a message
@@ -73,7 +77,8 @@ let conversations = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    deleteMessage: (conversationId, body) => helper.post(`/v1/conversations/${conversationId}/remove_messages`, body),
+    deleteMessage: (conversationId, body) =>
+      helper.post(`/v1/conversations/${conversationId}/remove_messages`, body),
     /**
      * Perform a change on a set of conversations. Operates asynchronously; use the {api:ProgressController#show progress endpoint} to query the status of an operation.
      * @summary Batch update conversations
@@ -93,6 +98,5 @@ let conversations = {
      * @returns {Promise<any>}
      */
     unreadCount: () => helper.get(`/v1/conversations/unread_count`),
-}
-
-module.exports = conversations;
+  };
+};

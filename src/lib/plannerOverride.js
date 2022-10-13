@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let plannerOverride = {
+module.exports = (helper) => {
+  return {
     /**
      * Retrieve a planner override for the current user
      * @summary List planner overrides
@@ -13,7 +12,8 @@ let plannerOverride = {
      * @param {string} overrideId Canvas Override ID
      * @returns {Promise<any>}
      */
-    showPlannerOverride: (overrideId) => helper.get(`/v1/planner/overrides/${overrideId}`),
+    showPlannerOverride: (overrideId) =>
+      helper.get(`/v1/planner/overrides/${overrideId}`),
     /**
      * Update a planner override's visibilty for the current user
      * @summary Update a planner override
@@ -21,7 +21,8 @@ let plannerOverride = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updatePlannerOverride: (overrideId, body) => helper.put(`/v1/planner/overrides/${overrideId}`, body),
+    updatePlannerOverride: (overrideId, body) =>
+      helper.put(`/v1/planner/overrides/${overrideId}`, body),
     /**
      * Create a planner override for the current user
      * @summary Create a planner override
@@ -35,7 +36,7 @@ let plannerOverride = {
      * @param {string} overrideId Canvas Override ID
      * @returns {Promise<any>}
      */
-    deletePlannerOverride: (overrideId) => helper.delete(`/v1/planner/overrides/${overrideId}`),
-}
-
-module.exports = plannerOverride;
+    deletePlannerOverride: (overrideId) =>
+      helper.delete(`/v1/planner/overrides/${overrideId}`),
+  };
+};

@@ -1,13 +1,12 @@
-const helper = require('../helper');
-
-let accounts = {
+module.exports = (helper) => {
+  return {
     /**
      * A paginated list of accounts that the current user can view or manage. Typically, students and even teachers will get an empty list in response, only account admins can view the accounts that they are in.
      * @summary List accounts
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listAccounts: (query='') => helper.get(`/v1/accounts`, query),
+    listAccounts: (query = '') => helper.get(`/v1/accounts`, query),
     /**
      * A paginated list of accounts that the current user can view through their admin course enrollments. (Teacher, TA, or designer enrollments). Only returns "id", "name", "workflow_state", "root_account_id" and "parent_account_id"
      * @summary List accounts for course admins
@@ -28,7 +27,8 @@ let accounts = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    permissions: (accountId, query='') => helper.get(`/v1/accounts/${accountId}/permissions`, query),
+    permissions: (accountId, query = '') =>
+      helper.get(`/v1/accounts/${accountId}/permissions`, query),
     /**
      * List accounts that are sub-accounts of the given account.
      * @summary Get the sub-accounts of an account
@@ -36,14 +36,16 @@ let accounts = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getSubAccountsOfAccount: (accountId, query='') => helper.get(`/v1/accounts/${accountId}/sub_accounts`, query),
+    getSubAccountsOfAccount: (accountId, query = '') =>
+      helper.get(`/v1/accounts/${accountId}/sub_accounts`, query),
     /**
-     * 
+     *
      * @summary Returns the terms of service for that account
      * @param {string} accountId Canvas Account ID
      * @returns {Promise<any>}
      */
-    returnsTermsOfServiceForThatAccount: (accountId) => helper.get(`/v1/accounts/${accountId}/terms_of_service`),
+    returnsTermsOfServiceForThatAccount: (accountId) =>
+      helper.get(`/v1/accounts/${accountId}/terms_of_service`),
     /**
      * Retrieve a paginated list of courses in this account.
      * @summary List active courses in an account
@@ -51,7 +53,8 @@ let accounts = {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listActiveCoursesInAccount: (accountId, query='') => helper.get(`/v1/accounts/${accountId}/courses`, query),
+    listActiveCoursesInAccount: (accountId, query = '') =>
+      helper.get(`/v1/accounts/${accountId}/courses`, query),
     /**
      * Update an existing account.
      * @summary Update an account
@@ -59,7 +62,8 @@ let accounts = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateAccount: (accountId, body) => helper.put(`/v1/accounts/${accountId}`, body),
+    updateAccount: (accountId, body) =>
+      helper.put(`/v1/accounts/${accountId}`, body),
     /**
      * Delete a user record from a Canvas root account. If a user is associated with multiple root accounts (in a multi-tenant instance of Canvas), this action will NOT remove them from the other accounts. WARNING: This API will allow a user to remove themselves from the account. If they do this, they won't be able to make API calls or log into Canvas at that account.
      * @summary Delete a user from the root account
@@ -67,7 +71,8 @@ let accounts = {
      * @param {string} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    deleteUserFromRootAccount: (accountId, userId) => helper.delete(`/v1/accounts/${accountId}/users/${userId}`),
+    deleteUserFromRootAccount: (accountId, userId) =>
+      helper.delete(`/v1/accounts/${accountId}/users/${userId}`),
     /**
      * Add a new sub-account to a given account.
      * @summary Create a new sub-account
@@ -75,7 +80,8 @@ let accounts = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createNewSubAccount: (accountId, body) => helper.post(`/v1/accounts/${accountId}/sub_accounts`, body),
+    createNewSubAccount: (accountId, body) =>
+      helper.post(`/v1/accounts/${accountId}/sub_accounts`, body),
     /**
      * Cannot delete an account with active courses or active sub_accounts. Cannot delete a root_account
      * @summary Delete a sub-account
@@ -83,7 +89,7 @@ let accounts = {
      * @param {string} subAccountId Canvas Sub account ID
      * @returns {Promise<any>}
      */
-    deleteSubAccount: (accountId, subAccountId) => helper.delete(`/v1/accounts/${accountId}/sub_accounts/${subAccountId}`),
-}
-
-module.exports = accounts;
+    deleteSubAccount: (accountId, subAccountId) =>
+      helper.delete(`/v1/accounts/${accountId}/sub_accounts/${subAccountId}`),
+  };
+};

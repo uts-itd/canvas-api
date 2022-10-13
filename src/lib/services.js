@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let services = {
+module.exports = (helper) => {
+  return {
     /**
      * Return the config information for the Kaltura plugin in json format.
      * @summary Get Kaltura config
@@ -13,6 +12,5 @@ let services = {
      * @returns {Promise<any>}
      */
     startKalturaSession: () => helper.post(`/v1/services/kaltura_session`),
-}
-
-module.exports = services;
+  };
+};

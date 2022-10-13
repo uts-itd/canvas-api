@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let quizIpFilters = {
+module.exports = (helper) => {
+  return {
     /**
      * Get a list of available IP filters for this Quiz. 200 OK response code is returned if the request was successful.
      * @summary Get available quiz IP filters.
@@ -8,7 +7,7 @@ let quizIpFilters = {
      * @param {string} quizId Canvas Quiz ID
      * @returns {Promise<any>}
      */
-    getAvailableQuizIpFilters: (courseId, quizId) => helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/ip_filters`),
-}
-
-module.exports = quizIpFilters;
+    getAvailableQuizIpFilters: (courseId, quizId) =>
+      helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/ip_filters`),
+  };
+};

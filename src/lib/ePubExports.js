@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let ePubExports = {
+module.exports = (helper) => {
+  return {
     /**
      * A paginated list of all courses a user is actively participating in, and the latest ePub export associated with the user & course.
      * @summary List courses with their latest ePub export
@@ -13,7 +12,8 @@ let ePubExports = {
      * @param {string} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    createEpubExport: (courseId) => helper.post(`/v1/courses/${courseId}/epub_exports`),
+    createEpubExport: (courseId) =>
+      helper.post(`/v1/courses/${courseId}/epub_exports`),
     /**
      * Get information about a single ePub export.
      * @summary Show ePub export
@@ -21,7 +21,7 @@ let ePubExports = {
      * @param {string} epubExportId Canvas Epub export ID
      * @returns {Promise<any>}
      */
-    showEpubExport: (courseId, epubExportId) => helper.get(`/v1/courses/${courseId}/epub_exports/${epubExportId}`),
-}
-
-module.exports = ePubExports;
+    showEpubExport: (courseId, epubExportId) =>
+      helper.get(`/v1/courses/${courseId}/epub_exports/${epubExportId}`),
+  };
+};

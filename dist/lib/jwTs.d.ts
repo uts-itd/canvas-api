@@ -1,2 +1,16 @@
-export function createJwt(): Promise<any>;
-export function refreshJwt(body: any): Promise<any>;
+declare function _exports(helper: any): {
+    /**
+     * Create a unique jwt for using with other canvas services Generates a different JWT each time it's called, each one expires after a short window (1 hour)
+     * @summary Create JWT
+     * @returns {Promise<any>}
+     */
+    createJwt: () => Promise<any>;
+    /**
+     * Refresh a JWT for use with other canvas services Generates a different JWT each time it's called, each one expires after a short window (1 hour).
+     * @summary Refresh JWT
+     * @param {Object} body JSON form fields
+     * @returns {Promise<any>}
+     */
+    refreshJwt: (body: any) => Promise<any>;
+};
+export = _exports;

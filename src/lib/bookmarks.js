@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let bookmarks = {
+module.exports = (helper) => {
+  return {
     /**
      * Returns the paginated list of bookmarks.
      * @summary List bookmarks
@@ -20,7 +19,8 @@ let bookmarks = {
      * @param {string} bookmarkId Canvas Bookmark ID
      * @returns {Promise<any>}
      */
-    getBookmark: (bookmarkId) => helper.get(`/v1/users/self/bookmarks/${bookmarkId}`),
+    getBookmark: (bookmarkId) =>
+      helper.get(`/v1/users/self/bookmarks/${bookmarkId}`),
     /**
      * Updates a bookmark
      * @summary Update bookmark
@@ -28,14 +28,15 @@ let bookmarks = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateBookmark: (bookmarkId, body) => helper.put(`/v1/users/self/bookmarks/${bookmarkId}`, body),
+    updateBookmark: (bookmarkId, body) =>
+      helper.put(`/v1/users/self/bookmarks/${bookmarkId}`, body),
     /**
      * Deletes a bookmark
      * @summary Delete bookmark
      * @param {string} bookmarkId Canvas Bookmark ID
      * @returns {Promise<any>}
      */
-    deleteBookmark: (bookmarkId) => helper.delete(`/v1/users/self/bookmarks/${bookmarkId}`),
-}
-
-module.exports = bookmarks;
+    deleteBookmark: (bookmarkId) =>
+      helper.delete(`/v1/users/self/bookmarks/${bookmarkId}`),
+  };
+};

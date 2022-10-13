@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let plagiarismDetectionPlatformUsers = {
+module.exports = (helper) => {
+  return {
     /**
      * Get a single Canvas user by Canvas id or LTI id. Tool providers may only access users that have been assigned an assignment associated with their tool.
      * @summary Get a single user (lti)
@@ -14,7 +13,7 @@ let plagiarismDetectionPlatformUsers = {
      * @param {string} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    getAllUsersInGroupLti: (groupId) => helper.get(`/lti/groups/${groupId}/users`),
-}
-
-module.exports = plagiarismDetectionPlatformUsers;
+    getAllUsersInGroupLti: (groupId) =>
+      helper.get(`/lti/groups/${groupId}/users`),
+  };
+};

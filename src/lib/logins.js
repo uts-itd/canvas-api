@@ -1,13 +1,13 @@
-const helper = require('../helper');
-
-let logins = {
+module.exports = (helper) => {
+  return {
     /**
      * Given a user ID, return a paginated list of that user's logins for the given account.
      * @summary List user logins
      * @param {string} accountId Canvas Account ID
      * @returns {Promise<any>}
      */
-    listUserLoginsAccounts: (accountId) => helper.get(`/v1/accounts/${accountId}/logins`),
+    listUserLoginsAccounts: (accountId) =>
+      helper.get(`/v1/accounts/${accountId}/logins`),
     /**
      * Given a user ID, return a paginated list of that user's logins for the given account.
      * @summary List user logins
@@ -22,7 +22,8 @@ let logins = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createUserLogin: (accountId, body) => helper.post(`/v1/accounts/${accountId}/logins`, body),
+    createUserLogin: (accountId, body) =>
+      helper.post(`/v1/accounts/${accountId}/logins`, body),
     /**
      * Update an existing login for a user in the given account.
      * @summary Edit a user login
@@ -31,7 +32,8 @@ let logins = {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editUserLogin: (accountId, loginId, body) => helper.put(`/v1/accounts/${accountId}/logins/${loginId}`, body),
+    editUserLogin: (accountId, loginId, body) =>
+      helper.put(`/v1/accounts/${accountId}/logins/${loginId}`, body),
     /**
      * Delete an existing login.
      * @summary Delete a user login
@@ -39,7 +41,7 @@ let logins = {
      * @param {string} loginId Canvas Login ID
      * @returns {Promise<any>}
      */
-    deleteUserLogin: (userId, loginId) => helper.delete(`/v1/users/${userId}/logins/${loginId}`),
-}
-
-module.exports = logins;
+    deleteUserLogin: (userId, loginId) =>
+      helper.delete(`/v1/users/${userId}/logins/${loginId}`),
+  };
+};

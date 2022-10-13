@@ -1,6 +1,5 @@
-const helper = require('../helper');
-
-let polls = {
+module.exports = (helper) => {
+  return {
     /**
      * Returns the paginated list of polls for the current user.
      * @summary List polls
@@ -36,6 +35,5 @@ let polls = {
      * @returns {Promise<any>}
      */
     deletePoll: (pollId) => helper.delete(`/v1/polls/${pollId}`),
-}
-
-module.exports = polls;
+  };
+};
