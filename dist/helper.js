@@ -8,16 +8,18 @@ let getPagination = (header) => {
         return {};
     let pagination = {};
     let links = header.split(',');
-    links.forEach(link => {
+    links.forEach((link) => {
         let data = link.split('"');
         pagination[data[1]] = {
             page: Number(data[0].split('page=')[1].split('&')[0]),
             link: data[0].split('<')[1].split('>')[0],
         };
     });
-    if (pagination.next && pagination.next.page >= settings.maxPage && !pagination.last)
+    if (pagination.next &&
+        pagination.next.page >= settings.maxPage &&
+        !pagination.last)
         pagination.last = {
-            page: settings.maxPage
+            page: settings.maxPage,
         };
     if (pagination.next && pagination.next.page > settings.maxPage)
         pagination.next = null;
@@ -44,29 +46,32 @@ let manager = () => {
         cost -= requestCost;
         let next = requestQueue.shift();
         runningQueue.push(next);
-        request(next.params).then((response) => {
-            runningQueue.splice(runningQueue.indexOf(next), 1);
+        request(next.params)
+            .then((response) => {
             try {
                 response.body = JSON.parse(response.body);
             }
             catch (e) { }
-            cost = Number(response.headers['x-rate-limit-remaining']) - requestCost * runningQueue.length;
             let pagination = getPagination(response.headers.link);
-            if (pagination.next && pagination.current.page === 1 && pagination.last) {
+            if (pagination.next &&
+                pagination.current.page === 1 &&
+                pagination.last) {
                 let pages = [];
                 let baseUri = next.params.uri;
                 for (let x = 2; x <= pagination.last.page; x++) {
                     next.params.uri = baseUri + '&page=' + x;
                     pages.push(sendRequest(Object.assign({}, next.params)));
                 }
-                Promise.all(pages).then(dataArray => {
+                Promise.all(pages)
+                    .then((dataArray) => {
                     if (next.nesting) {
-                        response.body[next.nesting] = response.body[next.nesting].concat(...dataArray.map(x => x[next.nesting]));
+                        response.body[next.nesting] = response.body[next.nesting].concat(...dataArray.map((x) => x[next.nesting]));
                     }
                     else
                         response.body = response.body.concat(...dataArray);
                     next.resolve(response.body);
-                }).catch(error => {
+                })
+                    .catch((error) => {
                     next.reject(error);
                 });
             }
@@ -83,30 +88,41 @@ let manager = () => {
             }
             if (requestQueue.length > 0)
                 manager();
-            if (!pagination.next || (pagination.current.page !== 1 && pagination.last))
+            if (!pagination.next ||
+                (pagination.current.page !== 1 && pagination.last)) {
                 next.resolve(response.body);
-        }).catch((err) => {
+            }
+            return response.headers;
+        })
+            .catch((err) => {
             if (err.name === 'StatusCodeError') {
                 let errMessage = {
-                    code: err.statusCode
+                    code: err.statusCode,
                 };
                 switch (err.statusCode) {
                     case 401:
                         errMessage.message = `Authorization error: ${JSON.parse(err.response.body).errors[0].message}`;
-                        return next.reject(errMessage);
+                        next.reject(errMessage);
+                        break;
                     case 404:
                         errMessage.message = `Invalid url: ${JSON.parse(err.response.body).errors[0].message}`;
-                        return next.reject(errMessage);
+                        next.reject(errMessage);
+                        break;
                     case 403:
-                        requestQueue.push(next);
-                        if (timeout)
-                            clearTimeout(timeout);
-                        timeout = setTimeout(checkQueue, 2000);
-                        cost = 0;
-                        return;
+                        errMessage.message = `Forbidden: ${JSON.parse(err.response.body).errors[0].message}`;
+                        next.reject(errMessage);
+                        break;
                 }
             }
-            next.reject(err);
+            else
+                next.reject(err);
+            return err.response.headers;
+        })
+            .then((headers) => {
+            runningQueue.splice(runningQueue.indexOf(next), 1);
+            cost =
+                Number(headers['x-rate-limit-remaining']) -
+                    requestCost * runningQueue.length;
         });
     }
 };
@@ -118,7 +134,7 @@ let sendRequest = (params, nesting = null) => {
             params,
             nesting,
             resolve,
-            reject
+            reject,
         });
         manager();
     });
@@ -130,12 +146,12 @@ let requests = {
             method: 'GET',
             qs: query,
             qsStringifyOptions: {
-                arrayFormat: 'brackets'
+                arrayFormat: 'brackets',
             },
             headers: {
-                'Authorization': `Bearer ${settings.token}`
+                Authorization: `Bearer ${settings.token}`,
             },
-            resolveWithFullResponse: true
+            resolveWithFullResponse: true,
         }, nesting);
     },
     post: (endpoint, data) => {
@@ -143,10 +159,10 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${settings.token}`
+                Authorization: `Bearer ${settings.token}`,
             },
             json: data,
-            resolveWithFullResponse: true
+            resolveWithFullResponse: true,
         });
     },
     delete: (endpoint, data) => {
@@ -154,10 +170,10 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${settings.token}`
+                Authorization: `Bearer ${settings.token}`,
             },
             json: data,
-            resolveWithFullResponse: true
+            resolveWithFullResponse: true,
         });
     },
     put: (endpoint, data) => {
@@ -165,11 +181,11 @@ let requests = {
             uri: `https://${settings.domain}/api${endpoint}`,
             method: 'PUT',
             headers: {
-                'Authorization': `Bearer ${settings.token}`
+                Authorization: `Bearer ${settings.token}`,
             },
             json: data,
-            resolveWithFullResponse: true
+            resolveWithFullResponse: true,
         });
-    }
+    },
 };
 module.exports = requests;
