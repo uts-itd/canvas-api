@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Retrieve the paginated list of planner notes Retrieve planner note for a user
      * @summary List planner notes
@@ -9,18 +10,18 @@ declare function _exports(helper: any): {
     /**
      * Retrieve a planner note for the current user
      * @summary Show a PlannerNote
-     * @param {string} plannerNoteId Canvas Planner note ID
+     * @param {string|number} plannerNoteId Canvas Planner note ID
      * @returns {Promise<any>}
      */
-    showPlannernote: (plannerNoteId: string) => Promise<any>;
+    showPlannernote: (plannerNoteId: string | number) => Promise<any>;
     /**
      * Update a planner note for the current user
      * @summary Update a PlannerNote
-     * @param {string} plannerNoteId Canvas Planner note ID
+     * @param {string|number} plannerNoteId Canvas Planner note ID
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updatePlannernote: (plannerNoteId: string, body: any) => Promise<any>;
+    updatePlannernote: (plannerNoteId: string | number, body: any) => Promise<any>;
     /**
      * Create a planner note for the current user
      * @summary Create a planner note
@@ -31,9 +32,8 @@ declare function _exports(helper: any): {
     /**
      * Delete a planner note for the current user
      * @summary Delete a planner note
-     * @param {string} plannerNoteId Canvas Planner note ID
+     * @param {string|number} plannerNoteId Canvas Planner note ID
      * @returns {Promise<any>}
      */
-    deletePlannerNote: (plannerNoteId: string) => Promise<any>;
+    deletePlannerNote: (plannerNoteId: string | number) => Promise<any>;
 };
-export = _exports;

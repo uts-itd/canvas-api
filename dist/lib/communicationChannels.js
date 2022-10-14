@@ -1,16 +1,18 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Returns a paginated list of communication channels for the specified user, sorted by position.
          * @summary List user communication channels
-         * @param {string} userId Canvas User ID
+         * @param {string|number} userId Canvas User ID
          * @returns {Promise<any>}
          */
         listUserCommunicationChannels: (userId) => helper.get(`/v1/users/${userId}/communication_channels`),
         /**
          * Creates a new communication channel for the specified user.
          * @summary Create a communication channel
-         * @param {string} userId Canvas User ID
+         * @param {string|number} userId Canvas User ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -18,15 +20,15 @@ module.exports = (helper) => {
         /**
          * Delete an existing communication channel.
          * @summary Delete a communication channel
-         * @param {string} userId Canvas User ID
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} userId Canvas User ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @returns {Promise<any>}
          */
         deleteCommunicationChannelId: (userId, communicationChannelId) => helper.delete(`/v1/users/${userId}/communication_channels/${communicationChannelId}`),
         /**
          * Delete an existing communication channel.
          * @summary Delete a communication channel
-         * @param {string} userId Canvas User ID
+         * @param {string|number} userId Canvas User ID
          * @param {string} type ID
          * @param {string} address ID
          * @returns {Promise<any>}
@@ -39,4 +41,5 @@ module.exports = (helper) => {
          */
         deletePushNotificationEndpoint: () => helper.delete(`/v1/users/self/communication_channels/push`),
     };
-};
+}
+exports.default = default_1;

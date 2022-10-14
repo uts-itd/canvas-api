@@ -1,19 +1,21 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Returns the paginated list of QuizQuestions in this quiz.
          * @summary List questions in a quiz or a submission
-         * @param {string} courseId Canvas Course ID
-         * @param {string} quizId Canvas Quiz ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} quizId Canvas Quiz ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        listQuestionsInQuizOrSubmission: (courseId, quizId, query = '') => helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/questions`, query),
+        listQuestionsInQuizOrSubmission: (courseId, quizId, query) => helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/questions`, query),
         /**
          * Returns the quiz question with the given id
          * @summary Get a single quiz question
-         * @param {string} courseId Canvas Course ID
-         * @param {string} quizId Canvas Quiz ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} quizId Canvas Quiz ID
          * @param number questionId Canvas Question ID
          * @returns {Promise<any>}
          */
@@ -21,8 +23,8 @@ module.exports = (helper) => {
         /**
          * Create a new quiz question for this quiz
          * @summary Create a single quiz question
-         * @param {string} courseId Canvas Course ID
-         * @param {string} quizId Canvas Quiz ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} quizId Canvas Quiz ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -30,7 +32,7 @@ module.exports = (helper) => {
         /**
          * Updates an existing quiz question for this quiz
          * @summary Update an existing quiz question
-         * @param {string} courseId Canvas Course ID
+         * @param {string|number} courseId Canvas Course ID
          * @param number quizId Canvas Quiz ID
          * @param number questionId Canvas Question ID
          * @param {Object} body JSON form fields
@@ -40,11 +42,12 @@ module.exports = (helper) => {
         /**
          * 204 No Content response code is returned if the deletion was successful.
          * @summary Delete a quiz question
-         * @param {string} courseId Canvas Course ID
+         * @param {string|number} courseId Canvas Course ID
          * @param number quizId Canvas Quiz ID
          * @param number questionId Canvas Question ID
          * @returns {Promise<any>}
          */
         deleteQuizQuestion: (courseId, quizId, questionId) => helper.delete(`/v1/courses/${courseId}/quizzes/${quizId}/questions/${questionId}`),
     };
-};
+}
+exports.default = default_1;

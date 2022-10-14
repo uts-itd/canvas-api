@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Returns the paginated list of conversations for the current user, most recent ones first.
@@ -6,7 +8,7 @@ module.exports = (helper) => {
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        listConversations: (query = '') => helper.get(`/v1/conversations`, query),
+        listConversations: (query) => helper.get(`/v1/conversations`, query),
         /**
          * Create a new conversation with one or more recipients. If there is already an existing private conversation with the given recipients, it will be reused.
          * @summary Create a conversation
@@ -23,15 +25,15 @@ module.exports = (helper) => {
         /**
          * Returns information for a single conversation for the current user. Response includes all fields that are present in the list/index action as well as messages and extended participant information.
          * @summary Get a single conversation
-         * @param {string} conversationId Canvas Conversation ID
+         * @param {string|number} conversationId Canvas Conversation ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        getSingleConversation: (conversationId, query = '') => helper.get(`/v1/conversations/${conversationId}`, query),
+        getSingleConversation: (conversationId, query) => helper.get(`/v1/conversations/${conversationId}`, query),
         /**
          * Updates attributes for a single conversation.
          * @summary Edit a conversation
-         * @param {string} conversationId Canvas Conversation ID
+         * @param {string|number} conversationId Canvas Conversation ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -45,14 +47,14 @@ module.exports = (helper) => {
         /**
          * Delete this conversation and its messages. Note that this only deletes this user's view of the conversation. Response includes same fields as UPDATE action
          * @summary Delete a conversation
-         * @param {string} conversationId Canvas Conversation ID
+         * @param {string|number} conversationId Canvas Conversation ID
          * @returns {Promise<any>}
          */
         deleteConversation: (conversationId) => helper.delete(`/v1/conversations/${conversationId}`),
         /**
          * Add recipients to an existing group conversation. Response is similar to the GET/show action, except that only includes the latest message (e.g. "joe was added to the conversation by bob")
          * @summary Add recipients
-         * @param {string} conversationId Canvas Conversation ID
+         * @param {string|number} conversationId Canvas Conversation ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -60,7 +62,7 @@ module.exports = (helper) => {
         /**
          * Add a message to an existing conversation. Response is similar to the GET/show action, except that only includes the latest message (i.e. what we just sent) An array of user ids. Defaults to all of the current conversation recipients. To explicitly send a message to no other recipients, this array should consist of the logged-in user id. An array of message ids from this conversation to send to recipients of the new message. Recipients who already had a copy of included messages will not be affected.
          * @summary Add a message
-         * @param {string} conversationId Canvas Conversation ID
+         * @param {string|number} conversationId Canvas Conversation ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -68,7 +70,7 @@ module.exports = (helper) => {
         /**
          * Delete messages from this conversation. Note that this only affects this user's view of the conversation. If all messages are deleted, the conversation will be as well (equivalent to DELETE)
          * @summary Delete a message
-         * @param {string} conversationId Canvas Conversation ID
+         * @param {string|number} conversationId Canvas Conversation ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -93,4 +95,5 @@ module.exports = (helper) => {
          */
         unreadCount: () => helper.get(`/v1/conversations/unread_count`),
     };
-};
+}
+exports.default = default_1;

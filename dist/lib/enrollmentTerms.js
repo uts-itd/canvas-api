@@ -1,9 +1,11 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Create a new enrollment term for the specified account.
          * @summary Create enrollment term
-         * @param {string} accountId Canvas Account ID
+         * @param {string|number} accountId Canvas Account ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -11,8 +13,8 @@ module.exports = (helper) => {
         /**
          * Update an existing enrollment term for the specified account.
          * @summary Update enrollment term
-         * @param {string} accountId Canvas Account ID
-         * @param {string} termId Canvas Term ID
+         * @param {string|number} accountId Canvas Account ID
+         * @param {string|number} termId Canvas Term ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -20,18 +22,19 @@ module.exports = (helper) => {
         /**
          * Delete the specified enrollment term.
          * @summary Delete enrollment term
-         * @param {string} accountId Canvas Account ID
-         * @param {string} termId Canvas Term ID
+         * @param {string|number} accountId Canvas Account ID
+         * @param {string|number} termId Canvas Term ID
          * @returns {Promise<any>}
          */
         deleteEnrollmentTerm: (accountId, termId) => helper.delete(`/v1/accounts/${accountId}/terms/${termId}`),
         /**
          * A paginated list of all of the terms in the account.
          * @summary List enrollment terms
-         * @param {string} accountId Canvas Account ID
+         * @param {string|number} accountId Canvas Account ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        listEnrollmentTerms: (accountId, query = '') => helper.get(`/v1/accounts/${accountId}/terms`, query, 'enrollment_terms'),
+        listEnrollmentTerms: (accountId, query) => helper.get(`/v1/accounts/${accountId}/terms`, query, 'enrollment_terms'),
     };
-};
+}
+exports.default = default_1;

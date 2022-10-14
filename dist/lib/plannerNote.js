@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Retrieve the paginated list of planner notes Retrieve planner note for a user
@@ -6,18 +8,18 @@ module.exports = (helper) => {
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        listPlannerNotes: (query = '') => helper.get(`/v1/planner_notes`, query),
+        listPlannerNotes: (query) => helper.get(`/v1/planner_notes`, query),
         /**
          * Retrieve a planner note for the current user
          * @summary Show a PlannerNote
-         * @param {string} plannerNoteId Canvas Planner note ID
+         * @param {string|number} plannerNoteId Canvas Planner note ID
          * @returns {Promise<any>}
          */
         showPlannernote: (plannerNoteId) => helper.get(`/v1/planner_notes/${plannerNoteId}`),
         /**
          * Update a planner note for the current user
          * @summary Update a PlannerNote
-         * @param {string} plannerNoteId Canvas Planner note ID
+         * @param {string|number} plannerNoteId Canvas Planner note ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -32,9 +34,10 @@ module.exports = (helper) => {
         /**
          * Delete a planner note for the current user
          * @summary Delete a planner note
-         * @param {string} plannerNoteId Canvas Planner note ID
+         * @param {string|number} plannerNoteId Canvas Planner note ID
          * @returns {Promise<any>}
          */
         deletePlannerNote: (plannerNoteId) => helper.delete(`/v1/planner_notes/${plannerNoteId}`),
     };
-};
+}
+exports.default = default_1;

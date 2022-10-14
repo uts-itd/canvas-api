@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Returns a list of up to 5 matching account domains Partial match on name / domain are supported
      * @summary Search account domains
@@ -7,4 +8,3 @@ declare function _exports(helper: any): {
      */
     searchAccountDomains: (query?: any) => Promise<any>;
 };
-export = _exports;

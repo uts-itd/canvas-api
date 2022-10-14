@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Returns the paginated list of bookmarks.
      * @summary List bookmarks
@@ -15,24 +16,23 @@ declare function _exports(helper: any): {
     /**
      * Returns the details for a bookmark.
      * @summary Get bookmark
-     * @param {string} bookmarkId Canvas Bookmark ID
+     * @param {string|number} bookmarkId Canvas Bookmark ID
      * @returns {Promise<any>}
      */
-    getBookmark: (bookmarkId: string) => Promise<any>;
+    getBookmark: (bookmarkId: string | number) => Promise<any>;
     /**
      * Updates a bookmark
      * @summary Update bookmark
-     * @param {string} bookmarkId Canvas Bookmark ID
+     * @param {string|number} bookmarkId Canvas Bookmark ID
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateBookmark: (bookmarkId: string, body: any) => Promise<any>;
+    updateBookmark: (bookmarkId: string | number, body: any) => Promise<any>;
     /**
      * Deletes a bookmark
      * @summary Delete bookmark
-     * @param {string} bookmarkId Canvas Bookmark ID
+     * @param {string|number} bookmarkId Canvas Bookmark ID
      * @returns {Promise<any>}
      */
-    deleteBookmark: (bookmarkId: string) => Promise<any>;
+    deleteBookmark: (bookmarkId: string | number) => Promise<any>;
 };
-export = _exports;

@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Returns the paginated list of announcements for the given courses and date range. Note that a +context_code+ field is added to the responses so you can tell which course each announcement belongs to.
@@ -8,4 +10,5 @@ module.exports = (helper) => {
          */
         listAnnouncements: (query) => helper.get(`/v1/announcements`, query),
     };
-};
+}
+exports.default = default_1;

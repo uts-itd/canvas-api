@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Return the config information for the Kaltura plugin in json format.
      * @summary Get Kaltura config
@@ -12,4 +13,3 @@ declare function _exports(helper: any): {
      */
     startKalturaSession: () => Promise<any>;
 };
-export = _exports;

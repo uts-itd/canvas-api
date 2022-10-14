@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Find valid recipients (users, courses and groups) that the current user can send messages to. The /api/v1/search/recipients path is the preferred endpoint, /api/v1/conversations/find_recipients is deprecated. Pagination is supported.
      * @summary Find recipients
@@ -21,4 +22,3 @@ declare function _exports(helper: any): {
      */
     listAllCourses: (query?: any) => Promise<any>;
 };
-export = _exports;

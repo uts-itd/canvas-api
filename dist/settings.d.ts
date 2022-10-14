@@ -1,9 +1,14 @@
-declare function _exports(domain: any, token: any): {
+export declare function getDefaultSettings(domain: string, token: string): {
     totalCost: number;
     sentRequests: number;
-    domain: any;
-    token: any;
+    domain: string;
+    token: string;
     maxPage: number;
+    /**
+     * Warning: This is a can be very dangerous as you will force request many pages even if half of them are beyond the page count of the requested resource.
+     * Use with caution.
+     */
+    forceLastPage: number;
     /**
      * Returns a string used to query endpoints using a course SIS ID
      *
@@ -17,7 +22,7 @@ declare function _exports(domain: any, token: any): {
      * @param {string} courseSIS Canvas user SIS ID
      * @returns {String} user SIS ID format for endpoints
      */
-    formatUserSIS: (userSIS: any) => string;
+    formatUserSIS: (userSIS: string) => string;
     /**
      * Returns a string used to query endpoints using a user SIS ID
      *
@@ -26,4 +31,4 @@ declare function _exports(domain: any, token: any): {
      */
     formatTermSIS: (termSIS: string) => string;
 };
-export = _exports;
+export declare type Settings = ReturnType<typeof getDefaultSettings>;

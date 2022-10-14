@@ -1,49 +1,51 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Get a list of all Peer Reviews for this assignment
          * @summary Get all Peer Reviews
-         * @param {string} courseId Canvas Course ID
-         * @param {string} assignmentId Canvas Assignment ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} assignmentId Canvas Assignment ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        getAllPeerReviewsCoursesPeerReviews: (courseId, assignmentId, query = '') => helper.get(`/v1/courses/${courseId}/assignments/${assignmentId}/peer_reviews`, query),
+        getAllPeerReviewsCoursesPeerReviews: (courseId, assignmentId, query) => helper.get(`/v1/courses/${courseId}/assignments/${assignmentId}/peer_reviews`, query),
         /**
          * Get a list of all Peer Reviews for this assignment
          * @summary Get all Peer Reviews
-         * @param {string} sectionId Canvas Section ID
-         * @param {string} assignmentId Canvas Assignment ID
+         * @param {string|number} sectionId Canvas Section ID
+         * @param {string|number} assignmentId Canvas Assignment ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        getAllPeerReviewsSectionsPeerReviews: (sectionId, assignmentId, query = '') => helper.get(`/v1/sections/${sectionId}/assignments/${assignmentId}/peer_reviews`, query),
+        getAllPeerReviewsSectionsPeerReviews: (sectionId, assignmentId, query) => helper.get(`/v1/sections/${sectionId}/assignments/${assignmentId}/peer_reviews`, query),
         /**
          * Get a list of all Peer Reviews for this assignment
          * @summary Get all Peer Reviews
-         * @param {string} courseId Canvas Course ID
-         * @param {string} assignmentId Canvas Assignment ID
-         * @param {string} submissionId Canvas Submission ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} assignmentId Canvas Assignment ID
+         * @param {string|number} submissionId Canvas Submission ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        getAllPeerReviewsCoursesSubmissions: (courseId, assignmentId, submissionId, query = '') => helper.get(`/v1/courses/${courseId}/assignments/${assignmentId}/submissions/${submissionId}/peer_reviews`, query),
+        getAllPeerReviewsCoursesSubmissions: (courseId, assignmentId, submissionId, query) => helper.get(`/v1/courses/${courseId}/assignments/${assignmentId}/submissions/${submissionId}/peer_reviews`, query),
         /**
          * Get a list of all Peer Reviews for this assignment
          * @summary Get all Peer Reviews
-         * @param {string} sectionId Canvas Section ID
-         * @param {string} assignmentId Canvas Assignment ID
-         * @param {string} submissionId Canvas Submission ID
+         * @param {string|number} sectionId Canvas Section ID
+         * @param {string|number} assignmentId Canvas Assignment ID
+         * @param {string|number} submissionId Canvas Submission ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        getAllPeerReviewsSectionsSubmissions: (sectionId, assignmentId, submissionId, query = '') => helper.get(`/v1/sections/${sectionId}/assignments/${assignmentId}/submissions/${submissionId}/peer_reviews`, query),
+        getAllPeerReviewsSectionsSubmissions: (sectionId, assignmentId, submissionId, query) => helper.get(`/v1/sections/${sectionId}/assignments/${assignmentId}/submissions/${submissionId}/peer_reviews`, query),
         /**
          * Create a peer review for the assignment
          * @summary Create Peer Review
-         * @param {string} courseId Canvas Course ID
-         * @param {string} assignmentId Canvas Assignment ID
-         * @param {string} submissionId Canvas Submission ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} assignmentId Canvas Assignment ID
+         * @param {string|number} submissionId Canvas Submission ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -51,9 +53,9 @@ module.exports = (helper) => {
         /**
          * Create a peer review for the assignment
          * @summary Create Peer Review
-         * @param {string} sectionId Canvas Section ID
-         * @param {string} assignmentId Canvas Assignment ID
-         * @param {string} submissionId Canvas Submission ID
+         * @param {string|number} sectionId Canvas Section ID
+         * @param {string|number} assignmentId Canvas Assignment ID
+         * @param {string|number} submissionId Canvas Submission ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -61,9 +63,9 @@ module.exports = (helper) => {
         /**
          * Delete a peer review for the assignment
          * @summary Delete Peer Review
-         * @param {string} courseId Canvas Course ID
-         * @param {string} assignmentId Canvas Assignment ID
-         * @param {string} submissionId Canvas Submission ID
+         * @param {string|number} courseId Canvas Course ID
+         * @param {string|number} assignmentId Canvas Assignment ID
+         * @param {string|number} submissionId Canvas Submission ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
@@ -71,12 +73,13 @@ module.exports = (helper) => {
         /**
          * Delete a peer review for the assignment
          * @summary Delete Peer Review
-         * @param {string} sectionId Canvas Section ID
-         * @param {string} assignmentId Canvas Assignment ID
-         * @param {string} submissionId Canvas Submission ID
+         * @param {string|number} sectionId Canvas Section ID
+         * @param {string|number} assignmentId Canvas Assignment ID
+         * @param {string|number} submissionId Canvas Submission ID
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
         deletePeerReviewSections: (sectionId, assignmentId, submissionId, query) => helper.delete(`/v1/sections/${sectionId}/assignments/${assignmentId}/submissions/${submissionId}/peer_reviews`, query),
     };
-};
+}
+exports.default = default_1;

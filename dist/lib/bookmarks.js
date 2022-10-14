@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Returns the paginated list of bookmarks.
@@ -16,14 +18,14 @@ module.exports = (helper) => {
         /**
          * Returns the details for a bookmark.
          * @summary Get bookmark
-         * @param {string} bookmarkId Canvas Bookmark ID
+         * @param {string|number} bookmarkId Canvas Bookmark ID
          * @returns {Promise<any>}
          */
         getBookmark: (bookmarkId) => helper.get(`/v1/users/self/bookmarks/${bookmarkId}`),
         /**
          * Updates a bookmark
          * @summary Update bookmark
-         * @param {string} bookmarkId Canvas Bookmark ID
+         * @param {string|number} bookmarkId Canvas Bookmark ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -31,9 +33,10 @@ module.exports = (helper) => {
         /**
          * Deletes a bookmark
          * @summary Delete bookmark
-         * @param {string} bookmarkId Canvas Bookmark ID
+         * @param {string|number} bookmarkId Canvas Bookmark ID
          * @returns {Promise<any>}
          */
         deleteBookmark: (bookmarkId) => helper.delete(`/v1/users/self/bookmarks/${bookmarkId}`),
     };
-};
+}
+exports.default = default_1;

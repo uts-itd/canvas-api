@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Create a new error report documenting an experienced problem Performs the same action as when a user uses the "help -> report a problem" dialog.
      * @summary Create Error Report
@@ -7,4 +8,3 @@ declare function _exports(helper: any): {
      */
     createErrorReport: (body: any) => Promise<any>;
 };
-export = _exports;

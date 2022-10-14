@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Creates a webook subscription for the specified event type and context.
@@ -10,21 +12,21 @@ module.exports = (helper) => {
         /**
          *
          * @summary Delete a Webhook Subscription
-         * @param {string} subscriptionId Canvas Subscription ID
+         * @param {string|number} subscriptionId Canvas Subscription ID
          * @returns {Promise<any>}
          */
         deleteWebhookSubscription: (subscriptionId) => helper.delete(`/lti/subscriptions/${subscriptionId}`),
         /**
          *
          * @summary Show a single Webhook Subscription
-         * @param {string} subscriptionId Canvas Subscription ID
+         * @param {string|number} subscriptionId Canvas Subscription ID
          * @returns {Promise<any>}
          */
         showSingleWebhookSubscription: (subscriptionId) => helper.get(`/lti/subscriptions/${subscriptionId}`),
         /**
          * This endpoint uses the same parameters as the create endpoint
          * @summary Update a Webhook Subscription
-         * @param {string} subscriptionId Canvas Subscription ID
+         * @param {string|number} subscriptionId Canvas Subscription ID
          * @returns {Promise<any>}
          */
         updateWebhookSubscription: (subscriptionId) => helper.put(`/lti/subscriptions/${subscriptionId}`),
@@ -35,4 +37,5 @@ module.exports = (helper) => {
          */
         listAllWebhookSubscriptionForToolProxy: () => helper.get(`/lti/subscriptions`),
     };
-};
+}
+exports.default = default_1;

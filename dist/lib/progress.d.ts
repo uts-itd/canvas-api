@@ -1,10 +1,10 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Return completion and status information about an asynchronous job
      * @summary Query progress
-     * @param {string} progresId Canvas Progres ID
+     * @param {string|number} progresId Canvas Progres ID
      * @returns {Promise<any>}
      */
-    queryProgress: (progresId: string) => Promise<any>;
+    queryProgress: (progresId: string | number) => Promise<any>;
 };
-export = _exports;

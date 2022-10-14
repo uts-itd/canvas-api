@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Retrieve a paginated list of messages sent to a user.
@@ -8,4 +10,5 @@ module.exports = (helper) => {
          */
         listOfCommmessagesForUser: (query) => helper.get(`/v1/comm_messages`, query),
     };
-};
+}
+exports.default = default_1;

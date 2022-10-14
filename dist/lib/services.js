@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Return the config information for the Kaltura plugin in json format.
@@ -13,4 +15,5 @@ module.exports = (helper) => {
          */
         startKalturaSession: () => helper.post(`/v1/services/kaltura_session`),
     };
-};
+}
+exports.default = default_1;

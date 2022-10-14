@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Retrieve a planner override for the current user
@@ -9,14 +11,14 @@ module.exports = (helper) => {
         /**
          * Retrieve a planner override for the current user
          * @summary Show a planner override
-         * @param {string} overrideId Canvas Override ID
+         * @param {string|number} overrideId Canvas Override ID
          * @returns {Promise<any>}
          */
         showPlannerOverride: (overrideId) => helper.get(`/v1/planner/overrides/${overrideId}`),
         /**
          * Update a planner override's visibilty for the current user
          * @summary Update a planner override
-         * @param {string} overrideId Canvas Override ID
+         * @param {string|number} overrideId Canvas Override ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -31,9 +33,10 @@ module.exports = (helper) => {
         /**
          * Delete a planner override for the current user
          * @summary Delete a planner override
-         * @param {string} overrideId Canvas Override ID
+         * @param {string|number} overrideId Canvas Override ID
          * @returns {Promise<any>}
          */
         deletePlannerOverride: (overrideId) => helper.delete(`/v1/planner/overrides/${overrideId}`),
     };
-};
+}
+exports.default = default_1;

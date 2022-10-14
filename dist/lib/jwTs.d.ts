@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Create a unique jwt for using with other canvas services Generates a different JWT each time it's called, each one expires after a short window (1 hour)
      * @summary Create JWT
@@ -13,4 +14,3 @@ declare function _exports(helper: any): {
      */
     refreshJwt: (body: any) => Promise<any>;
 };
-export = _exports;

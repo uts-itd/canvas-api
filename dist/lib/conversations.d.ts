@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Returns the paginated list of conversations for the current user, most recent ones first.
      * @summary List conversations
@@ -22,19 +23,19 @@ declare function _exports(helper: any): {
     /**
      * Returns information for a single conversation for the current user. Response includes all fields that are present in the list/index action as well as messages and extended participant information.
      * @summary Get a single conversation
-     * @param {string} conversationId Canvas Conversation ID
+     * @param {string|number} conversationId Canvas Conversation ID
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getSingleConversation: (conversationId: string, query?: any) => Promise<any>;
+    getSingleConversation: (conversationId: string | number, query?: any) => Promise<any>;
     /**
      * Updates attributes for a single conversation.
      * @summary Edit a conversation
-     * @param {string} conversationId Canvas Conversation ID
+     * @param {string|number} conversationId Canvas Conversation ID
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editConversation: (conversationId: string, body: any) => Promise<any>;
+    editConversation: (conversationId: string | number, body: any) => Promise<any>;
     /**
      * Mark all conversations as read.
      * @summary Mark all as read
@@ -44,34 +45,34 @@ declare function _exports(helper: any): {
     /**
      * Delete this conversation and its messages. Note that this only deletes this user's view of the conversation. Response includes same fields as UPDATE action
      * @summary Delete a conversation
-     * @param {string} conversationId Canvas Conversation ID
+     * @param {string|number} conversationId Canvas Conversation ID
      * @returns {Promise<any>}
      */
-    deleteConversation: (conversationId: string) => Promise<any>;
+    deleteConversation: (conversationId: string | number) => Promise<any>;
     /**
      * Add recipients to an existing group conversation. Response is similar to the GET/show action, except that only includes the latest message (e.g. "joe was added to the conversation by bob")
      * @summary Add recipients
-     * @param {string} conversationId Canvas Conversation ID
+     * @param {string|number} conversationId Canvas Conversation ID
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    addRecipients: (conversationId: string, body: any) => Promise<any>;
+    addRecipients: (conversationId: string | number, body: any) => Promise<any>;
     /**
      * Add a message to an existing conversation. Response is similar to the GET/show action, except that only includes the latest message (i.e. what we just sent) An array of user ids. Defaults to all of the current conversation recipients. To explicitly send a message to no other recipients, this array should consist of the logged-in user id. An array of message ids from this conversation to send to recipients of the new message. Recipients who already had a copy of included messages will not be affected.
      * @summary Add a message
-     * @param {string} conversationId Canvas Conversation ID
+     * @param {string|number} conversationId Canvas Conversation ID
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    addMessage: (conversationId: string, body: any) => Promise<any>;
+    addMessage: (conversationId: string | number, body: any) => Promise<any>;
     /**
      * Delete messages from this conversation. Note that this only affects this user's view of the conversation. If all messages are deleted, the conversation will be as well (equivalent to DELETE)
      * @summary Delete a message
-     * @param {string} conversationId Canvas Conversation ID
+     * @param {string|number} conversationId Canvas Conversation ID
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    deleteMessage: (conversationId: string, body: any) => Promise<any>;
+    deleteMessage: (conversationId: string | number, body: any) => Promise<any>;
     /**
      * Perform a change on a set of conversations. Operates asynchronously; use the {api:ProgressController#show progress endpoint} to query the status of an operation.
      * @summary Batch update conversations
@@ -92,4 +93,3 @@ declare function _exports(helper: any): {
      */
     unreadCount: () => Promise<any>;
 };
-export = _exports;

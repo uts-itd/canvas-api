@@ -8,15 +8,20 @@
   "scripts": {
     "build": "tsc -p ."
   },
-  "dependencies": {
-    "request": "^2.88.2",
-    "request-promise-native": "^1.0.9"
-  },
   "devDependencies": {
+    "@types/lodash": "^4.14.186",
+    "@types/node": "^18.8.5",
+    "@types/qs": "^6.9.7",
     "typescript": "^4.7.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "repository": "git://github.com/uts-itd/canvas-api"
+  "repository": "git://github.com/uts-itd/canvas-api",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "npm": "^8.19.2",
+    "qs": "^6.11.0",
+    "undici": "^5.11.0"
+  }
 }

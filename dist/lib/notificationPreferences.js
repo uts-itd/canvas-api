@@ -1,17 +1,19 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Fetch all preferences for the given communication channel
          * @summary List preferences
-         * @param {string} userId Canvas User ID
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} userId Canvas User ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @returns {Promise<any>}
          */
         listPreferencesCommunicationChannelId: (userId, communicationChannelId) => helper.get(`/v1/users/${userId}/communication_channels/${communicationChannelId}/notification_preferences`),
         /**
          * Fetch all preferences for the given communication channel
          * @summary List preferences
-         * @param {string} userId Canvas User ID
+         * @param {string|number} userId Canvas User ID
          * @param {string} type ID
          * @param {string} address ID
          * @returns {Promise<any>}
@@ -20,16 +22,16 @@ module.exports = (helper) => {
         /**
          * Fetch all notification preference categories for the given communication channel
          * @summary List of preference categories
-         * @param {string} userId Canvas User ID
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} userId Canvas User ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @returns {Promise<any>}
          */
         listOfPreferenceCategories: (userId, communicationChannelId) => helper.get(`/v1/users/${userId}/communication_channels/${communicationChannelId}/notification_preference_categories`),
         /**
          * Fetch the preference for the given notification for the given communicaiton channel
          * @summary Get a preference
-         * @param {string} userId Canvas User ID
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} userId Canvas User ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @param {string} notification ID
          * @returns {Promise<any>}
          */
@@ -37,7 +39,7 @@ module.exports = (helper) => {
         /**
          * Fetch the preference for the given notification for the given communicaiton channel
          * @summary Get a preference
-         * @param {string} userId Canvas User ID
+         * @param {string|number} userId Canvas User ID
          * @param {string} type ID
          * @param {string} address ID
          * @param {string} notification ID
@@ -47,7 +49,7 @@ module.exports = (helper) => {
         /**
          * Change the preference for a single notification for a single communication channel
          * @summary Update a preference
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @param {string} notification ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
@@ -66,7 +68,7 @@ module.exports = (helper) => {
         /**
          * Change the preferences for multiple notifications based on the category for a single communication channel
          * @summary Update preferences by category
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @param {string} category The name of the category. Must be parameterized (e.g. The category "Course Content" should be "course_content")
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
@@ -75,7 +77,7 @@ module.exports = (helper) => {
         /**
          * Change the preferences for multiple notifications for a single communication channel at once
          * @summary Update multiple preferences
-         * @param {string} communicationChannelId Canvas Communication channel ID
+         * @param {string|number} communicationChannelId Canvas Communication channel ID
          * @param {Object} body JSON form fields
          * @returns {Promise<any>}
          */
@@ -90,4 +92,5 @@ module.exports = (helper) => {
          */
         updateMultiplePreferencesType: (type, address, body) => helper.put(`/v1/users/self/communication_channels/${type}/${address}/notification_preferences`, body),
     };
-};
+}
+exports.default = default_1;

@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Create a unique jwt for using with other canvas services Generates a different JWT each time it's called, each one expires after a short window (1 hour)
@@ -14,4 +16,5 @@ module.exports = (helper) => {
          */
         refreshJwt: (body) => helper.post(`/v1/jwts/refresh`, body),
     };
-};
+}
+exports.default = default_1;

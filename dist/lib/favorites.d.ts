@@ -1,4 +1,5 @@
-declare function _exports(helper: any): {
+import { Helper } from '../helper';
+export default function (helper: Helper): {
     /**
      * Retrieve the paginated list of favorite courses for the current user. If the user has not chosen any favorites, then a selection of currently enrolled courses will be returned. See the {api:CoursesController#index List courses API} for details on accepted include[] parameters.
      * @summary List favorite courses
@@ -15,31 +16,31 @@ declare function _exports(helper: any): {
     /**
      * Add a course to the current user's favorites. If the course is already in the user's favorites, nothing happens.
      * @summary Add course to favorites
-     * @param {string} courseId Canvas Course ID
+     * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    addCourseToFavorites: (courseId: string) => Promise<any>;
+    addCourseToFavorites: (courseId: string | number) => Promise<any>;
     /**
      * Add a group to the current user's favorites. If the group is already in the user's favorites, nothing happens.
      * @summary Add group to favorites
-     * @param {string} groupId Canvas Group ID
+     * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    addGroupToFavorites: (groupId: string) => Promise<any>;
+    addGroupToFavorites: (groupId: string | number) => Promise<any>;
     /**
      * Remove a course from the current user's favorites.
      * @summary Remove course from favorites
-     * @param {string} courseId Canvas Course ID
+     * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    removeCourseFromFavorites: (courseId: string) => Promise<any>;
+    removeCourseFromFavorites: (courseId: string | number) => Promise<any>;
     /**
      * Remove a group from the current user's favorites.
      * @summary Remove group from favorites
-     * @param {string} groupId Canvas Group ID
+     * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    removeGroupFromFavorites: (groupId: string) => Promise<any>;
+    removeGroupFromFavorites: (groupId: string | number) => Promise<any>;
     /**
      * Reset the current user's course favorites to the default automatically generated list of enrolled courses
      * @summary Reset course favorites
@@ -53,4 +54,3 @@ declare function _exports(helper: any): {
      */
     resetGroupFavorites: () => Promise<any>;
 };
-export = _exports;

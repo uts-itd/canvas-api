@@ -1,4 +1,6 @@
-module.exports = (helper) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function default_1(helper) {
     return {
         /**
          * Returns a map of dates to grader/assignment groups
@@ -32,6 +34,7 @@ module.exports = (helper) => {
          * @param {Object} query JSON query parameters
          * @returns {Promise<any>}
          */
-        listUncollatedSubmissionVersions: (courseId, query = '') => helper.get(`/v1/courses/${courseId}/gradebook_history/feed`, query),
+        listUncollatedSubmissionVersions: (courseId, query) => helper.get(`/v1/courses/${courseId}/gradebook_history/feed`, query),
     };
-};
+}
+exports.default = default_1;
