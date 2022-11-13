@@ -1,0 +1,30 @@
+name: Pull Request
+
+on: pull_request
+
+env:
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+
+      - name: 'Resolve Project Dependencies Using NPM'
+        run: npm ci
+
+      - name: 'Run Linting'
+        run: npm run lint
+
+      - name: 'Run Unit Tests'
+        run: npm run build
+
+      - name: 'Run Unit Tests'
+        run: npm run test
