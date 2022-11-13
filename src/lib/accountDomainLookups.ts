@@ -8,6 +8,6 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    searchAccountDomains: (query?: any) => helper.get(`/v1/accounts/search`, query),
+    searchAccountDomains: (query?: any) => helper.get('/v1/accounts/search', query),
   };
 }

@@ -70,12 +70,12 @@ export default function (helper: Runner) {
      * @summary List opened poll sessions
      * @returns {Promise<any>}
      */
-    listOpenedPollSessions: () => helper.get(`/v1/poll_sessions/opened`),
+    listOpenedPollSessions: () => helper.get('/v1/poll_sessions/opened'),
     /**
      * A paginated list of all closed poll sessions available to the current user.
      * @summary List closed poll sessions
      * @returns {Promise<any>}
      */
-    listClosedPollSessions: () => helper.get(`/v1/poll_sessions/closed`),
+    listClosedPollSessions: () => helper.get('/v1/poll_sessions/closed'),
   };
 }

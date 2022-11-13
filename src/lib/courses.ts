@@ -8,7 +8,7 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listYourCourses: (query?: any) => helper.get(`/v1/courses`, query),
+    listYourCourses: (query?: any) => helper.get('/v1/courses', query),
     /**
      * Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator.
      * @summary List courses for a user

@@ -5,15 +5,11 @@ import { Settings } from './settings';
 import { cloneDeep } from 'lodash';
 
 export function getRunner(settings: Settings): Runner {
-  let requestQueue: Request[] = [];
-  let runningQueue: Request[] = [];
+  const requestQueue: Request[] = [];
+  const runningQueue: Request[] = [];
   let currentCost = settings.startingCost;
   let timeout: NodeJS.Timeout | undefined;
   let costLastRechargedTime = Date.now();
-  // let startTime = costLastRechargedTime;
-
-  // let beforeCost = 0;
-  // let middleCost = 0;
 
   async function requestAllPages(
     originalRequest: Request,
@@ -48,6 +44,7 @@ export function getRunner(settings: Settings): Runner {
 
       if (originalRequest.nesting) {
         const nestingValue = originalRequest.nesting;
+        // eslint-disable-next-line security/detect-object-injection
         return responseArray.flatMap((x) => x[nestingValue]);
       } else {
         return responseArray.flat(1);
@@ -57,7 +54,7 @@ export function getRunner(settings: Settings): Runner {
     }
   }
 
-  let checkQueue = () => {
+  const checkQueue = () => {
     timeout = undefined;
 
     if (requestQueue.length > 0) {
@@ -65,7 +62,7 @@ export function getRunner(settings: Settings): Runner {
     }
   };
 
-  let manager = async () => {
+  const manager = async () => {
     if (requestQueue.length == 0) {
       if (timeout) {
         clearTimeout(timeout);
@@ -74,7 +71,7 @@ export function getRunner(settings: Settings): Runner {
       return;
     }
 
-    let newTime = Date.now();
+    const newTime = Date.now();
     currentCost = Math.min(
       currentCost + ((newTime - costLastRechargedTime) / 1000) * settings.rechargeRate,
       settings.maxCost,
@@ -95,7 +92,7 @@ export function getRunner(settings: Settings): Runner {
     }
 
     currentCost -= settings.inititalRequestCost;
-    let currentRequest = requestQueue.shift() as Request;
+    const currentRequest = requestQueue.shift() as Request;
     runningQueue.push(currentRequest);
 
     let rateLimitRemaining = 0;
@@ -136,7 +133,9 @@ export function getRunner(settings: Settings): Runner {
       let responseBody: any = await responseBodyAwait;
       try {
         responseBody = JSON.parse(responseBody);
-      } catch (error) {}
+      } catch (error) {
+        /* empty */
+      }
 
       if (response.statusCode < 200 || response.statusCode >= 300) {
         currentRequest.reject(`${response.statusCode} - ${JSON.stringify(responseBody)}`);
@@ -150,7 +149,7 @@ export function getRunner(settings: Settings): Runner {
       }
 
       switch (getPaginationType(pagination, !!currentRequest.data, currentRequest.isForced)) {
-        case PaginationType.ALL:
+        case PaginationType.ALL: {
           if (settings.logging)
             console.log(
               `Canvas API: Fetching pages ${pagination.current.page + 1} to ${
@@ -161,6 +160,7 @@ export function getRunner(settings: Settings): Runner {
           const finalData = mergeResponse(responseBody, allPageData, currentRequest.nesting);
           currentRequest.resolve(finalData);
           break;
+        }
         case PaginationType.PARTIAL_LAST_PAGE:
           currentRequest.resolve(
             restoreNesting(currentRequest.data.concat(responseBody), currentRequest.nesting),
@@ -192,7 +192,7 @@ export function getRunner(settings: Settings): Runner {
     }
   };
 
-  let sendRequest = (
+  const sendRequest = (
     uri: URL,
     params: RequestOptions,
     nesting?: string,
@@ -292,13 +292,13 @@ function getPagination(
   header: string | undefined,
   maxPage: number,
   forcedPages?: number,
-  isForced: boolean = false,
+  isForced = false,
 ): Pagination | null {
   if (!header) return null;
-  let pagination: Partial<Pagination> = {};
-  let links = header.split(',');
+  const pagination: Partial<Pagination> = {};
+  const links = header.split(',');
   links.forEach((link) => {
-    let data = link.split('"') as (keyof Pagination)[];
+    const data = link.split('"') as (keyof Pagination)[];
     pagination[data[1]] = {
       page: Number(data[0].split('page=')[1].split('&')[0]),
       link: data[0].split('<')[1].split('>')[0],
@@ -378,7 +378,7 @@ interface DefferedPromise<T> {
 
 function createDeferredPromise<T>() {
   const deferred: Partial<DefferedPromise<T>> = {};
-  var promise = new Promise<T>(function (resolve, reject) {
+  const promise = new Promise<T>(function (resolve, reject) {
     deferred.resolve = resolve;
     deferred.reject = reject;
   });

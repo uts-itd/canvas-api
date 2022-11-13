@@ -8,7 +8,7 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listPlannerNotes: (query?: any) => helper.get(`/v1/planner_notes`, query),
+    listPlannerNotes: (query?: any) => helper.get('/v1/planner_notes', query),
     /**
      * Retrieve a planner note for the current user
      * @summary Show a PlannerNote
@@ -32,7 +32,7 @@ export default function (helper: Runner) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createPlannerNote: (body: any) => helper.post(`/v1/planner_notes`, body),
+    createPlannerNote: (body: any) => helper.post('/v1/planner_notes', body),
     /**
      * Delete a planner note for the current user
      * @summary Delete a planner note

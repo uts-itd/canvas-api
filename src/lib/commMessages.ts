@@ -8,6 +8,6 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listOfCommmessagesForUser: (query?: any) => helper.get(`/v1/comm_messages`, query),
+    listOfCommmessagesForUser: (query?: any) => helper.get('/v1/comm_messages', query),
   };
 }

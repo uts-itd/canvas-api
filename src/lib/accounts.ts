@@ -8,13 +8,13 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listAccounts: (query?: any) => helper.get(`/v1/accounts`, query),
+    listAccounts: (query?: any) => helper.get('/v1/accounts', query),
     /**
      * A paginated list of accounts that the current user can view through their admin course enrollments. (Teacher, TA, or designer enrollments). Only returns "id", "name", "workflow_state", "root_account_id" and "parent_account_id"
      * @summary List accounts for course admins
      * @returns {Promise<any>}
      */
-    listAccountsForCourseAdmins: () => helper.get(`/v1/course_accounts`),
+    listAccountsForCourseAdmins: () => helper.get('/v1/course_accounts'),
     /**
      * Retrieve information on an individual account, given by id or sis sis_account_id.
      * @summary Get a single account

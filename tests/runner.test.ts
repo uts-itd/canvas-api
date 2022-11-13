@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import { CanvasApi, Canvas } from '../src/index';
 import { Interceptable, MockAgent, setGlobalDispatcher } from 'undici';
 
@@ -196,7 +197,7 @@ describe('Canvas API', () => {
           const fullUrl = new URL(opts.path, opts.origin);
           const pageNumber = +(fullUrl.searchParams.get('page') ?? 1);
 
-          let partialUrl = fullUrl.origin + fullUrl.pathname;
+          const partialUrl = fullUrl.origin + fullUrl.pathname;
 
           let link = `<${partialUrl}?page=${pageNumber}&per_page=100>; rel="current",`;
 
@@ -239,7 +240,7 @@ describe('Canvas API', () => {
           const fullUrl = new URL(opts.path, opts.origin);
           const pageNumber = +(fullUrl.searchParams.get('page') ?? 1);
 
-          let partialUrl = fullUrl.origin + fullUrl.pathname;
+          const partialUrl = fullUrl.origin + fullUrl.pathname;
 
           let link = `<${partialUrl}?page=${pageNumber}&per_page=100>; rel="current",`;
 
@@ -284,7 +285,7 @@ describe('Canvas API', () => {
           const fullUrl = new URL(opts.path, opts.origin);
           const pageNumber = +(fullUrl.searchParams.get('page') ?? 1);
 
-          let partialUrl = fullUrl.origin + fullUrl.pathname;
+          const partialUrl = fullUrl.origin + fullUrl.pathname;
 
           let link = `<${partialUrl}?page=${pageNumber}&per_page=100>; rel="current",`;
 

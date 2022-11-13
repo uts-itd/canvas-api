@@ -7,7 +7,7 @@ export default function (helper: Runner) {
      * @summary Redirect to root outcome group for context
      * @returns {Promise<any>}
      */
-    redirectToRootOutcomeGroupForContextGlobal: () => helper.get(`/v1/global/root_outcome_group`),
+    redirectToRootOutcomeGroupForContextGlobal: () => helper.get('/v1/global/root_outcome_group'),
     /**
      * Convenience redirect to find the root outcome group for a particular context. Will redirect to the appropriate outcome group's URL.
      * @summary Redirect to root outcome group for context

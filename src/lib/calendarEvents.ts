@@ -8,7 +8,7 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listCalendarEvents: (query?: any) => helper.get(`/v1/calendar_events`, query),
+    listCalendarEvents: (query?: any) => helper.get('/v1/calendar_events', query),
     /**
      * Retrieve the paginated list of calendar events or assignments for the specified user. To view calendar events for a user other than yourself, you must either be an observer of that user or an administrator.
      * @summary List calendar events for a user
@@ -24,7 +24,7 @@ export default function (helper: Runner) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createCalendarEvent: (body: any) => helper.post(`/v1/calendar_events`, body),
+    createCalendarEvent: (body: any) => helper.post('/v1/calendar_events', body),
     /**
      *
      * @summary Get a single calendar event or assignment

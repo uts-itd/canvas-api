@@ -8,7 +8,7 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listYourGroups: (query?: any) => helper.get(`/v1/users/self/groups`, query),
+    listYourGroups: (query?: any) => helper.get('/v1/users/self/groups', query),
     /**
      * Returns the paginated list of active groups in the given context that are visible to user.
      * @summary List the groups available in a context.
@@ -42,7 +42,7 @@ export default function (helper: Runner) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createGroupGroups: (body: any) => helper.post(`/v1/groups`, body),
+    createGroupGroups: (body: any) => helper.post('/v1/groups', body),
     /**
      * Creates a new group. Groups created using the "/api/v1/groups/" endpoint will be community groups.
      * @summary Create a group

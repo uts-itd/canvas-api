@@ -8,6 +8,6 @@ export default function (helper: Runner) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createErrorReport: (body: any) => helper.post(`/v1/error_reports`, body),
+    createErrorReport: (body: any) => helper.post('/v1/error_reports', body),
   };
 }

@@ -7,6 +7,6 @@ export default function (helper: Runner) {
      * @summary Get the brand config variables that should be used for this domain
      * @returns {Promise<any>}
      */
-    getBrandConfigVariablesThatShouldBeUsedForThisDomain: () => helper.get(`/v1/brand_variables`),
+    getBrandConfigVariablesThatShouldBeUsedForThisDomain: () => helper.get('/v1/brand_variables'),
   };
 }

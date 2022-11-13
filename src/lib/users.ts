@@ -16,39 +16,39 @@ export default function (helper: Runner) {
      * @summary List the activity stream
      * @returns {Promise<any>}
      */
-    listActivityStreamSelf: () => helper.get(`/v1/users/self/activity_stream`),
+    listActivityStreamSelf: () => helper.get('/v1/users/self/activity_stream'),
     /**
      * Returns the current user's global activity stream, paginated. There are many types of objects that can be returned in the activity stream. All object types have the same basic set of shared attributes:  !!!javascript  {   'created_at': '2011-07-13T09:12:00Z',   'updated_at': '2011-07-25T08:52:41Z',   'id': 1234,   'title': 'Stream Item Subject',   'message': 'This is the body text of the activity stream item. It is plain-text, and can be multiple paragraphs.',   'type': 'DiscussionTopic|Conversation|Message|Submission|Conference|Collaboration|AssessmentRequest...',   'read_state': false,   'context_type': 'course', // course|group   'course_id': 1,   'group_id': null,   'html_url': "http://..." // URL to the Canvas web UI for this stream item  } In addition, each item type has its own set of attributes available. DiscussionTopic:  !!!javascript  {   'type': 'DiscussionTopic',   'discussion_topic_id': 1234,   'total_root_discussion_entries': 5,   'require_initial_post': true,   'user_has_posted': true,   'root_discussion_entries': {    ...   }  } For DiscussionTopic, the message is truncated at 4kb. Announcement:  !!!javascript  {   'type': 'Announcement',   'announcement_id': 1234,   'total_root_discussion_entries': 5,   'require_initial_post': true,   'user_has_posted': null,   'root_discussion_entries': {    ...   }  } For Announcement, the message is truncated at 4kb. Conversation:  !!!javascript  {   'type': 'Conversation',   'conversation_id': 1234,   'private': false,   'participant_count': 3,  } Message:  !!!javascript  {   'type': 'Message',   'message_id': 1234,   'notification_category': 'Assignment Graded'  } Submission: Returns an {api:Submissions:Submission Submission} with its Course and Assignment data. Conference:  !!!javascript  {   'type': 'Conference',   'web_conference_id': 1234  } Collaboration:  !!!javascript  {   'type': 'Collaboration',   'collaboration_id': 1234  } AssessmentRequest:  !!!javascript  {   'type': 'AssessmentRequest',   'assessment_request_id': 1234  }
      * @summary List the activity stream
      * @returns {Promise<any>}
      */
-    listActivityStreamActivityStream: () => helper.get(`/v1/users/activity_stream`),
+    listActivityStreamActivityStream: () => helper.get('/v1/users/activity_stream'),
     /**
      * Returns a summary of the current user's global activity stream.
      * @summary Activity stream summary
      * @returns {Promise<any>}
      */
-    activityStreamSummary: () => helper.get(`/v1/users/self/activity_stream/summary`),
+    activityStreamSummary: () => helper.get('/v1/users/self/activity_stream/summary'),
     /**
      * A paginated list of the current user's list of todo items, as seen on the user dashboard. There is a limit to the number of items returned. The `ignore` and `ignore_permanently` URLs can be used to update the user's preferences on what items will be displayed. Performing a DELETE request against the `ignore` URL will hide that item from future todo item requests, until the item changes. Performing a DELETE request against the `ignore_permanently` URL will hide that item forever.
      * @summary List the TODO items
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listTodoItems: (query?: any) => helper.get(`/v1/users/self/todo`, query),
+    listTodoItems: (query?: any) => helper.get('/v1/users/self/todo', query),
     /**
      * Counts of different todo items such as the number of assignments needing grading as well as the number of assignments needing submitting. There is a limit to the number of todo items this endpoint will count. It will only look at the first 100 todo items for the user. If the user has more than 100 todo items this count may not be reliable. The largest reliable number for both counts is 100.
      * @summary List counts for todo items
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listCountsForTodoItems: (query?: any) => helper.get(`/v1/users/self/todo_item_count`, query),
+    listCountsForTodoItems: (query?: any) => helper.get('/v1/users/self/todo_item_count', query),
     /**
      * A paginated list of the current user's upcoming events, i.e. the same things shown in the dashboard 'Coming Up' sidebar.
      * @summary List upcoming assignments, calendar events
      * @returns {Promise<any>}
      */
-    listUpcomingAssignmentsCalendarEvents: () => helper.get(`/v1/users/self/upcoming_events`),
+    listUpcomingAssignmentsCalendarEvents: () => helper.get('/v1/users/self/upcoming_events'),
     /**
      * A paginated list of past-due assignments for which the student does not have a submission. The user sending the request must either be the student, an admin or a parent observer using the parent app
      * @summary List Missing Submissions
@@ -71,7 +71,7 @@ export default function (helper: Runner) {
      * @summary Hide all stream items
      * @returns {Promise<any>}
      */
-    hideAllStreamItems: () => helper.delete(`/v1/users/self/activity_stream`),
+    hideAllStreamItems: () => helper.delete('/v1/users/self/activity_stream'),
     /**
      * Terminates all sessions for a user. This includes all browser-based sessions and all access tokens, including manually generated ones. The user can immediately re-authenticate to access Canvas again if they have the current credentials. All integrations will need to be re-authorized.
      * @summary Terminate all sessions for a user
@@ -213,7 +213,7 @@ export default function (helper: Runner) {
      * @returns {Promise<any>}
      */
     getPandataEventsJwtTokenAndItsExpirationDate: (body: any) =>
-      helper.post(`/v1/users/self/pandata_events_token`, body),
+      helper.post('/v1/users/self/pandata_events_token', body),
     /**
      * Returns user profile data, including user id: string | number, name, and profile pic. When requesting the profile for the user accessing the API, the user's calendar feed URL and LTI user id will be returned as well.
      * @summary Get user profile
@@ -269,7 +269,7 @@ export default function (helper: Runner) {
      * @summary List course nicknames
      * @returns {Promise<any>}
      */
-    listCourseNicknames: () => helper.get(`/v1/users/self/course_nicknames`),
+    listCourseNicknames: () => helper.get('/v1/users/self/course_nicknames'),
     /**
      * Returns the nickname for a specific course.
      * @summary Get course nickname
@@ -300,6 +300,6 @@ export default function (helper: Runner) {
      * @summary Clear course nicknames
      * @returns {Promise<any>}
      */
-    clearCourseNicknames: () => helper.delete(`/v1/users/self/course_nicknames`),
+    clearCourseNicknames: () => helper.delete('/v1/users/self/course_nicknames'),
   };
 }

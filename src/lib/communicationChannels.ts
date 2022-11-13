@@ -46,6 +46,6 @@ export default function (helper: Runner) {
      * @returns {Promise<{success: true}>}
      */
     deletePushNotificationEndpoint: () =>
-      helper.delete(`/v1/users/self/communication_channels/push`),
+      helper.delete('/v1/users/self/communication_channels/push'),
   };
 }

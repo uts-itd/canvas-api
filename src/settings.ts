@@ -16,7 +16,7 @@ export class CurrentSettings {
       this.token = params[1];
     } else if (params.length === 1 && typeof params[0] === 'object') {
       if (!params[0].domain || !params[0].token) {
-        throw new Error(`'domain' and 'token' are required`);
+        throw new Error('\'domain\' and \'token\' are required');
       }
       Object.assign(this, params[0]);
     } else {

@@ -7,14 +7,14 @@ export default function (helper: Runner) {
      * @summary List bookmarks
      * @returns {Promise<any>}
      */
-    listBookmarks: () => helper.get(`/v1/users/self/bookmarks`),
+    listBookmarks: () => helper.get('/v1/users/self/bookmarks'),
     /**
      * Creates a bookmark.
      * @summary Create bookmark
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createBookmark: (body: any) => helper.post(`/v1/users/self/bookmarks`, body),
+    createBookmark: (body: any) => helper.post('/v1/users/self/bookmarks', body),
     /**
      * Returns the details for a bookmark.
      * @summary Get bookmark

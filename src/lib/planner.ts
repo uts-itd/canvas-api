@@ -8,6 +8,6 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listPlannerItems: (query?: any) => helper.get(`/v1/planner/items`, query),
+    listPlannerItems: (query?: any) => helper.get('/v1/planner/items', query),
   };
 }

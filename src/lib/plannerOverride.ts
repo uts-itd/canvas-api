@@ -7,7 +7,7 @@ export default function (helper: Runner) {
      * @summary List planner overrides
      * @returns {Promise<any>}
      */
-    listPlannerOverrides: () => helper.get(`/v1/planner/overrides`),
+    listPlannerOverrides: () => helper.get('/v1/planner/overrides'),
     /**
      * Retrieve a planner override for the current user
      * @summary Show a planner override
@@ -31,7 +31,7 @@ export default function (helper: Runner) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createPlannerOverride: (body: any) => helper.post(`/v1/planner/overrides`, body),
+    createPlannerOverride: (body: any) => helper.post('/v1/planner/overrides', body),
     /**
      * Delete a planner override for the current user
      * @summary Delete a planner override

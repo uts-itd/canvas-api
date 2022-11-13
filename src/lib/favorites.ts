@@ -8,13 +8,13 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listFavoriteCourses: (query?: any) => helper.get(`/v1/users/self/favorites/courses`, query),
+    listFavoriteCourses: (query?: any) => helper.get('/v1/users/self/favorites/courses', query),
     /**
      * Retrieve the paginated list of favorite groups for the current user. If the user has not chosen any favorites, then a selection of groups that the user is a member of will be returned.
      * @summary List favorite groups
      * @returns {Promise<any>}
      */
-    listFavoriteGroups: () => helper.get(`/v1/users/self/favorites/groups`),
+    listFavoriteGroups: () => helper.get('/v1/users/self/favorites/groups'),
     /**
      * Add a course to the current user's favorites. If the course is already in the user's favorites, nothing happens.
      * @summary Add course to favorites
@@ -52,12 +52,12 @@ export default function (helper: Runner) {
      * @summary Reset course favorites
      * @returns {Promise<any>}
      */
-    resetCourseFavorites: () => helper.delete(`/v1/users/self/favorites/courses`),
+    resetCourseFavorites: () => helper.delete('/v1/users/self/favorites/courses'),
     /**
      * Reset the current user's group favorites to the default automatically generated list of enrolled group
      * @summary Reset group favorites
      * @returns {Promise<any>}
      */
-    resetGroupFavorites: () => helper.delete(`/v1/users/self/favorites/groups`),
+    resetGroupFavorites: () => helper.delete('/v1/users/self/favorites/groups'),
   };
 }

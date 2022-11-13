@@ -8,6 +8,6 @@ export default function (helper: Runner) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listAnnouncements: (query?: any) => helper.get(`/v1/announcements`, query),
+    listAnnouncements: (query?: any) => helper.get('/v1/announcements', query),
   };
 }
