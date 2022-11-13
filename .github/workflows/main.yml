@@ -2,12 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
-
-env:
-  AZURE_FUNCTIONAPP_NAME: lats-function-automation-dev
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
   build:
