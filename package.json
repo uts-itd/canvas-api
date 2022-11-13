@@ -29,7 +29,6 @@
   "repository": "git://github.com/uts-itd/canvas-api",
   "dependencies": {
     "lodash": "^4.17.21",
-    "npm": "^8.19.2",
     "qs": "^6.11.0",
     "undici": "^5.11.0"
   }
