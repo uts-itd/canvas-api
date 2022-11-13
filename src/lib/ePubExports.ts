@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of all courses a user is actively participating in, and the latest ePub export associated with the user & course.
@@ -14,7 +14,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    createEpubExport: (courseId: string | number) => helper.post(`/v1/courses/${courseId}/epub_exports`),
+    createEpubExport: (courseId: string | number) =>
+      helper.post(`/v1/courses/${courseId}/epub_exports`),
     /**
      * Get information about a single ePub export.
      * @summary Show ePub export

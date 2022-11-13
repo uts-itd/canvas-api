@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of the past and pending content export jobs for a course, group, or user. Exports are returned newest first.
@@ -8,21 +8,24 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listContentExportsCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/content_exports`),
+    listContentExportsCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/content_exports`),
     /**
      * A paginated list of the past and pending content export jobs for a course, group, or user. Exports are returned newest first.
      * @summary List content exports
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    listContentExportsGroups: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/content_exports`),
+    listContentExportsGroups: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/content_exports`),
     /**
      * A paginated list of the past and pending content export jobs for a course, group, or user. Exports are returned newest first.
      * @summary List content exports
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    listContentExportsUsers: (userId: string | number) => helper.get(`/v1/users/${userId}/content_exports`),
+    listContentExportsUsers: (userId: string | number) =>
+      helper.get(`/v1/users/${userId}/content_exports`),
     /**
      * Get information about a single content export.
      * @summary Show content export

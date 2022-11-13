@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Create a new error report documenting an experienced problem Performs the same action as when a user uses the "help -> report a problem" dialog.

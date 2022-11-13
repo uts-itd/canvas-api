@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the details of the outcome with the given id.
@@ -16,6 +16,7 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateOutcome: (outcomeId: string | number, body: any) => helper.put(`/v1/outcomes/${outcomeId}`, body),
+    updateOutcome: (outcomeId: string | number, body: any) =>
+      helper.put(`/v1/outcomes/${outcomeId}`, body),
   };
 }

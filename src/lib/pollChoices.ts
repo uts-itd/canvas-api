@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of PollChoices in this poll.
@@ -8,7 +8,8 @@ export default function (helper: Helper) {
      * @param {string|number} pollId Canvas Poll ID
      * @returns {Promise<any>}
      */
-    listPollChoicesInPoll: (pollId: string | number) => helper.get(`/v1/polls/${pollId}/poll_choices`),
+    listPollChoicesInPoll: (pollId: string | number) =>
+      helper.get(`/v1/polls/${pollId}/poll_choices`),
     /**
      * Returns the poll choice with the given id
      * @summary Get a single poll choice

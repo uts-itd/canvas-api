@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the total and used storage quota for the course, group, or user.
@@ -8,21 +8,24 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    getQuotaInformationCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/files/quota`),
+    getQuotaInformationCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/files/quota`),
     /**
      * Returns the total and used storage quota for the course, group, or user.
      * @summary Get quota information
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    getQuotaInformationGroups: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/files/quota`),
+    getQuotaInformationGroups: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/files/quota`),
     /**
      * Returns the total and used storage quota for the course, group, or user.
      * @summary Get quota information
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    getQuotaInformationUsers: (userId: string | number) => helper.get(`/v1/users/${userId}/files/quota`),
+    getQuotaInformationUsers: (userId: string | number) =>
+      helper.get(`/v1/users/${userId}/files/quota`),
     /**
      * Returns the paginated list of files for the folder or course.
      * @summary List files
@@ -30,7 +33,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listFilesCourses: (courseId: string | number, query?: any) => helper.get(`/v1/courses/${courseId}/files`, query),
+    listFilesCourses: (courseId: string | number, query?: any) =>
+      helper.get(`/v1/courses/${courseId}/files`, query),
     /**
      * Returns the paginated list of files for the folder or course.
      * @summary List files
@@ -38,7 +42,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listFilesUsers: (userId: string | number, query?: any) => helper.get(`/v1/users/${userId}/files`, query),
+    listFilesUsers: (userId: string | number, query?: any) =>
+      helper.get(`/v1/users/${userId}/files`, query),
     /**
      * Returns the paginated list of files for the folder or course.
      * @summary List files
@@ -46,7 +51,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listFilesGroups: (groupId: string | number, query?: any) => helper.get(`/v1/groups/${groupId}/files`, query),
+    listFilesGroups: (groupId: string | number, query?: any) =>
+      helper.get(`/v1/groups/${groupId}/files`, query),
     /**
      * Returns the paginated list of files for the folder or course.
      * @summary List files
@@ -54,7 +60,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listFilesFolders: (folderId: string | number, query?: any) => helper.get(`/v1/folders/${folderId}/files`, query),
+    listFilesFolders: (folderId: string | number, query?: any) =>
+      helper.get(`/v1/folders/${folderId}/files`, query),
     /**
      * Determine the URL that should be used for inline preview of the file.
      * @summary Get public inline preview url
@@ -71,7 +78,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getFileFiles: (fileId: string | number, query?: any) => helper.get(`/v1/files/${fileId}`, query),
+    getFileFiles: (fileId: string | number, query?: any) =>
+      helper.get(`/v1/files/${fileId}`, query),
     /**
      * Returns the standard attachment json object
      * @summary Get file
@@ -117,7 +125,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    deleteFile: (fileId: string | number, query?: any) => helper.delete(`/v1/files/${fileId}`, query),
+    deleteFile: (fileId: string | number, query?: any) =>
+      helper.delete(`/v1/files/${fileId}`, query),
     /**
      * Returns the paginated list of folders in the folder.
      * @summary List folders
@@ -131,7 +140,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listAllFoldersCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/folders`),
+    listAllFoldersCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/folders`),
     /**
      * Returns the paginated list of all folders for the given context. This will be returned as a flat list containing all subfolders as well.
      * @summary List all folders
@@ -161,7 +171,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    resolvePathCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/folders/by_path`),
+    resolvePathCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/folders/by_path`),
     /**
      * Given the full path to a folder, returns a list of all Folders in the path hierarchy, starting at the root folder, and ending at the requested folder. The given path is relative to the context's root folder and does not include the root folder's name (e.g., "course files"). If an empty path is given, the context's root folder alone is returned. Otherwise, if no folder exists with the given full path, a Not Found error is returned.
      * @summary Resolve path
@@ -177,7 +188,8 @@ export default function (helper: Helper) {
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    resolvePathUsers: (userId: string | number) => helper.get(`/v1/users/${userId}/folders/by_path`),
+    resolvePathUsers: (userId: string | number) =>
+      helper.get(`/v1/users/${userId}/folders/by_path`),
     /**
      * Given the full path to a folder, returns a list of all Folders in the path hierarchy, starting at the root folder, and ending at the requested folder. The given path is relative to the context's root folder and does not include the root folder's name (e.g., "course files"). If an empty path is given, the context's root folder alone is returned. Otherwise, if no folder exists with the given full path, a Not Found error is returned.
      * @summary Resolve path
@@ -193,7 +205,8 @@ export default function (helper: Helper) {
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    resolvePathGroups: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/folders/by_path`),
+    resolvePathGroups: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/folders/by_path`),
     /**
      * Returns the details for a folder You can get the root folder from a context by using 'root' as the :id. For example, you could get the root folder for a course like:
      * @summary Get folder
@@ -210,7 +223,8 @@ export default function (helper: Helper) {
      * @param {string|number} folderId Canvas Folder ID
      * @returns {Promise<any>}
      */
-    getFolderUsers: (userId: string | number, folderId: string | number) => helper.get(`/v1/users/${userId}/folders/${folderId}`),
+    getFolderUsers: (userId: string | number, folderId: string | number) =>
+      helper.get(`/v1/users/${userId}/folders/${folderId}`),
     /**
      * Returns the details for a folder You can get the root folder from a context by using 'root' as the :id. For example, you could get the root folder for a course like:
      * @summary Get folder
@@ -218,7 +232,8 @@ export default function (helper: Helper) {
      * @param {string|number} folderId Canvas Folder ID
      * @returns {Promise<any>}
      */
-    getFolderGroups: (groupId: string | number, folderId: string | number) => helper.get(`/v1/groups/${groupId}/folders/${folderId}`),
+    getFolderGroups: (groupId: string | number, folderId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/folders/${folderId}`),
     /**
      * Returns the details for a folder You can get the root folder from a context by using 'root' as the :id. For example, you could get the root folder for a course like:
      * @summary Get folder
@@ -233,7 +248,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateFolder: (folderId: string | number, body: any) => helper.put(`/v1/folders/${folderId}`, body),
+    updateFolder: (folderId: string | number, body: any) =>
+      helper.put(`/v1/folders/${folderId}`, body),
     /**
      * Creates a folder in the specified context
      * @summary Create folder
@@ -250,7 +266,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createFolderUsers: (userId: string | number, body: any) => helper.post(`/v1/users/${userId}/folders`, body),
+    createFolderUsers: (userId: string | number, body: any) =>
+      helper.post(`/v1/users/${userId}/folders`, body),
     /**
      * Creates a folder in the specified context
      * @summary Create folder
@@ -258,7 +275,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createFolderGroups: (groupId: string | number, body: any) => helper.post(`/v1/groups/${groupId}/folders`, body),
+    createFolderGroups: (groupId: string | number, body: any) =>
+      helper.post(`/v1/groups/${groupId}/folders`, body),
     /**
      * Creates a folder in the specified context
      * @summary Create folder
@@ -275,7 +293,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    deleteFolder: (folderId: string | number, query?: any) => helper.delete(`/v1/folders/${folderId}`, query),
+    deleteFolder: (folderId: string | number, query?: any) =>
+      helper.delete(`/v1/folders/${folderId}`, query),
     /**
      * Upload a file to a folder. This API endpoint is the first step in uploading a file. See the {file:file_uploads.html File Upload Documentation} for details on the file upload workflow. Only those with the "Manage Files" permission on a course or group can upload files to a folder in that course or group.
      * @summary Upload a file
@@ -361,20 +380,23 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listLicensesCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/content_licenses`),
+    listLicensesCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/content_licenses`),
     /**
      * A paginated list of licenses that can be applied
      * @summary List licenses
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    listLicensesGroups: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/content_licenses`),
+    listLicensesGroups: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/content_licenses`),
     /**
      * A paginated list of licenses that can be applied
      * @summary List licenses
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    listLicensesUsers: (userId: string | number) => helper.get(`/v1/users/${userId}/content_licenses`),
+    listLicensesUsers: (userId: string | number) =>
+      helper.get(`/v1/users/${userId}/content_licenses`),
   };
 }

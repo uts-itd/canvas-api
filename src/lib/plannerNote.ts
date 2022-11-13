@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Retrieve the paginated list of planner notes Retrieve planner note for a user
@@ -15,7 +15,8 @@ export default function (helper: Helper) {
      * @param {string|number} plannerNoteId Canvas Planner note ID
      * @returns {Promise<any>}
      */
-    showPlannernote: (plannerNoteId: string | number) => helper.get(`/v1/planner_notes/${plannerNoteId}`),
+    showPlannernote: (plannerNoteId: string | number) =>
+      helper.get(`/v1/planner_notes/${plannerNoteId}`),
     /**
      * Update a planner note for the current user
      * @summary Update a PlannerNote
@@ -38,6 +39,7 @@ export default function (helper: Helper) {
      * @param {string|number} plannerNoteId Canvas Planner note ID
      * @returns {Promise<any>}
      */
-    deletePlannerNote: (plannerNoteId: string | number) => helper.delete(`/v1/planner_notes/${plannerNoteId}`),
+    deletePlannerNote: (plannerNoteId: string | number) =>
+      helper.delete(`/v1/planner_notes/${plannerNoteId}`),
   };
 }

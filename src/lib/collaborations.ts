@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of collaborations the current user has access to in the context of the course provided in the url. NOTE: this only returns ExternalToolCollaboration type collaborations.  curl https://<canvas>/api/v1/courses/1/collaborations/
@@ -8,14 +8,16 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listCollaborationsCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/collaborations`),
+    listCollaborationsCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/collaborations`),
     /**
      * A paginated list of collaborations the current user has access to in the context of the course provided in the url. NOTE: this only returns ExternalToolCollaboration type collaborations.  curl https://<canvas>/api/v1/courses/1/collaborations/
      * @summary List collaborations
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    listCollaborationsGroups: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/collaborations`),
+    listCollaborationsGroups: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/collaborations`),
     /**
      * A paginated list of the collaborators of a given collaboration
      * @summary List members of a collaboration.

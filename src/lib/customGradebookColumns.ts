@@ -1,7 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
-  
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of all custom gradebook columns for a course
@@ -28,8 +27,10 @@ export default function (helper: Helper) {
      * @param {string|number} customGradebookColumnId Canvas Custom gradebook_column ID
      * @returns {Promise<any>}
      */
-    updateCustomGradebookColumn: (courseId: string | number, customGradebookColumnId: string | number) =>
-      helper.put(`/v1/courses/${courseId}/custom_gradebook_columns/${customGradebookColumnId}`),
+    updateCustomGradebookColumn: (
+      courseId: string | number,
+      customGradebookColumnId: string | number,
+    ) => helper.put(`/v1/courses/${courseId}/custom_gradebook_columns/${customGradebookColumnId}`),
     /**
      * Permanently deletes a custom column and its associated data
      * @summary Delete a custom gradebook column
@@ -37,7 +38,10 @@ export default function (helper: Helper) {
      * @param {string|number} customGradebookColumnId Canvas Custom gradebook_column ID
      * @returns {Promise<any>}
      */
-    deleteCustomGradebookColumn: (courseId: string | number, customGradebookColumnId: string | number) =>
+    deleteCustomGradebookColumn: (
+      courseId: string | number,
+      customGradebookColumnId: string | number,
+    ) =>
       helper.delete(`/v1/courses/${courseId}/custom_gradebook_columns/${customGradebookColumnId}`),
     /**
      * Puts the given columns in the specified order 200 OK is returned if successful
@@ -56,7 +60,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listEntriesForColumn: (courseId: string | number, customGradebookColumnId: string | number, query?: any) =>
+    listEntriesForColumn: (
+      courseId: string | number,
+      customGradebookColumnId: string | number,
+      query?: any,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/custom_gradebook_columns/${customGradebookColumnId}/data`,
         query,
@@ -70,7 +78,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateColumnData: (courseId: string | number, customGradebookColumnId: string | number, userId: string | number, body: any) =>
+    updateColumnData: (
+      courseId: string | number,
+      customGradebookColumnId: string | number,
+      userId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/courses/${courseId}/custom_gradebook_columns/${customGradebookColumnId}/data/${userId}`,
         body,

@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Retrieve a planner override for the current user
@@ -14,7 +14,8 @@ export default function (helper: Helper) {
      * @param {string|number} overrideId Canvas Override ID
      * @returns {Promise<any>}
      */
-    showPlannerOverride: (overrideId: string | number) => helper.get(`/v1/planner/overrides/${overrideId}`),
+    showPlannerOverride: (overrideId: string | number) =>
+      helper.get(`/v1/planner/overrides/${overrideId}`),
     /**
      * Update a planner override's visibilty for the current user
      * @summary Update a planner override
@@ -37,6 +38,7 @@ export default function (helper: Helper) {
      * @param {string|number} overrideId Canvas Override ID
      * @returns {Promise<any>}
      */
-    deletePlannerOverride: (overrideId: string | number) => helper.delete(`/v1/planner/overrides/${overrideId}`),
+    deletePlannerOverride: (overrideId: string | number) =>
+      helper.delete(`/v1/planner/overrides/${overrideId}`),
   };
 }

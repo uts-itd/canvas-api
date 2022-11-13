@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Responses 200 OK if the request was successful 403 Forbidden if you are not allowed to extend quizzes for this course
@@ -10,7 +10,10 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    setExtensionsForStudentQuizSubmissions: (courseId: string | number, quizId: string | number, body: any) =>
-      helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/extensions`, body),
+    setExtensionsForStudentQuizSubmissions: (
+      courseId: string | number,
+      quizId: string | number,
+      body: any,
+    ) => helper.post(`/v1/courses/${courseId}/quizzes/${quizId}/extensions`, body),
   };
 }

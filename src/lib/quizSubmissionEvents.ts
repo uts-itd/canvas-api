@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Store a set of events which were captured during a quiz taking session. On success, the response will be 204 No Content with an empty body.
@@ -11,7 +11,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    submitCapturedEvents: (courseId: string | number, quizId: string | number, submissionId: string | number, body: any) =>
+    submitCapturedEvents: (
+      courseId: string | number,
+      quizId: string | number,
+      submissionId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/v1/courses/${courseId}/quizzes/${quizId}/submissions/${submissionId}/events`,
         body,
@@ -25,7 +30,12 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    retrieveCapturedEvents: (courseId: string | number, quizId: string | number, submissionId: string | number, query?: any) =>
+    retrieveCapturedEvents: (
+      courseId: string | number,
+      quizId: string | number,
+      submissionId: string | number,
+      query?: any,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/quizzes/${quizId}/submissions/${submissionId}/events`,
         query,

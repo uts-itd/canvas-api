@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a list of all available reports.
@@ -31,8 +31,12 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getQuizReport: (courseId: string | number, quizId: string | number, reportId: string | number, query?: any) =>
-      helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/reports/${reportId}`, query),
+    getQuizReport: (
+      courseId: string | number,
+      quizId: string | number,
+      reportId: string | number,
+      query?: any,
+    ) => helper.get(`/v1/courses/${courseId}/quizzes/${quizId}/reports/${reportId}`, query),
     /**
      * This API allows you to cancel a previous request you issued for a report to be generated. Or in the case of an already generated report, you'd like to remove it, perhaps to generate it another time with an updated version that provides new features. You must check the report's generation status before attempting to use this interface. See the "workflow_state" property of the QuizReport's Progress object for more information. Only when the progress reports itself in a "queued" state can the generation be aborted. *Responses* - 204 No Content if your request was accepted - 422 Unprocessable Entity if the report is not being generated  or can not be aborted at this stage
      * @summary Abort the generation of a report, or remove a previously generated one
@@ -41,7 +45,10 @@ export default function (helper: Helper) {
      * @param {string|number} reportId Canvas Report ID
      * @returns {Promise<any>}
      */
-    abortGenerationOfReportOrRemovePreviouslyGeneratedOne: (courseId: string | number, quizId: string | number, reportId: string | number) =>
-      helper.delete(`/v1/courses/${courseId}/quizzes/${quizId}/reports/${reportId}`),
+    abortGenerationOfReportOrRemovePreviouslyGeneratedOne: (
+      courseId: string | number,
+      quizId: string | number,
+      reportId: string | number,
+    ) => helper.delete(`/v1/courses/${courseId}/quizzes/${quizId}/reports/${reportId}`),
   };
 }

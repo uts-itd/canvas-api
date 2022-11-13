@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Using 'default' as the template_id should suffice for the current implmentation (as there should be only one template per course). However, using specific template ids may become necessary in the future
@@ -41,8 +41,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    beginMigrationToPushToAssociatedCourses: (courseId: string | number, templateId: string | number, body: any) =>
-      helper.post(`/v1/courses/${courseId}/blueprint_templates/${templateId}/migrations`, body),
+    beginMigrationToPushToAssociatedCourses: (
+      courseId: string | number,
+      templateId: string | number,
+      body: any,
+    ) => helper.post(`/v1/courses/${courseId}/blueprint_templates/${templateId}/migrations`, body),
     /**
      * If a blueprint course object is restricted, editing will be limited for copies in associated courses.
      * @summary Set or remove restrictions on a blueprint course object
@@ -51,7 +54,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    setOrRemoveRestrictionsOnBlueprintCourseObject: (courseId: string | number, templateId: string | number, body: any) =>
+    setOrRemoveRestrictionsOnBlueprintCourseObject: (
+      courseId: string | number,
+      templateId: string | number,
+      body: any,
+    ) =>
       helper.put(`/v1/courses/${courseId}/blueprint_templates/${templateId}/restrict_item`, body),
     /**
      * Retrieve a list of learning objects that have changed since the last blueprint sync operation.
@@ -79,7 +86,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationId Canvas Migration ID
      * @returns {Promise<any>}
      */
-    showBlueprintMigration: (courseId: string | number, templateId: string | number, migrationId: string | number) =>
+    showBlueprintMigration: (
+      courseId: string | number,
+      templateId: string | number,
+      migrationId: string | number,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/blueprint_templates/${templateId}/migrations/${migrationId}`,
       ),
@@ -91,7 +102,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationId Canvas Migration ID
      * @returns {Promise<any>}
      */
-    getMigrationDetails: (courseId: string | number, templateId: string | number, migrationId: string | number) =>
+    getMigrationDetails: (
+      courseId: string | number,
+      templateId: string | number,
+      migrationId: string | number,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/blueprint_templates/${templateId}/migrations/${migrationId}/details`,
       ),
@@ -112,7 +127,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationId Canvas Migration ID
      * @returns {Promise<any>}
      */
-    showBlueprintImport: (courseId: string | number, subscriptionId: string | number, migrationId: string | number) =>
+    showBlueprintImport: (
+      courseId: string | number,
+      subscriptionId: string | number,
+      migrationId: string | number,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/blueprint_subscriptions/${subscriptionId}/migrations/${migrationId}`,
       ),
@@ -124,7 +143,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationId Canvas Migration ID
      * @returns {Promise<any>}
      */
-    getImportDetails: (courseId: string | number, subscriptionId: string | number, migrationId: string | number) =>
+    getImportDetails: (
+      courseId: string | number,
+      subscriptionId: string | number,
+      migrationId: string | number,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/blueprint_subscriptions/${subscriptionId}/migrations/${migrationId}/details`,
       ),

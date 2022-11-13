@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Depending on the URL given, return a paginated list of either (1) all of the enrollments in a course, (2) all of the enrollments in a section or (3) all of a user's enrollments. This includes student, teacher, TA, and observer enrollments. If a user has multiple enrollments in a context (e.g. as a teacher and a student or in multiple course sections), each enrollment will be listed separately. note: Currently, only a root level admin user can return other users' enrollments. A user can, however, return his/her own enrollments.
@@ -64,8 +64,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    concludeDeactivateOrDeleteEnrollment: (courseId: string | number, enrollmentId: string | number, query?: any) =>
-      helper.delete(`/v1/courses/${courseId}/enrollments/${enrollmentId}`, query),
+    concludeDeactivateOrDeleteEnrollment: (
+      courseId: string | number,
+      enrollmentId: string | number,
+      query?: any,
+    ) => helper.delete(`/v1/courses/${courseId}/enrollments/${enrollmentId}`, query),
     /**
      * accepts a pending course invitation for the current user
      * @summary Accept Course Invitation
@@ -100,7 +103,9 @@ export default function (helper: Helper) {
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    addsLastAttendedDateToStudentEnrollmentInCourse: (courseId: string | number, userId: string | number) =>
-      helper.put(`/v1/courses/${courseId}/users/${userId}/last_attended`),
+    addsLastAttendedDateToStudentEnrollmentInCourse: (
+      courseId: string | number,
+      userId: string | number,
+    ) => helper.put(`/v1/courses/${courseId}/users/${userId}/last_attended`),
   };
 }

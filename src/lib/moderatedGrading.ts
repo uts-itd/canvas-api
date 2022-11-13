@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a paginated list of students selected for moderation
@@ -19,7 +19,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    selectStudentsForModeration: (courseId: string | number, assignmentId: string | number, body: any) =>
+    selectStudentsForModeration: (
+      courseId: string | number,
+      assignmentId: string | number,
+      body: any,
+    ) =>
       helper.post(`/v1/courses/${courseId}/assignments/${assignmentId}/moderated_students`, body),
     /**
      * Tell whether the student's submission needs one or more provisional grades.
@@ -29,7 +33,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    showProvisionalGradeStatusForStudent: (courseId: string | number, assignmentId: string | number, query?: any) =>
+    showProvisionalGradeStatusForStudent: (
+      courseId: string | number,
+      assignmentId: string | number,
+      query?: any,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/assignments/${assignmentId}/provisional_grades/status`,
         query,
@@ -42,7 +50,11 @@ export default function (helper: Helper) {
      * @param {string|number} provisionalGradeId Canvas Provisional grade ID
      * @returns {Promise<any>}
      */
-    selectProvisionalGrade: (courseId: string | number, assignmentId: string | number, provisionalGradeId: string | number) =>
+    selectProvisionalGrade: (
+      courseId: string | number,
+      assignmentId: string | number,
+      provisionalGradeId: string | number,
+    ) =>
       helper.put(
         `/v1/courses/${courseId}/assignments/${assignmentId}/provisional_grades/${provisionalGradeId}/select`,
       ),
@@ -54,7 +66,11 @@ export default function (helper: Helper) {
      * @param {string|number} provisionalGradeId Canvas Provisional grade ID
      * @returns {Promise<any>}
      */
-    copyProvisionalGrade: (courseId: string | number, assignmentId: string | number, provisionalGradeId: string | number) =>
+    copyProvisionalGrade: (
+      courseId: string | number,
+      assignmentId: string | number,
+      provisionalGradeId: string | number,
+    ) =>
       helper.post(
         `/v1/courses/${courseId}/assignments/${assignmentId}/provisional_grades/${provisionalGradeId}/copy_to_final_mark`,
       ),
@@ -65,7 +81,10 @@ export default function (helper: Helper) {
      * @param {string|number} assignmentId Canvas Assignment ID
      * @returns {Promise<any>}
      */
-    publishProvisionalGradesForAssignment: (courseId: string | number, assignmentId: string | number) =>
+    publishProvisionalGradesForAssignment: (
+      courseId: string | number,
+      assignmentId: string | number,
+    ) =>
       helper.post(`/v1/courses/${courseId}/assignments/${assignmentId}/provisional_grades/publish`),
     /**
      * Determine whether or not the student's submission needs one or more provisional grades.
@@ -75,7 +94,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    anonymousProvisionalGrades: (courseId: string | number, assignmentId: string | number, query?: any) =>
+    anonymousProvisionalGrades: (
+      courseId: string | number,
+      assignmentId: string | number,
+      query?: any,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/assignments/${assignmentId}/anonymous_provisional_grades/status`,
         query,

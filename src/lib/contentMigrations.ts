@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns paginated migration issues
@@ -9,7 +9,10 @@ export default function (helper: Helper) {
      * @param {string|number} contentMigrationId Canvas Content migration ID
      * @returns {Promise<any>}
      */
-    listMigrationIssuesAccounts: (accountId: string | number, contentMigrationId: string | number) =>
+    listMigrationIssuesAccounts: (
+      accountId: string | number,
+      contentMigrationId: string | number,
+    ) =>
       helper.get(
         `/v1/accounts/${accountId}/content_migrations/${contentMigrationId}/migration_issues`,
       ),
@@ -50,7 +53,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationIssueId Canvas Migration issue ID
      * @returns {Promise<any>}
      */
-    getMigrationIssueAccounts: (accountId: string | number, contentMigrationId: string | number, migrationIssueId: string | number) =>
+    getMigrationIssueAccounts: (
+      accountId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+    ) =>
       helper.get(
         `/v1/accounts/${accountId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
       ),
@@ -62,7 +69,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationIssueId Canvas Migration issue ID
      * @returns {Promise<any>}
      */
-    getMigrationIssueCourses: (courseId: string | number, contentMigrationId: string | number, migrationIssueId: string | number) =>
+    getMigrationIssueCourses: (
+      courseId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
       ),
@@ -74,7 +85,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationIssueId Canvas Migration issue ID
      * @returns {Promise<any>}
      */
-    getMigrationIssueGroups: (groupId: string | number, contentMigrationId: string | number, migrationIssueId: string | number) =>
+    getMigrationIssueGroups: (
+      groupId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+    ) =>
       helper.get(
         `/v1/groups/${groupId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
       ),
@@ -86,7 +101,11 @@ export default function (helper: Helper) {
      * @param {string|number} migrationIssueId Canvas Migration issue ID
      * @returns {Promise<any>}
      */
-    getMigrationIssueUsers: (userId: string | number, contentMigrationId: string | number, migrationIssueId: string | number) =>
+    getMigrationIssueUsers: (
+      userId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+    ) =>
       helper.get(
         `/v1/users/${userId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
       ),
@@ -118,7 +137,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateMigrationIssueCourses: (courseId: string | number, contentMigrationId: string | number, migrationIssueId: string | number, body: any) =>
+    updateMigrationIssueCourses: (
+      courseId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/courses/${courseId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
         body,
@@ -132,7 +156,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateMigrationIssueGroups: (groupId: string | number, contentMigrationId: string | number, migrationIssueId: string | number, body: any) =>
+    updateMigrationIssueGroups: (
+      groupId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/groups/${groupId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
         body,
@@ -146,7 +175,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateMigrationIssueUsers: (userId: string | number, contentMigrationId: string | number, migrationIssueId: string | number, body: any) =>
+    updateMigrationIssueUsers: (
+      userId: string | number,
+      contentMigrationId: string | number,
+      migrationIssueId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/users/${userId}/content_migrations/${contentMigrationId}/migration_issues/${migrationIssueId}`,
         body,
@@ -181,7 +215,8 @@ export default function (helper: Helper) {
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    listContentMigrationsUsers: (userId: string | number) => helper.get(`/v1/users/${userId}/content_migrations`),
+    listContentMigrationsUsers: (userId: string | number) =>
+      helper.get(`/v1/users/${userId}/content_migrations`),
     /**
      * Returns data on an individual content migration
      * @summary Get a content migration
@@ -189,8 +224,10 @@ export default function (helper: Helper) {
      * @param {string|number} contentMigrationId Canvas Content migration ID
      * @returns {Promise<any>}
      */
-    getContentMigrationAccounts: (accountId: string | number, contentMigrationId: string | number) =>
-      helper.get(`/v1/accounts/${accountId}/content_migrations/${contentMigrationId}`),
+    getContentMigrationAccounts: (
+      accountId: string | number,
+      contentMigrationId: string | number,
+    ) => helper.get(`/v1/accounts/${accountId}/content_migrations/${contentMigrationId}`),
     /**
      * Returns data on an individual content migration
      * @summary Get a content migration
@@ -261,8 +298,10 @@ export default function (helper: Helper) {
      * @param {string|number} contentMigrationId Canvas Content migration ID
      * @returns {Promise<any>}
      */
-    updateContentMigrationAccounts: (accountId: string | number, contentMigrationId: string | number) =>
-      helper.put(`/v1/accounts/${accountId}/content_migrations/${contentMigrationId}`),
+    updateContentMigrationAccounts: (
+      accountId: string | number,
+      contentMigrationId: string | number,
+    ) => helper.put(`/v1/accounts/${accountId}/content_migrations/${contentMigrationId}`),
     /**
      * Update a content migration. Takes same arguments as create except that you can't change the migration type. However, changing most settings after the migration process has started will not do anything. Generally updating the content migration will be used when there is a file upload problem. If the first upload has a problem you can supply new _pre_attachment_ values to start the process again.
      * @summary Update a content migration
@@ -270,8 +309,10 @@ export default function (helper: Helper) {
      * @param {string|number} contentMigrationId Canvas Content migration ID
      * @returns {Promise<any>}
      */
-    updateContentMigrationCourses: (courseId: string | number, contentMigrationId: string | number) =>
-      helper.put(`/v1/courses/${courseId}/content_migrations/${contentMigrationId}`),
+    updateContentMigrationCourses: (
+      courseId: string | number,
+      contentMigrationId: string | number,
+    ) => helper.put(`/v1/courses/${courseId}/content_migrations/${contentMigrationId}`),
     /**
      * Update a content migration. Takes same arguments as create except that you can't change the migration type. However, changing most settings after the migration process has started will not do anything. Generally updating the content migration will be used when there is a file upload problem. If the first upload has a problem you can supply new _pre_attachment_ values to start the process again.
      * @summary Update a content migration

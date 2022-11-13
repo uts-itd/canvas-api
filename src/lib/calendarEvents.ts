@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Retrieve the paginated list of calendar events or assignments for the current user
@@ -50,8 +50,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    reserveTimeSlotParticipantId: (calendarEventId: string | number, participantId: string | number, body: any) =>
-      helper.post(`/v1/calendar_events/${calendarEventId}/reservations/${participantId}`, body),
+    reserveTimeSlotParticipantId: (
+      calendarEventId: string | number,
+      participantId: string | number,
+      body: any,
+    ) => helper.post(`/v1/calendar_events/${calendarEventId}/reservations/${participantId}`, body),
     /**
      * Update and return a calendar event
      * @summary Update a calendar event

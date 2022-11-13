@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of External Feeds this course or group.
@@ -8,14 +8,16 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listExternalFeedsCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/external_feeds`),
+    listExternalFeedsCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/external_feeds`),
     /**
      * Returns the paginated list of External Feeds this course or group.
      * @summary List external feeds
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    listExternalFeedsGroups: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/external_feeds`),
+    listExternalFeedsGroups: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/external_feeds`),
     /**
      * Create a new external feed for the course or group.
      * @summary Create an external feed

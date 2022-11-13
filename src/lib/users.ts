@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of of users associated with this account. @example_request  curl https://<canvas>/api/v1/accounts/self/users?search_term=<search value> \    -X GET \    -H 'Authorization: Bearer <token>'

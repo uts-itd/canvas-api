@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of discussion topics for this course or group.
@@ -103,7 +103,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateEntryCourses: (courseId: string | number, topicId: string | number, entrieId: string | number, body: any) =>
+    updateEntryCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entrieId: string | number,
+      body: any,
+    ) =>
       helper.put(`/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entrieId}`, body),
     /**
      * Update an existing discussion entry. The entry must have been created by the current user, or the current user must have admin rights to the discussion. If the edit is not allowed, a 401 will be returned.
@@ -114,8 +119,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateEntryGroups: (groupId: string | number, topicId: string | number, entrieId: string | number, body: any) =>
-      helper.put(`/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entrieId}`, body),
+    updateEntryGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entrieId: string | number,
+      body: any,
+    ) => helper.put(`/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entrieId}`, body),
     /**
      * Delete a discussion entry. The entry must have been created by the current user, or the current user must have admin rights to the discussion. If the delete is not allowed, a 401 will be returned. The discussion will be marked deleted, and the user_id and message will be cleared out.
      * @summary Delete an entry
@@ -124,8 +133,11 @@ export default function (helper: Helper) {
      * @param {string|number} entrieId Canvas Entrie ID
      * @returns {Promise<any>}
      */
-    deleteEntryCourses: (courseId: string | number, topicId: string | number, entrieId: string | number) =>
-      helper.delete(`/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entrieId}`),
+    deleteEntryCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entrieId: string | number,
+    ) => helper.delete(`/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entrieId}`),
     /**
      * Delete a discussion entry. The entry must have been created by the current user, or the current user must have admin rights to the discussion. If the delete is not allowed, a 401 will be returned. The discussion will be marked deleted, and the user_id and message will be cleared out.
      * @summary Delete an entry
@@ -134,8 +146,11 @@ export default function (helper: Helper) {
      * @param {string|number} entrieId Canvas Entrie ID
      * @returns {Promise<any>}
      */
-    deleteEntryGroups: (groupId: string | number, topicId: string | number, entrieId: string | number) =>
-      helper.delete(`/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entrieId}`),
+    deleteEntryGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entrieId: string | number,
+    ) => helper.delete(`/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entrieId}`),
     /**
      * Returns data on an individual discussion topic. See the List action for the response formatting.
      * @summary Get a single topic
@@ -221,7 +236,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    postReplyCourses: (courseId: string | number, topicId: string | number, entryId: string | number, body: any) =>
+    postReplyCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entryId}/replies`,
         body,
@@ -235,7 +255,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    postReplyGroups: (groupId: string | number, topicId: string | number, entryId: string | number, body: any) =>
+    postReplyGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entryId}/replies`,
         body,
@@ -248,7 +273,11 @@ export default function (helper: Helper) {
      * @param {string|number} entryId Canvas Entry ID
      * @returns {Promise<any>}
      */
-    listEntryRepliesCourses: (courseId: string | number, topicId: string | number, entryId: string | number) =>
+    listEntryRepliesCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+    ) =>
       helper.get(`/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entryId}/replies`),
     /**
      * Retrieve the (paginated) replies to a top-level entry in a discussion topic. May require (depending on the topic) that the user has posted in the topic. If it is required, and the user has not posted, will respond with a 403 Forbidden status and the body 'require_initial_post'. Ordering of returned entries is newest-first by creation timestamp.
@@ -258,7 +287,11 @@ export default function (helper: Helper) {
      * @param {string|number} entryId Canvas Entry ID
      * @returns {Promise<any>}
      */
-    listEntryRepliesGroups: (groupId: string | number, topicId: string | number, entryId: string | number) =>
+    listEntryRepliesGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+    ) =>
       helper.get(`/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entryId}/replies`),
     /**
      * Retrieve a paginated list of discussion entries, given a list of ids. May require (depending on the topic) that the user has posted in the topic. If it is required, and the user has not posted, will respond with a 403 Forbidden status and the body 'require_initial_post'.
@@ -344,8 +377,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    markAllEntriesAsUnreadCourses: (courseId: string | number, topicId: string | number, query?: any) =>
-      helper.delete(`/v1/courses/${courseId}/discussion_topics/${topicId}/read_all`, query),
+    markAllEntriesAsUnreadCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      query?: any,
+    ) => helper.delete(`/v1/courses/${courseId}/discussion_topics/${topicId}/read_all`, query),
     /**
      * Mark the discussion topic and all its entries as unread. No request fields are necessary. On success, the response will be 204 No Content with an empty body.
      * @summary Mark all entries as unread
@@ -354,8 +390,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    markAllEntriesAsUnreadGroups: (groupId: string | number, topicId: string | number, query?: any) =>
-      helper.delete(`/v1/groups/${groupId}/discussion_topics/${topicId}/read_all`, query),
+    markAllEntriesAsUnreadGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      query?: any,
+    ) => helper.delete(`/v1/groups/${groupId}/discussion_topics/${topicId}/read_all`, query),
     /**
      * Mark a discussion entry as read. No request fields are necessary. On success, the response will be 204 No Content with an empty body.
      * @summary Mark entry as read
@@ -365,7 +404,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    markEntryAsReadCourses: (courseId: string | number, topicId: string | number, entryId: string | number, body: any) =>
+    markEntryAsReadCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entryId}/read`,
         body,
@@ -379,7 +423,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    markEntryAsReadGroups: (groupId: string | number, topicId: string | number, entryId: string | number, body: any) =>
+    markEntryAsReadGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entryId}/read`,
         body,
@@ -393,7 +442,12 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    markEntryAsUnreadCourses: (courseId: string | number, topicId: string | number, entryId: string | number, query?: any) =>
+    markEntryAsUnreadCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      query?: any,
+    ) =>
       helper.delete(
         `/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entryId}/read`,
         query,
@@ -407,7 +461,12 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    markEntryAsUnreadGroups: (groupId: string | number, topicId: string | number, entryId: string | number, query?: any) =>
+    markEntryAsUnreadGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      query?: any,
+    ) =>
       helper.delete(
         `/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entryId}/read`,
         query,
@@ -421,7 +480,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    rateEntryCourses: (courseId: string | number, topicId: string | number, entryId: string | number, body: any) =>
+    rateEntryCourses: (
+      courseId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/v1/courses/${courseId}/discussion_topics/${topicId}/entries/${entryId}/rating`,
         body,
@@ -435,7 +499,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    rateEntryGroups: (groupId: string | number, topicId: string | number, entryId: string | number, body: any) =>
+    rateEntryGroups: (
+      groupId: string | number,
+      topicId: string | number,
+      entryId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/v1/groups/${groupId}/discussion_topics/${topicId}/entries/${entryId}/rating`,
         body,

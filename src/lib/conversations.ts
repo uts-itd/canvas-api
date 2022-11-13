@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of conversations for the current user, most recent ones first.
@@ -52,7 +52,8 @@ export default function (helper: Helper) {
      * @param {string|number} conversationId Canvas Conversation ID
      * @returns {Promise<any>}
      */
-    deleteConversation: (conversationId: string | number) => helper.delete(`/v1/conversations/${conversationId}`),
+    deleteConversation: (conversationId: string | number) =>
+      helper.delete(`/v1/conversations/${conversationId}`),
     /**
      * Add recipients to an existing group conversation. Response is similar to the GET/show action, except that only includes the latest message (e.g. "joe was added to the conversation by bob")
      * @summary Add recipients

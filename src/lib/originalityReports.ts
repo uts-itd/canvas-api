@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Create a new OriginalityReport for the specified file
@@ -10,7 +10,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createOriginalityReport: (assignmentId: string | number, submissionId: string | number, body: any) =>
+    createOriginalityReport: (
+      assignmentId: string | number,
+      submissionId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/lti/assignments/${assignmentId}/submissions/${submissionId}/originality_report`,
         body,
@@ -24,7 +28,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editOriginalityReportSubmissions: (assignmentId: string | number, submissionId: string | number, originalityReporId: string | number, body: any) =>
+    editOriginalityReportSubmissions: (
+      assignmentId: string | number,
+      submissionId: string | number,
+      originalityReporId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/lti/assignments/${assignmentId}/submissions/${submissionId}/originality_report/${originalityReporId}`,
         body,
@@ -37,8 +46,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editOriginalityReportFiles: (assignmentId: string | number, fileId: string | number, body: any) =>
-      helper.put(`/lti/assignments/${assignmentId}/files/${fileId}/originality_report`, body),
+    editOriginalityReportFiles: (
+      assignmentId: string | number,
+      fileId: string | number,
+      body: any,
+    ) => helper.put(`/lti/assignments/${assignmentId}/files/${fileId}/originality_report`, body),
     /**
      * Get a single originality report
      * @summary Show an Originality Report
@@ -47,7 +59,11 @@ export default function (helper: Helper) {
      * @param {string|number} originalityReporId Canvas Originality repor ID
      * @returns {Promise<any>}
      */
-    showOriginalityReportSubmissions: (assignmentId: string | number, submissionId: string | number, originalityReporId: string | number) =>
+    showOriginalityReportSubmissions: (
+      assignmentId: string | number,
+      submissionId: string | number,
+      originalityReporId: string | number,
+    ) =>
       helper.get(
         `/lti/assignments/${assignmentId}/submissions/${submissionId}/originality_report/${originalityReporId}`,
       ),

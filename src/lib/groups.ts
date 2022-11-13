@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a paginated list of active groups for the current user.
@@ -34,7 +34,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getSingleGroup: (groupId: string | number, query?: any) => helper.get(`/v1/groups/${groupId}`, query),
+    getSingleGroup: (groupId: string | number, query?: any) =>
+      helper.get(`/v1/groups/${groupId}`, query),
     /**
      * Creates a new group. Groups created using the "/api/v1/groups/" endpoint will be community groups.
      * @summary Create a group
@@ -73,7 +74,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    inviteOthersToGroup: (groupId: string | number, body: any) => helper.post(`/v1/groups/${groupId}/invite`, body),
+    inviteOthersToGroup: (groupId: string | number, body: any) =>
+      helper.post(`/v1/groups/${groupId}/invite`, body),
     /**
      * Returns a paginated list of users in the group.
      * @summary List group's users
@@ -81,7 +83,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listGroupSUsers: (groupId: string | number, query?: any) => helper.get(`/v1/groups/${groupId}/users`, query),
+    listGroupSUsers: (groupId: string | number, query?: any) =>
+      helper.get(`/v1/groups/${groupId}/users`, query),
     /**
      * Upload a file to the group. This API endpoint is the first step in uploading a file to a group. See the {file:file_uploads.html File Upload Documentation} for details on the file upload workflow. Only those with the "Manage Files" permission on a group can upload files to the group. By default, this is anybody participating in the group, or any admin over the group.
      * @summary Upload a file
@@ -104,7 +107,8 @@ export default function (helper: Helper) {
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    groupActivityStream: (groupId: string | number) => helper.get(`/v1/groups/${groupId}/activity_stream`),
+    groupActivityStream: (groupId: string | number) =>
+      helper.get(`/v1/groups/${groupId}/activity_stream`),
     /**
      * Returns a summary of the current user's group-specific activity stream. For full documentation, see the API documentation for the user activity stream summary, in the user api.
      * @summary Group activity stream summary
@@ -129,8 +133,10 @@ export default function (helper: Helper) {
      * @param {string|number} membershipId Canvas Membership ID
      * @returns {Promise<any>}
      */
-    getSingleGroupMembershipMemberships: (groupId: string | number, membershipId: string | number) =>
-      helper.get(`/v1/groups/${groupId}/memberships/${membershipId}`),
+    getSingleGroupMembershipMemberships: (
+      groupId: string | number,
+      membershipId: string | number,
+    ) => helper.get(`/v1/groups/${groupId}/memberships/${membershipId}`),
     /**
      * Returns the group membership with the given membership id or user id.
      * @summary Get a single group membership
@@ -157,8 +163,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateMembershipMemberships: (groupId: string | number, membershipId: string | number, body: any) =>
-      helper.put(`/v1/groups/${groupId}/memberships/${membershipId}`, body),
+    updateMembershipMemberships: (
+      groupId: string | number,
+      membershipId: string | number,
+      body: any,
+    ) => helper.put(`/v1/groups/${groupId}/memberships/${membershipId}`, body),
     /**
      * Accept a membership request, or add/remove moderator rights.
      * @summary Update a membership
@@ -185,6 +194,7 @@ export default function (helper: Helper) {
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    leaveGroupUsers: (groupId: string | number, userId: string | number) => helper.delete(`/v1/groups/${groupId}/users/${userId}`),
+    leaveGroupUsers: (groupId: string | number, userId: string | number) =>
+      helper.delete(`/v1/groups/${groupId}/users/${userId}`),
   };
 }

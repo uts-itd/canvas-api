@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Create a new grading standard If grading_scheme_entry arguments are omitted, then a default grading scheme will be set. The default scheme is as follows:   "A" : 94,   "A-" : 90,   "B+" : 87,   "B" : 84,   "B-" : 80,   "C+" : 77,   "C" : 74,   "C-" : 70,   "D+" : 67,   "D" : 64,   "D-" : 61,   "F" : 0,
@@ -43,8 +43,10 @@ export default function (helper: Helper) {
      * @param {string|number} gradingStandardId Canvas Grading standard ID
      * @returns {Promise<any>}
      */
-    getSingleGradingStandardInContextCourses: (courseId: string | number, gradingStandardId: string | number) =>
-      helper.get(`/v1/courses/${courseId}/grading_standards/${gradingStandardId}`),
+    getSingleGradingStandardInContextCourses: (
+      courseId: string | number,
+      gradingStandardId: string | number,
+    ) => helper.get(`/v1/courses/${courseId}/grading_standards/${gradingStandardId}`),
     /**
      * Returns a grading standard for the given context that is visible to the user.
      * @summary Get a single grading standard in a context.
@@ -52,7 +54,9 @@ export default function (helper: Helper) {
      * @param {string|number} gradingStandardId Canvas Grading standard ID
      * @returns {Promise<any>}
      */
-    getSingleGradingStandardInContextAccounts: (accountId: string | number, gradingStandardId: string | number) =>
-      helper.get(`/v1/accounts/${accountId}/grading_standards/${gradingStandardId}`),
+    getSingleGradingStandardInContextAccounts: (
+      accountId: string | number,
+      gradingStandardId: string | number,
+    ) => helper.get(`/v1/accounts/${accountId}/grading_standards/${gradingStandardId}`),
   };
 }

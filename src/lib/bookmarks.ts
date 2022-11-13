@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of bookmarks.
@@ -21,7 +21,8 @@ export default function (helper: Helper) {
      * @param {string|number} bookmarkId Canvas Bookmark ID
      * @returns {Promise<any>}
      */
-    getBookmark: (bookmarkId: string | number) => helper.get(`/v1/users/self/bookmarks/${bookmarkId}`),
+    getBookmark: (bookmarkId: string | number) =>
+      helper.get(`/v1/users/self/bookmarks/${bookmarkId}`),
     /**
      * Updates a bookmark
      * @summary Update bookmark
@@ -37,6 +38,7 @@ export default function (helper: Helper) {
      * @param {string|number} bookmarkId Canvas Bookmark ID
      * @returns {Promise<any>}
      */
-    deleteBookmark: (bookmarkId: string | number) => helper.delete(`/v1/users/self/bookmarks/${bookmarkId}`),
+    deleteBookmark: (bookmarkId: string | number) =>
+      helper.delete(`/v1/users/self/bookmarks/${bookmarkId}`),
   };
 }

@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of the users that the given user is observing. *Note:* all users are allowed to list their own observees. Administrators can list other users' observees. The returned observees will include an attribute "observation_link_root_account_ids", a list of ids for the root accounts the observer and observee are linked on. The observer will only be able to observe in courses associated with these root accounts.

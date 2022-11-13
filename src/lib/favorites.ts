@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Retrieve the paginated list of favorite courses for the current user. If the user has not chosen any favorites, then a selection of currently enrolled courses will be returned. See the {api:CoursesController#index List courses API} for details on accepted include[] parameters.
@@ -21,14 +21,16 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    addCourseToFavorites: (courseId: string | number) => helper.post(`/v1/users/self/favorites/courses/${courseId}`),
+    addCourseToFavorites: (courseId: string | number) =>
+      helper.post(`/v1/users/self/favorites/courses/${courseId}`),
     /**
      * Add a group to the current user's favorites. If the group is already in the user's favorites, nothing happens.
      * @summary Add group to favorites
      * @param {string|number} groupId Canvas Group ID
      * @returns {Promise<any>}
      */
-    addGroupToFavorites: (groupId: string | number) => helper.post(`/v1/users/self/favorites/groups/${groupId}`),
+    addGroupToFavorites: (groupId: string | number) =>
+      helper.post(`/v1/users/self/favorites/groups/${groupId}`),
     /**
      * Remove a course from the current user's favorites.
      * @summary Remove course from favorites

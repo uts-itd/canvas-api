@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of active rubrics for the current context.
@@ -16,7 +16,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listRubricsCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/rubrics`),
+    listRubricsCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/rubrics`),
     /**
      * Returns the rubric with the given id.
      * @summary Get a single rubric
