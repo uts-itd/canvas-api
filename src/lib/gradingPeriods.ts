@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of grading periods for the current course.
@@ -16,7 +16,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listGradingPeriodsCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/grading_periods`),
+    listGradingPeriodsCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/grading_periods`),
     /**
      * Returns the grading period with the given id
      * @summary Get a single grading period
@@ -34,8 +35,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateSingleGradingPeriod: (courseId: string | number, gradingPeriodId: string | number, body: any) =>
-      helper.put(`/v1/courses/${courseId}/grading_periods/${gradingPeriodId}`, body),
+    updateSingleGradingPeriod: (
+      courseId: string | number,
+      gradingPeriodId: string | number,
+      body: any,
+    ) => helper.put(`/v1/courses/${courseId}/grading_periods/${gradingPeriodId}`, body),
     /**
      * 204 No Content response code is returned if the deletion was successful.
      * @summary Delete a grading period

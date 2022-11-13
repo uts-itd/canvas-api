@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Get a list of all submissions for this quiz. Users who can view or manage grades for a course will have submissions from multiple users returned. A user who can only submit will have only their own submissions returned. When a user has an in-progress submission, only that submission is returned. When there isn't an in-progress quiz_submission, all completed submissions, including previous attempts, are returned. 200 OK response code is returned if the request was successful.

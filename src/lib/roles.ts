@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of the roles available to an account.

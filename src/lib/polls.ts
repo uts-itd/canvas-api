@@ -1,13 +1,13 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of polls for the current user.
      * @summary List polls
      * @returns {Promise<any>}
      */
-    listPolls: () => helper.get(`/v1/polls`),
+    listPolls: () => helper.get('/v1/polls'),
     /**
      * Returns the poll with the given id
      * @summary Get a single poll
@@ -21,7 +21,7 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createSinglePoll: (body: any) => helper.post(`/v1/polls`, body),
+    createSinglePoll: (body: any) => helper.post('/v1/polls', body),
     /**
      * Update an existing poll belonging to the current user
      * @summary Update a single poll
@@ -29,7 +29,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateSinglePoll: (pollId: string | number, body: any) => helper.put(`/v1/polls/${pollId}`, body),
+    updateSinglePoll: (pollId: string | number, body: any) =>
+      helper.put(`/v1/polls/${pollId}`, body),
     /**
      * 204 No Content response code is returned if the deletion was successful.
      * @summary Delete a poll

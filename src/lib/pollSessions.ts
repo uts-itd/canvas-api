@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of PollSessions in this poll.
@@ -8,7 +8,8 @@ export default function (helper: Helper) {
      * @param {string|number} pollId Canvas Poll ID
      * @returns {Promise<any>}
      */
-    listPollSessionsForPoll: (pollId: string | number) => helper.get(`/v1/polls/${pollId}/poll_sessions`),
+    listPollSessionsForPoll: (pollId: string | number) =>
+      helper.get(`/v1/polls/${pollId}/poll_sessions`),
     /**
      * Returns the poll session with the given id
      * @summary Get the results for a single poll session
@@ -69,12 +70,12 @@ export default function (helper: Helper) {
      * @summary List opened poll sessions
      * @returns {Promise<any>}
      */
-    listOpenedPollSessions: () => helper.get(`/v1/poll_sessions/opened`),
+    listOpenedPollSessions: () => helper.get('/v1/poll_sessions/opened'),
     /**
      * A paginated list of all closed poll sessions available to the current user.
      * @summary List closed poll sessions
      * @returns {Promise<any>}
      */
-    listClosedPollSessions: () => helper.get(`/v1/poll_sessions/closed`),
+    listClosedPollSessions: () => helper.get('/v1/poll_sessions/closed'),
   };
 }

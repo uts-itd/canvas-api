@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a list of all global notifications in the account for the current user Any notifications that have been closed by the user will not be returned
@@ -47,7 +47,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateGlobalNotification: (accountId: string | number, accountNotificationId: string | number, body: any) =>
+    updateGlobalNotification: (
+      accountId: string | number,
+      accountNotificationId: string | number,
+      body: any,
+    ) =>
       helper.put(`/v1/accounts/${accountId}/account_notifications/${accountNotificationId}`, body),
   };
 }

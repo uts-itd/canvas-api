@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of the list of sections for this course.
@@ -35,7 +35,8 @@ export default function (helper: Helper) {
      * @param {string|number} sectionId Canvas Section ID
      * @returns {Promise<any>}
      */
-    deCrossListSection: (sectionId: string | number) => helper.delete(`/v1/sections/${sectionId}/crosslist`),
+    deCrossListSection: (sectionId: string | number) =>
+      helper.delete(`/v1/sections/${sectionId}/crosslist`),
     /**
      * Modify an existing section.
      * @summary Edit a section
@@ -43,7 +44,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editSection: (sectionId: string | number, body: any) => helper.put(`/v1/sections/${sectionId}`, body),
+    editSection: (sectionId: string | number, body: any) =>
+      helper.put(`/v1/sections/${sectionId}`, body),
     /**
      * Gets details about a specific section
      * @summary Get section information
@@ -52,8 +54,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getSectionInformationCourses: (courseId: string | number, sectionId: string | number, query?: any) =>
-      helper.get(`/v1/courses/${courseId}/sections/${sectionId}`, query),
+    getSectionInformationCourses: (
+      courseId: string | number,
+      sectionId: string | number,
+      query?: any,
+    ) => helper.get(`/v1/courses/${courseId}/sections/${sectionId}`, query),
     /**
      * Gets details about a specific section
      * @summary Get section information

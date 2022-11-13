@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the list of SIS imports for an account Example:  curl https://<canvas>/api/v1/accounts/<account_id>/sis_imports \   -H 'Authorization: Bearer <token>'

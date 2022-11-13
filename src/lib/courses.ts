@@ -1,7 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
-  
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of active courses for the current user.
@@ -9,7 +8,7 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listYourCourses: (query?: any) => helper.get(`/v1/courses`, query),
+    listYourCourses: (query?: any) => helper.get('/v1/courses', query),
     /**
      * Returns a paginated list of active courses for this user. To view the course list for a user other than yourself, you must be either an observer of that user or an administrator.
      * @summary List courses for a user
@@ -17,7 +16,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listCoursesForUser: (userId: string | number, query?: any) => helper.get(`/v1/users/${userId}/courses`, query),
+    listCoursesForUser: (userId: string | number, query?: any) =>
+      helper.get(`/v1/users/${userId}/courses`, query),
     /**
      * Create a new course
      * @summary Create a new course
@@ -74,7 +74,8 @@ export default function (helper: Helper) {
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    getSingleUser: (courseId: string | number, userId: string | number) => helper.get(`/v1/courses/${courseId}/users/${userId}`),
+    getSingleUser: (courseId: string | number, userId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/users/${userId}`),
     /**
      * Preview html content processed for this course
      * @summary Preview processed html
@@ -90,7 +91,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    courseActivityStream: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/activity_stream`),
+    courseActivityStream: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/activity_stream`),
     /**
      * Returns a summary of the current user's course-specific activity stream. For full documentation, see the API documentation for the user activity stream summary, in the user api.
      * @summary Course activity stream summary
@@ -113,14 +115,16 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    deleteConcludeCourse: (courseId: string | number, query?: any) => helper.delete(`/v1/courses/${courseId}`, query),
+    deleteConcludeCourse: (courseId: string | number, query?: any) =>
+      helper.delete(`/v1/courses/${courseId}`, query),
     /**
      * Returns some of a course's settings.
      * @summary Get course settings
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    getCourseSettings: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/settings`),
+    getCourseSettings: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/settings`),
     /**
      * Can update the following course settings:
      * @summary Update course settings
@@ -137,7 +141,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getSingleCourseCourses: (courseId: string | number, query?: any) => helper.get(`/v1/courses/${courseId}`, query),
+    getSingleCourseCourses: (courseId: string | number, query?: any) =>
+      helper.get(`/v1/courses/${courseId}`, query),
     /**
      * Return information on a single course. Accepts the same include[] parameters as the list action.
      * @summary Get a single course
@@ -155,7 +160,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateCourse: (courseId: string | number, body: any) => helper.put(`/v1/courses/${courseId}`, body),
+    updateCourse: (courseId: string | number, body: any) =>
+      helper.put(`/v1/courses/${courseId}`, body),
     /**
      * Update multiple courses in an account. Operates asynchronously; use the {api:ProgressController#show progress endpoint} to query the status of an operation. The action to take on each course. Must be one of 'offer', 'conclude', 'delete', or 'undelete'.  'offer' makes a course visible to students. This action is also called "publish" on the web site.  'conclude' prevents future enrollments and makes a course read-only for all participants. The course still appears   in prior-enrollment lists.  'delete' completely removes the course from the web site (including course menus and prior-enrollment lists).   All enrollments are deleted. Course content may be physically deleted at a future date.  'undelete' attempts to recover a course that has been deleted. (Recovery is not guaranteed; please conclude   rather than delete a course if there is any possibility the course will be used again.) The recovered course   will be unpublished. Deleted enrollments will not be recovered.
      * @summary Update courses
@@ -171,7 +177,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    resetCourse: (courseId: string | number) => helper.post(`/v1/courses/${courseId}/reset_content`),
+    resetCourse: (courseId: string | number) =>
+      helper.post(`/v1/courses/${courseId}/reset_content`),
     /**
      * For each assignment in the course, returns each assigned student's ID and their corresponding due date along with some grading period data. Returns a collection with keys representing assignment IDs and values as a collection containing keys representing student IDs and values representing the student's effective due_at, the grading_period_id of which the due_at falls in, and whether or not the grading period is closed (in_closed_grading_period) The list of assignment IDs for which effective student due dates are requested. If not provided, all assignments in the course will be used.
      * @summary Get effective due dates
@@ -188,7 +195,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    permissions: (courseId: string | number, query?: any) => helper.get(`/v1/courses/${courseId}/permissions`, query),
+    permissions: (courseId: string | number, query?: any) =>
+      helper.get(`/v1/courses/${courseId}/permissions`, query),
     /**
      * DEPRECATED: Please use the {api:ContentMigrationsController#create Content Migrations API} Retrieve the status of a course copy
      * @summary Get course copy status

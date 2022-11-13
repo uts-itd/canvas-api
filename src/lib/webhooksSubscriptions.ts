@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Creates a webook subscription for the specified event type and context.
@@ -8,7 +8,7 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createWebhookSubscription: (body: any) => helper.post(`/lti/subscriptions`, body),
+    createWebhookSubscription: (body: any) => helper.post('/lti/subscriptions', body),
     /**
      *
      * @summary Delete a Webhook Subscription
@@ -38,6 +38,6 @@ export default function (helper: Helper) {
      * @summary List all Webhook Subscription for a tool proxy
      * @returns {Promise<any>}
      */
-    listAllWebhookSubscriptionForToolProxy: () => helper.get(`/lti/subscriptions`),
+    listAllWebhookSubscriptionForToolProxy: () => helper.get('/lti/subscriptions'),
   };
 }

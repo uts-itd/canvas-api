@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a list of up to 5 matching account domains Partial match on name / domain are supported
@@ -8,6 +8,6 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    searchAccountDomains: (query?: any) => helper.get(`/v1/accounts/search`, query),
+    searchAccountDomains: (query?: any) => helper.get('/v1/accounts/search', query),
   };
 }

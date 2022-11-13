@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Delete the given assignment.
@@ -75,8 +75,11 @@ export default function (helper: Helper) {
      * @param {string|number} overrideId Canvas Override ID
      * @returns {Promise<any>}
      */
-    getSingleAssignmentOverride: (courseId: string | number, assignmentId: string | number, overrideId: string | number) =>
-      helper.get(`/v1/courses/${courseId}/assignments/${assignmentId}/overrides/${overrideId}`),
+    getSingleAssignmentOverride: (
+      courseId: string | number,
+      assignmentId: string | number,
+      overrideId: string | number,
+    ) => helper.get(`/v1/courses/${courseId}/assignments/${assignmentId}/overrides/${overrideId}`),
     /**
      * Responds with a redirect to the override for the given group, if any (404 otherwise).
      * @summary Redirect to the assignment override for a group
@@ -84,8 +87,10 @@ export default function (helper: Helper) {
      * @param {string|number} assignmentId Canvas Assignment ID
      * @returns {Promise<any>}
      */
-    redirectToAssignmentOverrideForGroup: (groupId: string | number, assignmentId: string | number) =>
-      helper.get(`/v1/groups/${groupId}/assignments/${assignmentId}/override`),
+    redirectToAssignmentOverrideForGroup: (
+      groupId: string | number,
+      assignmentId: string | number,
+    ) => helper.get(`/v1/groups/${groupId}/assignments/${assignmentId}/override`),
     /**
      * Responds with a redirect to the override for the given section, if any (404 otherwise).
      * @summary Redirect to the assignment override for a section
@@ -93,8 +98,10 @@ export default function (helper: Helper) {
      * @param {string|number} assignmentId Canvas Assignment ID
      * @returns {Promise<any>}
      */
-    redirectToAssignmentOverrideForSection: (courseSectionId: string | number, assignmentId: string | number) =>
-      helper.get(`/v1/sections/${courseSectionId}/assignments/${assignmentId}/override`),
+    redirectToAssignmentOverrideForSection: (
+      courseSectionId: string | number,
+      assignmentId: string | number,
+    ) => helper.get(`/v1/sections/${courseSectionId}/assignments/${assignmentId}/override`),
     /**
      * One of student_ids, group_id: string | number, or course_section_id must be present. At most one should be present; if multiple are present only the most specific (student_ids first, then group_id: string | number, then course_section_id: string | number) is used and any others are ignored.
      * @summary Create an assignment override
@@ -103,8 +110,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createAssignmentOverride: (courseId: string | number, assignmentId: string | number, body: any) =>
-      helper.post(`/v1/courses/${courseId}/assignments/${assignmentId}/overrides`, body),
+    createAssignmentOverride: (
+      courseId: string | number,
+      assignmentId: string | number,
+      body: any,
+    ) => helper.post(`/v1/courses/${courseId}/assignments/${assignmentId}/overrides`, body),
     /**
      * All current overridden values must be supplied if they are to be retained; e.g. if due_at was overridden, but this PUT omits a value for due_at, due_at will no longer be overridden. If the override is adhoc and student_ids is not supplied, the target override set is unchanged. Target override sets cannot be changed for group or section overrides.
      * @summary Update an assignment override
@@ -114,7 +124,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateAssignmentOverride: (courseId: string | number, assignmentId: string | number, overrideId: string | number, body: any) =>
+    updateAssignmentOverride: (
+      courseId: string | number,
+      assignmentId: string | number,
+      overrideId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/courses/${courseId}/assignments/${assignmentId}/overrides/${overrideId}`,
         body,
@@ -127,7 +142,11 @@ export default function (helper: Helper) {
      * @param {string|number} overrideId Canvas Override ID
      * @returns {Promise<any>}
      */
-    deleteAssignmentOverride: (courseId: string | number, assignmentId: string | number, overrideId: string | number) =>
+    deleteAssignmentOverride: (
+      courseId: string | number,
+      assignmentId: string | number,
+      overrideId: string | number,
+    ) =>
       helper.delete(`/v1/courses/${courseId}/assignments/${assignmentId}/overrides/${overrideId}`),
     /**
      * Returns a list of specified overrides in this course, providing they target sections/groups/students visible to the current user. Returns null elements in the list for requests that were not found.

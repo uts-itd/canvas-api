@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns the paginated list of assignment groups for the current context. The returned groups are sorted by their position field.
@@ -19,8 +19,11 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    getAssignmentGroup: (courseId: string | number, assignmentGroupId: string | number, query?: any) =>
-      helper.get(`/v1/courses/${courseId}/assignment_groups/${assignmentGroupId}`, query),
+    getAssignmentGroup: (
+      courseId: string | number,
+      assignmentGroupId: string | number,
+      query?: any,
+    ) => helper.get(`/v1/courses/${courseId}/assignment_groups/${assignmentGroupId}`, query),
     /**
      * Create a new assignment group for this course.
      * @summary Create an Assignment Group
@@ -47,7 +50,10 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    destroyAssignmentGroup: (courseId: string | number, assignmentGroupId: string | number, query?: any) =>
-      helper.delete(`/v1/courses/${courseId}/assignment_groups/${assignmentGroupId}`, query),
+    destroyAssignmentGroup: (
+      courseId: string | number,
+      assignmentGroupId: string | number,
+      query?: any,
+    ) => helper.delete(`/v1/courses/${courseId}/assignment_groups/${assignmentGroupId}`, query),
   };
 }

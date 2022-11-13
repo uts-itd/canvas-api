@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Fetch all preferences for the given communication channel
@@ -9,7 +9,10 @@ export default function (helper: Helper) {
      * @param {string|number} communicationChannelId Canvas Communication channel ID
      * @returns {Promise<any>}
      */
-    listPreferencesCommunicationChannelId: (userId: string | number, communicationChannelId: string | number) =>
+    listPreferencesCommunicationChannelId: (
+      userId: string | number,
+      communicationChannelId: string | number,
+    ) =>
       helper.get(
         `/v1/users/${userId}/communication_channels/${communicationChannelId}/notification_preferences`,
       ),
@@ -32,7 +35,10 @@ export default function (helper: Helper) {
      * @param {string|number} communicationChannelId Canvas Communication channel ID
      * @returns {Promise<any>}
      */
-    listOfPreferenceCategories: (userId: string | number, communicationChannelId: string | number) =>
+    listOfPreferenceCategories: (
+      userId: string | number,
+      communicationChannelId: string | number,
+    ) =>
       helper.get(
         `/v1/users/${userId}/communication_channels/${communicationChannelId}/notification_preference_categories`,
       ),
@@ -44,7 +50,11 @@ export default function (helper: Helper) {
      * @param {string} notification ID
      * @returns {Promise<any>}
      */
-    getPreferenceCommunicationChannelId: (userId: string | number, communicationChannelId: string | number, notification: string) =>
+    getPreferenceCommunicationChannelId: (
+      userId: string | number,
+      communicationChannelId: string | number,
+      notification: string,
+    ) =>
       helper.get(
         `/v1/users/${userId}/communication_channels/${communicationChannelId}/notification_preferences/${notification}`,
       ),
@@ -57,7 +67,12 @@ export default function (helper: Helper) {
      * @param {string} notification ID
      * @returns {Promise<any>}
      */
-    getPreferenceType: (userId: string | number, type: string, address: string, notification: string) =>
+    getPreferenceType: (
+      userId: string | number,
+      type: string,
+      address: string,
+      notification: string,
+    ) =>
       helper.get(
         `/v1/users/${userId}/communication_channels/${type}/${address}/notification_preferences/${notification}`,
       ),
@@ -69,7 +84,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updatePreferenceCommunicationChannelId: (communicationChannelId: string | number, notification: string, body: any) =>
+    updatePreferenceCommunicationChannelId: (
+      communicationChannelId: string | number,
+      notification: string,
+      body: any,
+    ) =>
       helper.put(
         `/v1/users/self/communication_channels/${communicationChannelId}/notification_preferences/${notification}`,
         body,
@@ -96,7 +115,11 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updatePreferencesByCategory: (communicationChannelId: string | number, category: string, body: any) =>
+    updatePreferencesByCategory: (
+      communicationChannelId: string | number,
+      category: string,
+      body: any,
+    ) =>
       helper.put(
         `/v1/users/self/communication_channels/${communicationChannelId}/notification_preference_categories/${category}`,
         body,
@@ -108,7 +131,10 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateMultiplePreferencesCommunicationChannelId: (communicationChannelId: string | number, body: any) =>
+    updateMultiplePreferencesCommunicationChannelId: (
+      communicationChannelId: string | number,
+      body: any,
+    ) =>
       helper.put(
         `/v1/users/self/communication_channels/${communicationChannelId}/notification_preferences`,
         body,

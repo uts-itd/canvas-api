@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns page view hits summed across all courses in the department. Two groupings of these counts are returned; one by day (+by_date+), the other by category (+by_category+). The possible categories are announcements, assignments, collaborations, conferences, discussions, files, general, grades, groups, modules, other, pages, and quizzes. This and the other department-level endpoints have three variations which all return the same style of data but for different subsets of courses. All share the prefix /api/v1/accounts/<account_id>/analytics. The possible suffixes are: /current: includes all available courses in the default term /completed: includes all concluded courses in the default term /terms/<term_id>: includes all available or concluded courses in the  given term. Courses not yet offered or which have been deleted are never included. /current and /completed are intended for use when the account has only one term. /terms/<term_id> is intended for use when the account has multiple terms. The action follows the suffix.
@@ -9,8 +9,10 @@ export default function (helper: Helper) {
      * @param {string|number} termId Canvas Term ID
      * @returns {Promise<any>}
      */
-    getDepartmentLevelParticipationDataTerms: (accountId: string | number, termId: string | number) =>
-      helper.get(`/v1/accounts/${accountId}/analytics/terms/${termId}/activity`),
+    getDepartmentLevelParticipationDataTerms: (
+      accountId: string | number,
+      termId: string | number,
+    ) => helper.get(`/v1/accounts/${accountId}/analytics/terms/${termId}/activity`),
     /**
      * Returns page view hits summed across all courses in the department. Two groupings of these counts are returned; one by day (+by_date+), the other by category (+by_category+). The possible categories are announcements, assignments, collaborations, conferences, discussions, files, general, grades, groups, modules, other, pages, and quizzes. This and the other department-level endpoints have three variations which all return the same style of data but for different subsets of courses. All share the prefix /api/v1/accounts/<account_id>/analytics. The possible suffixes are: /current: includes all available courses in the default term /completed: includes all concluded courses in the default term /terms/<term_id>: includes all available or concluded courses in the  given term. Courses not yet offered or which have been deleted are never included. /current and /completed are intended for use when the account has only one term. /terms/<term_id> is intended for use when the account has multiple terms. The action follows the suffix.
      * @summary Get department-level participation data
@@ -110,8 +112,10 @@ export default function (helper: Helper) {
      * @param {string|number} studentId Canvas Student ID
      * @returns {Promise<any>}
      */
-    getUserInACourseLevelParticipationData: (courseId: string | number, studentId: string | number) =>
-      helper.get(`/v1/courses/${courseId}/analytics/users/${studentId}/activity`),
+    getUserInACourseLevelParticipationData: (
+      courseId: string | number,
+      studentId: string | number,
+    ) => helper.get(`/v1/courses/${courseId}/analytics/users/${studentId}/activity`),
     /**
      * Returns a list of assignments for the course sorted by due date. For each assignment returns basic assignment information, the grade breakdown (including the student's actual grade), and the basic submission information for the student's submission if it exists.
      * @summary Get user-in-a-course-level assignment data

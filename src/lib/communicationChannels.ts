@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a paginated list of communication channels for the specified user, sorted by position.
@@ -26,8 +26,10 @@ export default function (helper: Helper) {
      * @param {string|number} communicationChannelId Canvas Communication channel ID
      * @returns {Promise<any>}
      */
-    deleteCommunicationChannelId: (userId: string | number, communicationChannelId: string | number) =>
-      helper.delete(`/v1/users/${userId}/communication_channels/${communicationChannelId}`),
+    deleteCommunicationChannelId: (
+      userId: string | number,
+      communicationChannelId: string | number,
+    ) => helper.delete(`/v1/users/${userId}/communication_channels/${communicationChannelId}`),
     /**
      * Delete an existing communication channel.
      * @summary Delete a communication channel
@@ -44,6 +46,6 @@ export default function (helper: Helper) {
      * @returns {Promise<{success: true}>}
      */
     deletePushNotificationEndpoint: () =>
-      helper.delete(`/v1/users/self/communication_channels/push`),
+      helper.delete('/v1/users/self/communication_channels/push'),
   };
 }

@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of all features that apply to a given Account, Course, or User.
@@ -8,7 +8,8 @@ export default function (helper: Helper) {
      * @param {string|number} courseId Canvas Course ID
      * @returns {Promise<any>}
      */
-    listFeaturesCourses: (courseId: string | number) => helper.get(`/v1/courses/${courseId}/features`),
+    listFeaturesCourses: (courseId: string | number) =>
+      helper.get(`/v1/courses/${courseId}/features`),
     /**
      * A paginated list of all features that apply to a given Account, Course, or User.
      * @summary List features
@@ -46,7 +47,8 @@ export default function (helper: Helper) {
      * @param {string|number} userId Canvas User ID
      * @returns {Promise<any>}
      */
-    listEnabledFeaturesUsers: (userId: string | number) => helper.get(`/v1/users/${userId}/features/enabled`),
+    listEnabledFeaturesUsers: (userId: string | number) =>
+      helper.get(`/v1/users/${userId}/features/enabled`),
     /**
      * Get the feature flag that applies to a given Account, Course, or User. The flag may be defined on the object, or it may be inherited from a parent account. You can look at the context_id and context_type of the returned object to determine which is the case. If these fields are missing, then the object is the global Canvas default.
      * @summary Get feature flag

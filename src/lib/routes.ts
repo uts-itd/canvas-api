@@ -96,9 +96,9 @@ import roles from './roles';
 import accounts from './accounts';
 import files from './files';
 import externalTools from './externalTools';
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export function getRoutes(helper: Helper) {
+export function getRoutes(helper: Runner) {
   return {
     errorReports: errorReports(helper),
     apiTokenScopes: apiTokenScopes(helper),

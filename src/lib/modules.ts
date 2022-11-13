@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * A paginated list of the modules in a course
@@ -9,7 +9,8 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listModules: (courseId: string | number, query?: any) => helper.get(`/v1/courses/${courseId}/modules`, query),
+    listModules: (courseId: string | number, query?: any) =>
+      helper.get(`/v1/courses/${courseId}/modules`, query),
     /**
      * Get information about a single module
      * @summary Show module
@@ -27,7 +28,8 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createModule: (courseId: string | number, body: any) => helper.post(`/v1/courses/${courseId}/modules`, body),
+    createModule: (courseId: string | number, body: any) =>
+      helper.post(`/v1/courses/${courseId}/modules`, body),
     /**
      * Update and return an existing module
      * @summary Update a module
@@ -75,8 +77,12 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    showModuleItem: (courseId: string | number, moduleId: string | number, itemId: string | number, query?: any) =>
-      helper.get(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}`, query),
+    showModuleItem: (
+      courseId: string | number,
+      moduleId: string | number,
+      itemId: string | number,
+      query?: any,
+    ) => helper.get(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}`, query),
     /**
      * Create and return a new module item
      * @summary Create a module item
@@ -96,8 +102,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    updateModuleItem: (courseId: string | number, moduleId: string | number, itemId: string | number, body: any) =>
-      helper.put(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}`, body),
+    updateModuleItem: (
+      courseId: string | number,
+      moduleId: string | number,
+      itemId: string | number,
+      body: any,
+    ) => helper.put(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}`, body),
     /**
      * Select a mastery path when module item includes several possible paths. Requires Mastery Paths feature to be enabled. Returns a compound document with the assignments included in the given path and any module items related to those assignments
      * @summary Select a mastery path
@@ -107,7 +117,12 @@ export default function (helper: Helper) {
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    selectMasteryPath: (courseId: string | number, moduleId: string | number, itemId: string | number, body: any) =>
+    selectMasteryPath: (
+      courseId: string | number,
+      moduleId: string | number,
+      itemId: string | number,
+      body: any,
+    ) =>
       helper.post(
         `/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}/select_mastery_path`,
         body,
@@ -120,8 +135,11 @@ export default function (helper: Helper) {
      * @param {string|number} itemId Canvas Item ID
      * @returns {Promise<any>}
      */
-    deleteModuleItem: (courseId: string | number, moduleId: string | number, itemId: string | number) =>
-      helper.delete(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}`),
+    deleteModuleItem: (
+      courseId: string | number,
+      moduleId: string | number,
+      itemId: string | number,
+    ) => helper.delete(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}`),
     /**
      * Mark a module item as done/not done. Use HTTP method PUT to mark as done, and DELETE to mark as not done.
      * @summary Mark module item as done/not done
@@ -130,8 +148,11 @@ export default function (helper: Helper) {
      * @param {string|number} itemId Canvas Item ID
      * @returns {Promise<any>}
      */
-    markModuleItemAsDoneNotDone: (courseId: string | number, moduleId: string | number, itemId: string | number) =>
-      helper.put(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}/done`),
+    markModuleItemAsDoneNotDone: (
+      courseId: string | number,
+      moduleId: string | number,
+      itemId: string | number,
+    ) => helper.put(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}/done`),
     /**
      * Given an asset in a course, find the ModuleItem it belongs to, the previous and next Module Items in the course sequence, and also any applicable mastery path rules
      * @summary Get module item sequence
@@ -149,7 +170,10 @@ export default function (helper: Helper) {
      * @param {string|number} itemId Canvas Item ID
      * @returns {Promise<any>}
      */
-    markModuleItemRead: (courseId: string | number, moduleId: string | number, itemId: string | number) =>
-      helper.post(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}/mark_read`),
+    markModuleItemRead: (
+      courseId: string | number,
+      moduleId: string | number,
+      itemId: string | number,
+    ) => helper.post(`/v1/courses/${courseId}/modules/${moduleId}/items/${itemId}/mark_read`),
   };
 }

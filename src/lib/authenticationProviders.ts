@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a paginated list of authentication providers
@@ -26,7 +26,10 @@ export default function (helper: Helper) {
      * @param {string|number} authenticationProviderId Canvas Authentication provider ID
      * @returns {Promise<any>}
      */
-    updateAuthenticationProvider: (accountId: string | number, authenticationProviderId: string | number) =>
+    updateAuthenticationProvider: (
+      accountId: string | number,
+      authenticationProviderId: string | number,
+    ) =>
       helper.put(`/v1/accounts/${accountId}/authentication_providers/${authenticationProviderId}`),
     /**
      * Get the specified authentication provider
@@ -35,7 +38,10 @@ export default function (helper: Helper) {
      * @param {string|number} authenticationProviderId Canvas Authentication provider ID
      * @returns {Promise<any>}
      */
-    getAuthenticationProvider: (accountId: string | number, authenticationProviderId: string | number) =>
+    getAuthenticationProvider: (
+      accountId: string | number,
+      authenticationProviderId: string | number,
+    ) =>
       helper.get(`/v1/accounts/${accountId}/authentication_providers/${authenticationProviderId}`),
     /**
      * Delete the config
@@ -44,7 +50,10 @@ export default function (helper: Helper) {
      * @param {string|number} authenticationProviderId Canvas Authentication provider ID
      * @returns {Promise<any>}
      */
-    deleteAuthenticationProvider: (accountId: string | number, authenticationProviderId: string | number) =>
+    deleteAuthenticationProvider: (
+      accountId: string | number,
+      authenticationProviderId: string | number,
+    ) =>
       helper.delete(
         `/v1/accounts/${accountId}/authentication_providers/${authenticationProviderId}`,
       ),

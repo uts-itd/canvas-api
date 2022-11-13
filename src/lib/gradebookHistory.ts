@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Returns a map of dates to grader/assignment groups
@@ -28,7 +28,12 @@ export default function (helper: Helper) {
      * @param number assignmentId Canvas Assignment ID
      * @returns {Promise<any>}
      */
-    listsSubmissions: (courseId: string | number, date: string, graderId: string | number, assignmentId: string | number) =>
+    listsSubmissions: (
+      courseId: string | number,
+      date: string,
+      graderId: string | number,
+      assignmentId: string | number,
+    ) =>
       helper.get(
         `/v1/courses/${courseId}/gradebook_history/${date}/graders/${graderId}/assignments/${assignmentId}/submissions`,
       ),

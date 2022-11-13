@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Given a user ID, return a paginated list of that user's logins for the given account.
@@ -43,6 +43,7 @@ export default function (helper: Helper) {
      * @param {string|number} loginId Canvas Login ID
      * @returns {Promise<any>}
      */
-    deleteUserLogin: (userId: string | number, loginId: string | number) => helper.delete(`/v1/users/${userId}/logins/${loginId}`),
+    deleteUserLogin: (userId: string | number, loginId: string | number) =>
+      helper.delete(`/v1/users/${userId}/logins/${loginId}`),
   };
 }

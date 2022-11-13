@@ -1,18 +1,22 @@
-import { getDefaultSettings, Settings } from './settings';
-import { getHelper } from './helper';
+import { CurrentSettings, Settings } from './settings';
+import { getRunner } from './runner';
+import helper from './helper';
 import { getRoutes, Routes } from './lib/routes';
 
-export function Canvas(domain: string, token: string): Canvas {
-  const settings = getDefaultSettings(domain, token);
-
-  const canvas = getRoutes(getHelper(settings));
+export function Canvas(domain: string, token: string): CanvasApi;
+export function Canvas(settings: Partial<Settings> & Pick<Settings, 'domain' | 'token'>): CanvasApi;
+export function Canvas(...params: any[]): CanvasApi {
+  const settings = new CurrentSettings(...params);
+  const canvas = getRoutes(getRunner(settings));
 
   return {
     ...canvas,
     settings: settings,
+    helper,
   };
 }
 
-declare type Canvas = {
-  settings: Settings
-} & Routes
+export declare type CanvasApi = {
+  settings: CurrentSettings;
+  helper: typeof helper;
+} & Routes;

@@ -1,6 +1,6 @@
-import { Helper } from '../helper';
+import { Runner } from '../runner';
 
-export default function (helper: Helper) {
+export default function (helper: Runner) {
   return {
     /**
      * Retrieve the paginated list of appointment groups that can be reserved or managed by the current user.
@@ -8,14 +8,14 @@ export default function (helper: Helper) {
      * @param {Object} query JSON query parameters
      * @returns {Promise<any>}
      */
-    listAppointmentGroups: (query?: any) => helper.get(`/v1/appointment_groups`, query),
+    listAppointmentGroups: (query?: any) => helper.get('/v1/appointment_groups', query),
     /**
      * Create and return a new appointment group. If new_appointments are specified, the response will return a new_appointments array (same format as appointments array, see "List appointment groups" action)
      * @summary Create an appointment group
      * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    createAppointmentGroup: (body: any) => helper.post(`/v1/appointment_groups`, body),
+    createAppointmentGroup: (body: any) => helper.post('/v1/appointment_groups', body),
     /**
      * Returns information for a single appointment group
      * @summary Get a single appointment group
@@ -68,6 +68,6 @@ export default function (helper: Helper) {
      * @returns {Promise<any>}
      */
     getNextAppointment: (query?: any) =>
-      helper.get(`/v1/appointment_groups/next_appointment`, query),
+      helper.get('/v1/appointment_groups/next_appointment', query),
   };
 }
