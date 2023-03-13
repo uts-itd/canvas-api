@@ -209,6 +209,8 @@ export function getRunner(settings: Settings): Runner {
       'content-type': params.body ? 'application/json' : undefined,
     };
 
+    params.body = params.body ? JSON.stringify(params.body) : undefined;
+
     if (isPriority) {
       requestQueue.unshift({
         ...deferredPromise,

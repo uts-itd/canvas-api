@@ -44,6 +44,8 @@ describe('Canvas API', () => {
         })
         .defaultReplyHeaders({ 'x-rate-limit-remaining': '700' })
         .reply((opts) => {
+          expect(opts.headers['content-type']).toEqual('application/json');
+          expect(typeof opts.body).toEqual('string');
           return {
             statusCode: 200,
             data: opts.body as Object,
@@ -68,6 +70,7 @@ describe('Canvas API', () => {
         .defaultReplyHeaders({ 'x-rate-limit-remaining': '700' })
         .reply((opts) => {
           expect(opts.headers['content-type']).toEqual('application/json');
+          expect(typeof opts.body).toEqual('string');
           return {
             statusCode: 200,
             data: opts.body as Object,
@@ -91,6 +94,8 @@ describe('Canvas API', () => {
         })
         .defaultReplyHeaders({ 'x-rate-limit-remaining': '700' })
         .reply((opts) => {
+          expect(opts.headers['content-type']).toEqual('application/json');
+          expect(typeof opts.body).toEqual('string');
           return {
             statusCode: 200,
             data: opts.body as Object,
