@@ -206,6 +206,7 @@ export function getRunner(settings: Settings): Runner {
     }
     params.headers = {
       Authorization: `Bearer ${settings.token}`,
+      'content-type': params.body ? 'application/json' : undefined,
     };
 
     if (isPriority) {

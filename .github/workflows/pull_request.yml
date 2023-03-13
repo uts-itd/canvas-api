@@ -20,7 +20,7 @@ jobs:
       - name: 'Run Linting'
         run: npm run lint
 
-      - name: 'Run Unit Tests'
+      - name: 'Build Project'
         run: npm run build
 
       - name: 'Run Unit Tests'
