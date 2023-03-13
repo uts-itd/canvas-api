@@ -63,10 +63,11 @@ describe('Canvas API', () => {
       mockPool
         .intercept({
           path: '/api/v1/accounts/15031/courses',
-          method: 'POST',
+          method: 'POST'
         })
         .defaultReplyHeaders({ 'x-rate-limit-remaining': '700' })
         .reply((opts) => {
+          expect(opts.headers['content-type']).toEqual('application/json');
           return {
             statusCode: 200,
             data: opts.body as Object,
