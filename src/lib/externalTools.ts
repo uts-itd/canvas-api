@@ -88,19 +88,21 @@ export default function (helper: Runner) {
      * @summary Edit an external tool
      * @param {string|number} courseId Canvas Course ID
      * @param {string|number} externalToolId Canvas External tool ID
+     * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editExternalToolCourses: (courseId: string | number, externalToolId: string | number) =>
-      helper.put(`/v1/courses/${courseId}/external_tools/${externalToolId}`),
+    editExternalToolCourses: (courseId: string | number, externalToolId: string | number, body: any) =>
+      helper.put(`/v1/courses/${courseId}/external_tools/${externalToolId}`, body),
     /**
      * Update the specified external tool. Uses same parameters as create
      * @summary Edit an external tool
      * @param {string|number} accountId Canvas Account ID
      * @param {string|number} externalToolId Canvas External tool ID
+     * @param {Object} body JSON form fields
      * @returns {Promise<any>}
      */
-    editExternalToolAccounts: (accountId: string | number, externalToolId: string | number) =>
-      helper.put(`/v1/accounts/${accountId}/external_tools/${externalToolId}`),
+    editExternalToolAccounts: (accountId: string | number, externalToolId: string | number, body: any) =>
+      helper.put(`/v1/accounts/${accountId}/external_tools/${externalToolId}`, body),
     /**
      * Remove the specified external tool
      * @summary Delete an external tool
